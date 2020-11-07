@@ -1,0 +1,16 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "PhocaParticlesModule",
+	"extensionName": "Phoca Particles Module",
+	"projectInitials" : "PS",				  
+	"description": "Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts in module instances or articles.",
+	"projectUrl": "https://www.phoca.cz/phoca-particles-module",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/",
+	"projectDemo" : {
+		"Phoca Cart": "https://www.phoca.cz/phocacart/"
+	},
+	"projectColor": "#C14641"
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" client="site" method="upgrade" version="3.9">
+	<name>mod_phocaparticles</name>
+	<author>Jan Pavelka (www.phoca.cz)</author>
+	<creationDate>07/11/2020</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl>https://www.phoca.cz</authorUrl>
+	<copyright>Jan Pavelka</copyright>
+	<license>GNU/GPL</license>
+	<version>3.0.0</version>
+	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
+	<projectName>PhocaParticlesModule</projectName>
+
+	<media destination="mod_phocaparticles" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+
+	<files>
+		<folder>models</folder>
+		<folder>tmpl</folder>
+		<filename module="mod_phocaparticles">index.html</filename>
+		<filename module="mod_phocaparticles">manifest.xml</filename>
+		<filename module="mod_phocaparticles">mod_phocaparticles.php</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_phocaparticles.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_phocaparticles.sys.ini</language>
+	</languages>
+	
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_phocaparticles/models/fields">
+			<fieldset name="basic">
+			
+			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL"/>
+
+				<field name="title_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_DESC"/>
+				
+				<field name="icon_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_DESC"/>
+				
+			
+			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
+				
+
+				<field name="display_option" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_DESC"/>
+
+                <field name="display_view" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_VIEW_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_VIEW_DESC"/>
+		
+			<field name="display_id" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_DESC"/>
+
+	
+		</fieldset>
+		
+		
+
+			<fieldset name="items" label="MOD_PHOCAPARTICLES_FIELDSET_ITEMS_LABEL">
+
+
+				<field name="items" type="subform" label="MOD_PHOCAPARTICLES_FIELD_ITEMS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEMS_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" formsource="modules/mod_phocaparticles/models/forms/item.xml"/>
+
+
+			</fieldset>
+
+			<fieldset name="advanced">
+
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" name="MOD_PHOCAPARTICLES" priority="1"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaParticlesModule/master/manifest.xml]]></server>
+	</updateservers>
+</extension>

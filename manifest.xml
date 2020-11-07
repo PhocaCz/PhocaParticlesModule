@@ -1,0 +1,21 @@
+<updates>
+	<update>
+		<name><![CDATA[ Phoca Particles Module ]]></name>
+		<description><![CDATA[ Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts in module instances or articles. ]]></description>
+		<element>mod_phocaparticles</element>
+		<type>module</type>
+		<version>3.0.0</version>
+		<infourl title="Phoca Particles Module 3.0.0">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/3.0.0/mod_phocaparticles_v3.0.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="3.9"/>
+		<client>site</client>
+	</update>
+</updates>

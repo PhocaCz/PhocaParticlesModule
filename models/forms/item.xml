@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="item_title" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_DESC"/>
+		<field name="item_icon_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_ITEM_ICON_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_ICON_CLASS_DESC"/>
+		<field name="item_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_DESC"/>
+	</fieldset>
+</form>
