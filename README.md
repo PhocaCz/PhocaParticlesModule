@@ -2,7 +2,7 @@
 
 
 
-![Phoca Particles Module](https://github.com/PhocaCz/PhocaParticlesModule/blob/master/mod_phocaparticles.png?raw=true)
+![Phoca Particles Module](https://github.com/PhocaCz/PhocaParticlesModule/blob/main/mod_phocaparticles.png?raw=true)
 
 # Phoca Particles Module
 

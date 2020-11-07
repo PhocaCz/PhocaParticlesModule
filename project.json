@@ -12,5 +12,6 @@
 	"projectDemo" : {
 		"Phoca Cart": "https://www.phoca.cz/phocacart/"
 	},
-	"projectColor": "#C14641"
+	"projectColor": "#C14641",
+	"projectBranch": "main"
 }

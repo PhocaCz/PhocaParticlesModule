@@ -70,6 +70,6 @@
 	</config>
 
 	<updateservers>
-		<server type="extension" name="MOD_PHOCAPARTICLES" priority="1"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaParticlesModule/master/manifest.xml]]></server>
+		<server type="extension" name="MOD_PHOCAPARTICLES" priority="1"><![CDATA[https://raw.githubusercontent.com/PhocaCz/PhocaParticlesModule/main/manifest.xml]]></server>
 	</updateservers>
 </extension>
