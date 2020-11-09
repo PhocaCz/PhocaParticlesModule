@@ -19,12 +19,10 @@ if (!empty($items)) {
 		echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
 	}
 	
-	echo '<div class="phModParticlesFeatureBox">';
+	echo '<div class="phModParticlesFeatureRow">';
 	
 	$styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
 	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
-	
-
 	
 	foreach($items as $k => $v) {
         echo '<div class="phModParticlesItem">';
@@ -49,7 +47,6 @@ if (!empty($items)) {
 		}
 		echo '</div>';
 	}
-	
 
 	echo '</div>';
 	

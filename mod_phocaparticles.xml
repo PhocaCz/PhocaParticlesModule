@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="3.9">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>07/11/2020</creationDate>
+	<creationDate>09/11/2020</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>3.0.0</version>
+	<version>3.0.1</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -34,15 +34,24 @@
 		<fields name="params" addfieldpath="/modules/mod_phocaparticles/models/fields">
 			<fieldset name="basic">
 			
-			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL"/>
+			<!--<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL"/>-->
 
+				
+				
+			
+			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
+			
+			<field name="description_top" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_DESC"/>
+			<field name="description_bottom" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_DESC"/>
+				
 				<field name="title_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_DESC"/>
 				
 				<field name="icon_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_DESC"/>
 				
-			
-			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
-				
+				<field name="type" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
+                <option value="feature_box">MOD_PHOCAPARTICLES_FEATURE_BOX</option>
+                <option value="feature_row">MOD_PHOCAPARTICLES_FEATURE_ROW</option>
+            </field>
 
 				<field name="display_option" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_DESC"/>
 

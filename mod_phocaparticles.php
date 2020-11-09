@@ -19,6 +19,8 @@ $p['icon_color'] 	    	= $params->get( 'icon_color', '');
 $p['display_view'] 			= $params->get( 'display_view', '');
 $p['display_option'] 		= $params->get( 'display_option', '');
 $p['display_id'] 			= $params->get( 'display_id', '');
+$p['description_top'] 		= $params->get( 'description_top', '');
+$p['description_bottom'] 	= $params->get( 'description_bottom', '');
 
 $view 						= $app->input->get('view', '');
 $option 					= $app->input->get('option', '');
