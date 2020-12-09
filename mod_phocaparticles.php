@@ -22,6 +22,10 @@ $p['display_id'] 			= $params->get( 'display_id', '');
 $p['description_top'] 		= $params->get( 'description_top', '');
 $p['description_bottom'] 	= $params->get( 'description_bottom', '');
 
+$p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
+$p['image_content_size'] 	= $params->get( 'image_content_size', 1);
+
+
 $view 						= $app->input->get('view', '');
 $option 					= $app->input->get('option', '');
 $idCom						= $app->input->get('id', '');

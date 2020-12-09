@@ -31,6 +31,9 @@
 .phModParticlesFeatureBox .phModParticlesIcon {
     font-size: 5em;
 }
+.phModParticlesFeatureBox .phModParticlesSvg svg {
+    height: 5em;
+}
 
 .phModParticlesFeatureBox .phModParticlesTitle {
 	font-size: 150%;
@@ -73,12 +76,121 @@
     line-height: 1;
 }
 
+/* Image Row */
+.phModParticlesImageRow {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     /*align-items: center; no equal height */
+     align-content: center;
+ }
+
+
+.phModParticlesImageRow .phModParticlesItem {
+    position: relative;
+}
+.phModParticlesImageRow .phModParticlesItem.pmpw25 {width: 25%;}
+.phModParticlesImageRow .phModParticlesItem.pmpw33 {width: 33.33%; width: calc(100% / 3);}
+.phModParticlesImageRow .phModParticlesItem.pmpw50 {width: 50%;}
+.phModParticlesImageRow .phModParticlesItem.pmpw100 {width: 100%;}
+
+
+
+.phModParticlesImageRow .phModParticlesImage {
+    max-width: 100%;
+    height: auto;
+}
+
+.phModParticlesImageRow .phModParticlesTitle {
+    position: absolute;
+    top: 68%;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 0px #000;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.phModParticlesImageRow .phModParticlesTitle a,
+.phModParticlesImageRow .phModParticlesTitle a:hover {
+    color: #fff;
+}
+
+.phModParticlesImageRow .phModParticlesDesc {
+    position: absolute;
+    top: 80%;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 1px 1px 0px #000;
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageRow .phModParticlesDesc {
+        display: none;
+    }
+}
+
+/* Image Content */
+
+.phModParticlesImageContent .phModParticlesItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+.phModParticlesImageContent .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+
+.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw40,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw40 {
+    width: 40%;
+}
+.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw50,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw50 {
+    width: 50%;
+}
+.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw60,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw60 {
+    width: 60%
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw40,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw40 {
+        width: 100%;
+    }
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw50,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw50 {
+        width: 100%;
+    }
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw60,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw60 {
+        width: 100%
+    }
+}
+
+.phModParticlesImageContent .phModParticlesItem .phModParticlesContent {
+    padding: 0;
+    padding-left: 3em;
+}
+.phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesContent {
+    padding: 0;
+    padding-right: 2em;
+}
+
 /* General */
 
 .phModParticlesIcon a,
 .phModParticlesIcon a:hover,
 .phModParticlesTitle,
-.phModParticlesTitle a:hover {
+.phModParticlesTitle a:hover,
+.phModParticlesSvg,
+.phModParticlesSvg a:hover {
     text-decoration: none;
     margin: 0;
     padding: 0;

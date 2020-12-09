@@ -19,15 +19,16 @@ if (!empty($items)) {
 		echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
 	}
 	
-	echo '<div class="phModParticlesFeatureBox">';
+	echo '<div class="phModParticlesImageRow">';
 	
 	$styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
 	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
-	
+	$boxWidthClass = ' pmpw'.$p['image_row_box_size'];
+
 
 	
 	foreach($items as $k => $v) {
-        echo '<div class="phModParticlesItem">';
+        echo '<div class="phModParticlesItem'.$boxWidthClass.'">';
 		
 		$linkStartIcon = '';
 		$linkStartTitle = '';
@@ -56,6 +57,8 @@ if (!empty($items)) {
 	
 
 	echo '</div>';
+	
+	
 	
 	if ($p['description_bottom'] != '') {
 		echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';

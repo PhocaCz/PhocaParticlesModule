@@ -3,8 +3,14 @@
 	<fieldset>
 		<field name="item_title" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_DESC"/>
 		<field name="item_icon_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_ITEM_ICON_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_ICON_CLASS_DESC"/>
+		
+		<field name="item_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_SVG_LABEL" filter="safehtml" />
+		
+		<field name="item_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_DESC"/>
 		<field name="item_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_DESC"/>
 		
 		<field name="item_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_LINK_DESC"/>
+		
+		<field name="item_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_DESC"/>
 	</fieldset>
 </form>

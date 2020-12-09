@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="3.9">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>09/11/2020</creationDate>
+	<creationDate>09/12/2020</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>3.0.1</version>
+	<version>3.0.2</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -39,7 +39,7 @@
 				
 				
 			
-			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
+			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
 			
 			<field name="description_top" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_DESC"/>
 			<field name="description_bottom" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_DESC"/>
@@ -51,6 +51,8 @@
 				<field name="type" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
                 <option value="feature_box">MOD_PHOCAPARTICLES_FEATURE_BOX</option>
                 <option value="feature_row">MOD_PHOCAPARTICLES_FEATURE_ROW</option>
+				<option value="image_row">MOD_PHOCAPARTICLES_IMAGE_ROW</option>
+				<option value="image_content">MOD_PHOCAPARTICLES_IMAGE_AND_CONTENT</option>
             </field>
 
 				<field name="display_option" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_DESC"/>
@@ -58,6 +60,28 @@
                 <field name="display_view" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_VIEW_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_VIEW_DESC"/>
 		
 			<field name="display_id" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_DESC"/>
+			
+			
+			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL"/>
+			
+			<field name="image_row_box_size" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_DESC">
+                <option value="25">25%</option>
+                <option value="33">33%</option>
+				<option value="50">50%</option>
+				<option value="100">100%</option>
+            </field>
+			
+			
+			<field name="phocahead3" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL"/>
+			
+			<field name="image_content_size" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_DESC">
+                <option value="1">COM_PHOCACART_IMAGE_40_CONTENT_60</option>
+                <option value="2">COM_PHOCACART_IMAGE_50_CONTENT_50</option>
+				<option value="3">COM_PHOCACART_IMAGE_60_CONTENT_40</option>
+				<option value="4">COM_PHOCACART_CONTENT_40_IMAGE_60</option>
+                <option value="5">COM_PHOCACART_CONTENT_50_IMAGE_50</option>
+				<option value="6">COM_PHOCACART_CONTENT_60_IMAGE_40</option>
+            </field>
 
 	
 		</fieldset>
