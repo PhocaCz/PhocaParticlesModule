@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" client="site" method="upgrade" version="3.9">
+<extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>09/12/2020</creationDate>
+	<creationDate>30/11/2021</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>3.0.2</version>
+	<version>4.0.0</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -18,11 +18,11 @@
 	</media>
 
 	<files>
-		<folder>models</folder>
 		<folder>tmpl</folder>
+		<folder>models</folder>
+		<filename module="mod_phocaparticles">mod_phocaparticles.php</filename>
 		<filename module="mod_phocaparticles">index.html</filename>
 		<filename module="mod_phocaparticles">manifest.xml</filename>
-		<filename module="mod_phocaparticles">mod_phocaparticles.php</filename>
 	</files>
 
 	<languages>
