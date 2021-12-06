@@ -26,6 +26,9 @@ $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
 $p['image_content_size'] 	= $params->get( 'image_content_size', 1);
 
 
+$p['custom_css'] 			= $params->get( 'custom_css', '');
+
+
 $view 						= $app->input->get('view', '');
 $option 					= $app->input->get('option', '');
 $idCom						= $app->input->get('id', '');
@@ -52,6 +55,11 @@ if (empty($optionA) && empty($viewA) && empty($idA)) {
 
 $items = (array)$params->get('items');
 JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
+
+
+if ($p['custom_css'] != '') {
+	$document->addStyledeclaration($p['custom_css']);
+}
 
 $rand = rand ( 10000 , 99999 );
 $id = 'ph-mod-phoca-particles-'.$rand;

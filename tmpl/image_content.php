@@ -65,6 +65,14 @@ if (!empty($items)) {
 	}
 
 	foreach($items as $k => $v) {
+
+        $title = '';
+        $titleAlt= '';
+        if (isset($v->item_title) && $v->item_title != '') {
+            $title = $v->item_title;
+            $titleAlt = htmlspecialchars($title);
+        }
+
         echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
 		$linkStartIcon = '';
@@ -77,7 +85,7 @@ if (!empty($items)) {
 		}
 
 		if (isset($v->item_image) && $v->item_image != '') {
-			echo '<div class="phModParticlesImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'"/>'. $linkEnd .'</div>';
+			echo '<div class="phModParticlesImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
 		}
 
 		if (isset($v->item_content) && $v->item_content != '') {

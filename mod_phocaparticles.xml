@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>30/11/2021</creationDate>
+	<creationDate>05/12/2021</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.0</version>
+	<version>4.0.2</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -53,6 +53,7 @@
                 <option value="feature_row">MOD_PHOCAPARTICLES_FEATURE_ROW</option>
 				<option value="image_row">MOD_PHOCAPARTICLES_IMAGE_ROW</option>
 				<option value="image_content">MOD_PHOCAPARTICLES_IMAGE_AND_CONTENT</option>
+                <option value="image_background">MOD_PHOCAPARTICLES_IMAGE_BACKGROUND</option>
             </field>
 
 				<field name="display_option" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_DESC"/>
@@ -61,6 +62,8 @@
 		
 			<field name="display_id" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_ID_DESC"/>
 			
+
+            <field name="custom_css" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_DESC"/>
 			
 			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL"/>
 			
@@ -95,10 +98,18 @@
 
 
 			</fieldset>
-
-			<fieldset name="advanced">
-
-			</fieldset>
+                <fieldset name="advanced">
+				<field name="layout" class="form-select" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description=""/>
+				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="" rows="3"/>
+				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="" default="1" filter="integer">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="number" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="" default="900" filter="integer"/>
+				<field name="cachemode" type="hidden" default="static">
+					<option value="static"/>
+				</field>
+            </fieldset>
 		</fields>
 	</config>
 

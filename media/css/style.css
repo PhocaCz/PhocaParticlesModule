@@ -190,8 +190,93 @@
     padding-right: 2em;
 }
 
-/* General */
 
+/* Image Background */
+.phModParticlesImageBackground {
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.phModParticlesImageBackground .phModParticlesItem {
+    padding: 1em;
+}
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesTitle,
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesDesc,
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesContent,
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox {
+    line-height: 1;
+}
+
+
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesTitle {
+    margin: auto;
+    margin-top: 10vw;
+    font-size: 6vw;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+}
+    
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesDesc {
+    margin: auto;
+    margin-top: 5%;
+    font-size: 4vw;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+}
+
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox {
+    text-align: center;
+    margin-top: 5%;
+    padding: 1%;
+}
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
+    font-size: 2vw;
+    color: #000;
+    background: #fff;
+    border-radius: 3px;
+    padding: 1.5vw;
+    margin: 0 auto;
+    text-transform: uppercase;
+}    
+
+:root {
+    --ibheight: 100vh;
+    /* minus e.g. menu */
+    /*--ibheight: calc(100vh - 200px);*/
+}
+@media (max-width: 576px) {  
+    .phModParticlesImageBackground {
+        min-height: calc(var(--ibheight) / 3);
+    }
+}
+@media (min-width: 576px) {  
+    .phModParticlesImageBackground {
+        min-height: calc(var(--ibheight) / 2);
+    }
+}
+@media (min-width: 768px) {  
+    .phModParticlesImageBackground {
+        min-height: calc(var(--ibheight) / 1.5);
+    }
+}
+@media (min-width: 992px) { 
+    .phModParticlesImageBackground {
+        min-height: var(--ibheight);
+    }
+}
+@media (min-width: 1200px) {  
+    .phModParticlesImageBackground {
+        min-height: var(--ibheight);
+    }
+}
+
+
+/* General */
 .phModParticlesIcon a,
 .phModParticlesIcon a:hover,
 .phModParticlesTitle,

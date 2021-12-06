@@ -10,6 +10,10 @@
 		<field name="item_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_DESC"/>
 		
 		<field name="item_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_LINK_DESC"/>
+
+        <field name="button_title" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_BUTTON_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BUTTON_TITLE_DESC"/>
+        <field name="button_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_BUTTON_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BUTTON_LINK_DESC"/>
+        <field name="button_attributes" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_BUTTON_ATTRIBUTES_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BUTTON_ATTRIBUTES_DESC"/>
 		
 		<field name="item_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_DESC"/>
 	</fieldset>
