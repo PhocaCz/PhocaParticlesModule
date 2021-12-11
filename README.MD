@@ -52,11 +52,11 @@ Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts
 
 ## Version (Joomla! 3.x)
 
-3.0.3
+3.0.4
 
 ## Version (Joomla! 4.x)
 
-4.0.2
+4.0.3
 
 
 

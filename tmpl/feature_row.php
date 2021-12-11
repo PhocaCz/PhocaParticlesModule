@@ -46,7 +46,10 @@ if (!empty($items)) {
 
 		if (isset($v->item_icon_class) && $v->item_icon_class != '') {
 			echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($v->item_icon_class)).'"></i>'. $linkEnd .'</div>';
-        }
+        } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
+			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
+		}
+
 		if ($title != '') {
 			echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 		}

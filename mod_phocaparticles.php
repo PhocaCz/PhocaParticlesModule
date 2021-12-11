@@ -8,6 +8,9 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License version 2 or later;
  */
+
+use Joomla\CMS\HTML\HTMLHelper;
+
 defined('_JEXEC') or die('Restricted access');// no direct access
 
 $app 						= JFactory::getApplication();
@@ -21,8 +24,11 @@ $p['display_option'] 		= $params->get( 'display_option', '');
 $p['display_id'] 			= $params->get( 'display_id', '');
 $p['description_top'] 		= $params->get( 'description_top', '');
 $p['description_bottom'] 	= $params->get( 'description_bottom', '');
+$p['main_image'] 			= $params->get( 'main_image', '');
+$p['main_link'] 			= $params->get( 'main_link', '');
 
 $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
+$p['image_feature_box_size']= $params->get( 'image_feature_box_size', 1);
 $p['image_content_size'] 	= $params->get( 'image_content_size', 1);
 
 
@@ -50,6 +56,14 @@ if (empty($optionA) && empty($viewA) && empty($idA)) {
 	// OK - option and view and ID is set and it meets the criteria
 } else {
 	return '';
+}
+
+// J3
+if ($p['main_image'] != '') {
+	$imgClean = HTMLHelper::cleanImageURL($p['main_image']);
+	if ($imgClean->url != '') {
+	   $p['main_image'] =  $imgClean->url;
+	}
 }
 
 

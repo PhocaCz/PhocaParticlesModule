@@ -28,19 +28,23 @@ if (!empty($items)) {
     $styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
 	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
 
+
+
     foreach($items as $k => $v) {
 
         $style[] = '.phModParticlesImageBackground {';
         $image = '';
         if (isset($v->item_image) && $v->item_image != '') {
             $imgClean = HTMLHelper::cleanImageURL($v->item_image);
-
+            //j3 $image = $v->item_image;
             if ($imgClean->url != '') {
                $image =  $imgClean->url;
                $style[] = 'background-image: url('.JURI::base(true) . '/'.$image.');';
 
             }
 
+        } else if ($p['main_image'] != '') {
+            $style[] = 'background-image: url('.JURI::base(true) . '/'.$p['main_image'].');';
         }
         $style[] = '}';
 
@@ -84,7 +88,7 @@ if (!empty($items)) {
 			echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $v->item_content).'</div>';
 		}
 
-        if (isset($v->button_title) && $v->item_title != '') {
+        if (isset($v->button_title) && $v->button_title != '' && $v->item_title != '') {
             $buttonLink = '';
 			if (isset($v->button_link) && $v->button_link != '') {
                 $buttonLink = $v->button_link;
