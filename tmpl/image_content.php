@@ -114,10 +114,47 @@ if ($p['main_image'] != '') {
     echo '</div>';
 }
 
-if (isset($p['main_content']) && $p['main_content'] != '') {
-    echo '<div class="phModParticlesItemContent'.$cC.'">'.HTMLHelper::_('content.prepare', $p['main_content']).'</div>';
+
+// OPEN CONTENT
+if ($p['main_content'] != '') {
+    echo '<div class="phModParticlesItemContent'.$cC.'">'.HTMLHelper::_('content.prepare', $p['main_content']).'';
 } else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
-    echo '<div class="phModParticlesItemContent' . $cC . '">' . HTMLHelper::_('content.prepare', $items[0]->item_content) . '</div>';
+    echo '<div class="phModParticlesItemContent' . $cC . '">' . HTMLHelper::_('content.prepare', $items[0]->item_content) . '';
+}
+
+// BUTTON Local (item) or GLOBAL (main)
+if ($p['main_button_title']  != '') {
+    $buttonLink = '';
+    if ($p['main_button_link']  != '') {
+        $buttonLink = $p['main_button_link'] ;
+    }
+
+    $buttonAttr = '';
+    if ($p['main_button_attributes'] != '') {
+        $buttonAttr = $p['main_button_attributes'];
+    }
+
+    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+} else if (isset($items[0]->button_title) && $items[0]->button_title != '') {
+    $buttonLink = '';
+    if (isset($items[0]->button_link) && $items[0]->button_link != '') {
+        $buttonLink = $items[0]->button_link;
+    }
+
+    $buttonAttr = '';
+    if (isset($items[0]->button_attributes) && $items[0]->button_attributes != '') {
+        $buttonAttr = $items[0]->button_attributes;
+    }
+
+    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
+}
+
+
+// CLOSE CONTENT
+if ($p['main_content'] != '') {
+    echo '</div>';
+} else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
+    echo '</div>';
 }
 
 echo '</div>'; //  end phModParticlesItem

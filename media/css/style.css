@@ -491,3 +491,20 @@
     font-size: 160%;
     font-family: "Montserrat";
 }
+
+
+.phModParticlesItemFeatureBox .phModParticlesDescBox .phModParticlesButtonBox,
+.phModParticlesImageContent .phModParticlesItemContent .phModParticlesButtonBox {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.phModParticlesItemFeatureBox .phModParticlesButtonBox .phModParticlesButton,
+.phModParticlesImageContent .phModParticlesItemContent .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 2vw;
+    color: #fff;
+    background: #000;
+    border-radius: 3px;
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+}

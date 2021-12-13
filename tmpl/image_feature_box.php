@@ -162,6 +162,24 @@ if (!empty($items)) {
 	}
 }
 
+echo '<div class="phModParticlesIconBox"></div>';
+echo '<div class="phModParticlesDescBox">';
+// BUTTON Local (item) or GLOBAL (main)
+if ($p['main_button_title']  != '') {
+    $buttonLink = '';
+    if ($p['main_button_link']  != '') {
+        $buttonLink = $p['main_button_link'] ;
+    }
+
+    $buttonAttr = '';
+    if ($p['main_button_attributes'] != '') {
+        $buttonAttr = $p['main_button_attributes'];
+    }
+
+    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+}
+echo '</div>'; // end phModParticlesDescBox
+
 echo '</div>'; //  end phModParticlesItemFeatureBox
 
 echo '</div>'; //  end phModParticlesItem

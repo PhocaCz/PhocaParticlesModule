@@ -100,7 +100,7 @@ if ($p['main_content'] != '') {
 }
 
 // BUTTON Local (item) or GLOBAL (main)
-if ($p['main_button_title']  != '' && $p['main_item_title']  != '') {
+if ($p['main_button_title']  != '') {
     $buttonLink = '';
     if ($p['main_button_link']  != '') {
         $buttonLink = $p['main_button_link'] ;
