@@ -15,101 +15,125 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 $document = Factory::getDocument();
 
-if (!empty($items)) {
-	echo '<div class="phModParticles" id="'. $id .'">';
 
-    if ($p['description_top'] != '') {
-		echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
-	}
+echo '<div class="phModParticles" id="'. $id .'">';
 
-
-    $style = array();
-
-    $styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
-	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
-
-
-
-    foreach($items as $k => $v) {
-
-        $style[] = '.phModParticlesImageBackground {';
-        $image = '';
-        if (isset($v->item_image) && $v->item_image != '') {
-            $imgClean = HTMLHelper::cleanImageURL($v->item_image);
-            //j3 $image = $v->item_image;
-            if ($imgClean->url != '') {
-               $image =  $imgClean->url;
-               $style[] = 'background-image: url('.JURI::base(true) . '/'.$image.');';
-
-            }
-
-        } else if ($p['main_image'] != '') {
-            $style[] = 'background-image: url('.JURI::base(true) . '/'.$p['main_image'].');';
-        }
-        $style[] = '}';
-
-        if (!empty($style)) {
-             $document->addStyledeclaration(implode("\n",  $style));
-        }
-
-        echo '<div class="phModParticlesImageBackground">';
-        echo '<div class="phModParticlesItem">';
-
-		$linkStartIcon = '';
-		$linkStartTitle = '';
-		$linkEnd = '';
-		if (isset($v->item_link) && $v->item_link != '') {
-			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'" '.$styleIcon.' >';
-			$linkStartTitle = '<a href="'.htmlspecialchars($v->item_link).'" '.$styleTitle.' >';
-			$linkEnd = '</a>';
-		}
-
-		if (isset($v->item_icon_class) && $v->item_icon_class != '') {
-			echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($v->item_icon_class)).'"></i>'. $linkEnd .'</div>';
-        } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
-			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
-		}
-
-        // Image in this view is the background image
-        /*else if (isset($v->item_image) && $v->item_image != '') {
-
-            //echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'"/>'. $linkEnd .'</div>';
-		}*/
-
-        if (isset($v->item_title) && $v->item_title != '') {
-			echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $v->item_title. $linkEnd . '</div>';
-		}
-
-        if (isset($v->item_description) && $v->item_description != '') {
-			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
-		}
-
-		if (isset($v->item_content) && $v->item_content != '') {
-			echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $v->item_content).'</div>';
-		}
-
-        if (isset($v->button_title) && $v->button_title != '' && $v->item_title != '') {
-            $buttonLink = '';
-			if (isset($v->button_link) && $v->button_link != '') {
-                $buttonLink = $v->button_link;
-		    }
-
-            $buttonAttr = '';
-            if (isset($v->button_attributes) && $v->button_attributes != '') {
-                $buttonAttr = $v->button_attributes;
-		    }
-
-            echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
-		}
-
-
-		echo '</div>';
-        echo '</div>';
-	}
-
-	if ($p['description_bottom'] != '') {
-		echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';
-	}
-
-	echo '</div>';
+if ($p['description_top'] != '') {
+    echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
 }
+
+
+$style      = array();
+$styleIcon  = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
+$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
+
+
+echo '<div class="phModParticlesImageBackground">';
+echo '<div class="phModParticlesItem">';
+
+// LINK Local (item) or GLOBAL (main)
+$linkStartIcon = '';
+$linkStartTitle = '';
+$linkEnd = '';
+$linkAttr = '';
+if ($p['main_link'] != '') {
+    if ($p['main_link_attributes'] != '') {
+        $linkAttr = ' '.$p['main_link_attributes'];
+    }
+
+    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleIcon.$linkAttr.'>';
+    $linkStartTitle = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleTitle.$linkAttr.'>';
+    $linkEnd = '</a>';
+} else if (isset($items[0]->item_link) && $items[0]->item_link != '') {
+    if (isset($items[0]->item_link_attributes) && $items[0]->item_link_attributes != '') {
+        $linkAttr = ' '.$items[0]->item_link_attributes;
+    }
+
+    $linkStartIcon = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleIcon.$linkAttr.'>';
+    $linkStartTitle = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleTitle.$linkAttr.'>';
+    $linkEnd = '</a>';
+}
+
+// ICON/SVG Local (item) or GLOBAL (main)
+if ($p['main_icon_class'] != '') {
+    echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($p['main_icon_class'])).'"></i>'. $linkEnd .'</div>';
+} else if ($p['main_image_svg'] != '') {
+    echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$p['main_image_svg']. $linkEnd .'</div>';
+} else if (isset($items[0]->item_icon_class) && $items[0]->item_icon_class != '') {
+    echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($items[0]->item_icon_class)).'"></i>'. $linkEnd .'</div>';
+} else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != '') {
+    echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'</div>';
+}
+
+
+if (isset($items[0]->item_image) && $items[0]->item_image != '') {
+
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
+}
+
+// TITLE Local (item) or GLOBAL (main)
+if ($p['main_title'] != '') {
+    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $p['main_title']. $linkEnd . '</div>';
+} else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
+    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $items[0]->item_title. $linkEnd . '</div>';
+}
+
+// IMAGE Local (item) or GLOBAL (main)
+if ($p['main_image'] != '') {
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
+} else if (isset($items[0]->item_image) && $items[0]->item_image != '') {
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
+}
+
+// DESC Local (item) or GLOBAL (main)
+if ($p['main_description'] != '') {
+    echo '<div class="phModParticlesDesc">'.$p['main_description'].'</div>';
+} else if (isset($items[0]->item_description) && $items[0]->item_description != '') {
+    echo '<div class="phModParticlesDesc">'.$items[0]->item_description.'</div>';
+}
+
+// CONTENT Local (item) or GLOBAL (main)
+if ($p['main_content'] != '') {
+    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $p['main_content']).'</div>';
+} else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
+    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $items[0]->item_content).'</div>';
+}
+
+// BUTTON Local (item) or GLOBAL (main)
+if ($p['main_button_title']  != '' && $p['main_item_title']  != '') {
+    $buttonLink = '';
+    if ($p['main_button_link']  != '') {
+        $buttonLink = $p['main_button_link'] ;
+    }
+
+    $buttonAttr = '';
+    if ($p['main_button_attributes'] != '') {
+        $buttonAttr = $p['main_button_attributes'];
+    }
+
+    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+} else if (isset($items[0]->button_title) && $items[0]->button_title != '') {
+    $buttonLink = '';
+    if (isset($items[0]->button_link) && $items[0]->button_link != '') {
+        $buttonLink = $items[0]->button_link;
+    }
+
+    $buttonAttr = '';
+    if (isset($items[0]->button_attributes) && $items[0]->button_attributes != '') {
+        $buttonAttr = $items[0]->button_attributes;
+    }
+
+    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
+}
+
+
+echo '</div>';
+echo '</div>';
+
+
+if ($p['description_bottom'] != '') {
+    echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';
+}
+
+echo '</div>';
+

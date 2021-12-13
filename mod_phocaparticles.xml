@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>11/12/2021</creationDate>
+	<creationDate>13/12/2021</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.3</version>
+	<version>4.0.5</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -41,19 +41,8 @@
 
 			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
 
-			<field name="description_top" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_DESC"/>
-			<field name="description_bottom" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_DESC"/>
 
-            <field name="main_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_DESC"/>
-
-            <field name="main_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_DESC"/>
-            <field name="main_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_DESC"/>
-
-				<field name="title_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_DESC"/>
-
-				<field name="icon_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_DESC"/>
-
-				<field name="type" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
+            <field name="type" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
                 <option value="feature_box">MOD_PHOCAPARTICLES_FEATURE_BOX</option>
                 <option value="feature_row">MOD_PHOCAPARTICLES_FEATURE_ROW</option>
 				<option value="image_row">MOD_PHOCAPARTICLES_IMAGE_ROW</option>
@@ -61,6 +50,19 @@
                 <option value="image_background">MOD_PHOCAPARTICLES_IMAGE_BACKGROUND</option>
                 <option value="image_feature_box">MOD_PHOCAPARTICLES_IMAGE_FEATURE_BOX</option>
             </field>
+
+
+			<field name="description_top" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_TOP_DESCRIPTION_DESC"/>
+			<field name="description_bottom" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_BOTTOM_DESCRIPTION_DESC"/>
+
+
+
+
+				<field name="title_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TITLE_COLOR_DESC"/>
+
+				<field name="icon_color" default="" size="10" type="color" label="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ICON_COLOR_DESC"/>
+
+
 
 				<field name="display_option" default="" size="10" type="text" label="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_DISPLAY_COMPONENT_DESC"/>
 
@@ -107,9 +109,39 @@
 
 		</fieldset>
 
+        <fieldset name="main" label="MOD_PHOCAPARTICLES_FIELDSET_MAIN_LABEL">
+
+            <field name="main_title" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_DESC"/>
+
+            <field name="main_icon_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_DESC"/>
+
+            <field name="main_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_DESC" filter="raw"/>
 
 
-			<fieldset name="items" label="MOD_PHOCAPARTICLES_FIELDSET_ITEMS_LABEL">
+            <field name="main_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_DESC"/>
+            <field name="main_background_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_DESC"/>
+
+            <field name="main_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_DESC"/>
+
+            <field name="main_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_DESC"/>
+            <field name="main_link_attributes" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_ATTRIBUTES_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_ATTRIBUTES_DESC"/>
+
+            <field name="main_button_title" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_TITLE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_TITLE_DESC"/>
+            <field name="main_button_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_LINK_DESC"/>
+            <field name="main_button_attributes" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_ATTRIBUTES_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BUTTON_ATTRIBUTES_DESC"/>
+
+
+            <field name="main_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_DESC"/>
+
+
+            <field name="main_label" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LABEL_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LABEL_DESC"/>
+            <field name="main_price" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_PRICE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_PRICE_DESC"/>
+            <field name="main_price_original" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_ORIGINAL_PRICE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_ORIGINAL_PRICE_DESC"/>
+
+
+        </fieldset>
+
+        <fieldset name="items" label="MOD_PHOCAPARTICLES_FIELDSET_ITEMS_LABEL">
 
 
 				<field name="items" type="subform" label="MOD_PHOCAPARTICLES_FIELD_ITEMS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEMS_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" formsource="modules/mod_phocaparticles/models/forms/item.xml"/>

@@ -165,6 +165,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    align-items: center;
 
 }
 .phModParticlesImageContent .phModParticlesItem.pmpReverse {
@@ -172,37 +173,49 @@
 }
 
 
-.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw40,
-.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw40 {
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw40,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw40 {
     width: 40%;
 }
-.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw50,
-.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw50 {
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw50,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw50 {
     width: 50%;
 }
-.phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw60,
-.phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw60 {
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw60,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw60 {
     width: 60%
 }
 
 @media only screen and (max-width: 768px) {
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw40,
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw40 {
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw40,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw40 {
         width: 100%;
     }
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw50,
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw50 {
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw50,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw50 {
         width: 100%;
     }
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesImage.pmpw60,
-    .phModParticlesImageContent .phModParticlesItem .phModParticlesContent.pmpw60 {
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage.pmpw60,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw60 {
         width: 100%
     }
 }
 
-.phModParticlesImage.pmpw40,
-.phModParticlesImage.pmpw40,
-.phModParticlesImage.pmpw40 {
+.phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemImage,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent {
+    padding-left: 0;
+    padding-right: 5%;
+}
+
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
+.phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
+    padding-left: 5%;
+    padding-right: 0;
+}
+
+.phModParticlesItemImage.pmpw40,
+.phModParticlesItemImage.pmpw40,
+.phModParticlesItemImage.pmpw40 {
     display: flex;
     align-items: center;
 }
@@ -217,13 +230,13 @@
 }
 
 
-
 /* Image FeatureBox */
 .phModParticlesImageFeatureBox .phModParticlesItem {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    align-items: center;
 
 }
 .phModParticlesImageFeatureBox .phModParticlesItem.pmpReverse {
@@ -231,51 +244,51 @@
 }
 
 
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw40,
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw40 {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw40,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
     width: 40%;
 }
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw50,
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw50 {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw50,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw50 {
     width: 50%;
 }
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw60,
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw60 {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw60,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw60 {
     width: 60%
 }
 
 @media only screen and (max-width: 768px) {
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw40,
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw40 {
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw40,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
         width: 100%;
     }
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw50,
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw50 {
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw50,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw50 {
         width: 100%;
     }
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesImage.pmpw60,
-    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox.pmpw60 {
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw60,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw60 {
         width: 100%
     }
 }
 
-.phModParticlesImage.pmpw40,
-.phModParticlesImage.pmpw40,
-.phModParticlesImage.pmpw40 {
+.phModParticlesItemImage.pmpw40,
+.phModParticlesItemImage.pmpw40,
+.phModParticlesItemImage.pmpw40 {
     display: flex;
     align-items: center;
 }
 
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox {
     padding: 0;
     padding-left: 3em;
 }
-.phModParticlesImageFeatureBox .phModParticlesItem.pmpReverse .phModParticlesFeatureBox {
+.phModParticlesImageFeatureBox .phModParticlesItem.pmpReverse .phModParticlesItemFeatureBox {
     padding: 0;
     padding-right: 2em;
 }
 
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox {
     position: relative;
     padding: 1em;
     padding-bottom: 1em;
@@ -284,37 +297,40 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 100%;
-    display: flex;
+    flex-wrap: wrap;
 }
 
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox .phModParticlesIconBox {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox .phModParticlesIconBox {
     width: 25%;
     text-align: right;
 }
 
-.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesFeatureBox .phModParticlesDescBox {
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox .phModParticlesDescBox {
    width: 75%;
    text-align: left;
    padding: 0 0 0 1em;
 }
 
 
-.phModParticlesImageFeatureBox .phModParticlesFeatureBox .phModParticlesIcon {
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesIcon {
     font-size: 5em;
 }
-.phModParticlesImageFeatureBox .phModParticlesFeatureBox .phModParticlesSvg svg {
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesSvg svg {
     height: 5em;
 }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesImage img {
+    height: 5em;
+    width: auto;
+}
 
-.phModParticlesImageFeatureBox .phModParticlesFeatureBox .phModParticlesTitle {
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesTitle {
 	font-size: 150%;
 	/*flex-grow: 1;*/
     margin-top: 0em;
     font-weight: bold;
 }
 
-.phModParticlesImageFeatureBox .phModParticlesFeatureBox .phModParticlesDesc {
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesDesc {
 	margin-top: 0;
     margin-bottom: 1em;
 }
@@ -322,10 +338,7 @@
 
 
 /* Image Background */
-.phModParticlesImageBackground {
-    background-repeat: no-repeat;
-	background-size: cover;
-}
+.phModParticlesImageBackground {}
 
 .phModParticlesImageBackground .phModParticlesItem {
     padding: 1em;
@@ -346,6 +359,15 @@
     color: #fff;
     font-weight: bold;
     text-shadow: 2px 2px #000;
+}
+
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesImage {
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+}
+.phModParticlesImageBackground .phModParticlesItem .phModParticlesContent {
+    margin-top: 5%;
 }
     
 .phModParticlesImageBackground .phModParticlesItem .phModParticlesDesc {
@@ -416,4 +438,56 @@
     text-decoration: none;
     margin: 0;
     padding: 0;
+}
+
+
+/* Shared classes */
+.phModParticlesImageFeatureBox .phModParticlesItemImage,
+.phModParticlesImageContent .phModParticlesItemImage {
+    position: relative;
+}
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemLabel,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemLabel {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    padding: 0.25em 1em;
+    background: #9e0f0f;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 120%;
+    font-family: "Montserrat";
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPriceOriginal,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemPriceOriginal {
+    position: absolute;
+    bottom: 4.5em;
+    right: 4.5em;
+    padding: 0.3vw 1.5vw;
+    border: 4px solid #000;
+    background: #fff;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: line-through;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 130%;
+    font-family: "Montserrat";
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPrice,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemPrice {
+    position: absolute;
+    bottom: 1em;
+    right: 3em;
+    padding: 0.8vw 2.5vw;
+    background: #f8e914;
+    color: #000;
+    border-radius: 5px;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 160%;
+    font-family: "Montserrat";
 }

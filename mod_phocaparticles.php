@@ -10,12 +10,21 @@
  */
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Version;
 
 defined('_JEXEC') or die('Restricted access');// no direct access
+
+
+
 
 $app 						= JFactory::getApplication();
 $document 					= JFactory::getDocument();
 $p 							= array();
+
+$version 			= new Version();
+$p['is_j4'] 		= $version->isCompatible('4.0.0-alpha');
+
+
 $p['type'] 	    			= $params->get( 'type', 'feature_box');
 $p['title_color'] 	    	= $params->get( 'title_color', '');
 $p['icon_color'] 	    	= $params->get( 'icon_color', '');
@@ -24,8 +33,25 @@ $p['display_option'] 		= $params->get( 'display_option', '');
 $p['display_id'] 			= $params->get( 'display_id', '');
 $p['description_top'] 		= $params->get( 'description_top', '');
 $p['description_bottom'] 	= $params->get( 'description_bottom', '');
+
+
+// MAIN
+$p['main_title'] 			= $params->get( 'main_title', '');
+$p['main_icon_class'] 		= $params->get( 'main_icon_class', '');
+$p['main_image_svg'] 		= $params->get( 'main_image_svg', '');
 $p['main_image'] 			= $params->get( 'main_image', '');
+$p['main_description'] 		= $params->get( 'main_description', '');
 $p['main_link'] 			= $params->get( 'main_link', '');
+$p['main_link_attributes'] 	= $params->get( 'main_link_attributes', '');
+$p['main_button_title'] 	= $params->get( 'main_button_title', '');
+$p['main_button_link'] 		= $params->get( 'main_button_link', '');
+$p['main_button_attributes'] = $params->get( 'main_button_attributes', '');
+$p['main_content'] 			= $params->get( 'main_content', '');
+$p['main_background_image'] = $params->get( 'main_background_image', '');
+$p['main_label']            = $params->get( 'main_label', '');
+$p['main_price'] 			= $params->get( 'main_price', '');
+$p['main_price_original']   = $params->get( 'main_price_original', '');
+
 
 $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
 $p['image_feature_box_size']= $params->get( 'image_feature_box_size', 1);
@@ -58,12 +84,32 @@ if (empty($optionA) && empty($viewA) && empty($idA)) {
 	return '';
 }
 
-// J3
-if ($p['main_image'] != '') {
-	$imgClean = HTMLHelper::cleanImageURL($p['main_image']);
-	if ($imgClean->url != '') {
-	   $p['main_image'] =  $imgClean->url;
-	}
+// Main Background Image
+$styleType = str_replace('_', ' ', $p['type']);
+$styleType = ucwords($styleType);
+$styleType = str_replace(' ', '', $styleType);
+$styleType = '.phModParticles'.htmlspecialchars($styleType);
+
+
+// Background Image
+$image = $p['main_background_image'];
+if ($image != '') {
+    $style[] = $styleType.' {';
+    if ($p['is_j4']) {
+        $imgClean = HTMLHelper::cleanImageURL($image);
+        if ($imgClean->url != '') {
+           $image =  $imgClean->url;
+        }
+    }
+    $style[] = 'background-image: url('.JURI::base(true) . '/'.$image.');';
+    $style[] = 'background-repeat: no-repeat;';
+	$style[] = 'background-size: cover;';
+    $style[] = '}';
+}
+
+
+if (!empty($style)) {
+     $document->addStyledeclaration(implode("\n",  $style));
 }
 
 

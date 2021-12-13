@@ -40,9 +40,15 @@ if (!empty($items)) {
 		$linkStartIcon = '';
 		$linkStartTitle = '';
 		$linkEnd = '';
+        $linkAttr = '';
+
+        if (isset($v->item_link_attributes) && $v->item_link_attributes != '') {
+            $linkAttr = ' '.$v->item_link_attributes;
+        }
+
 		if (isset($v->item_link) && $v->item_link != '') {
-			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'" '.$styleIcon.' >';
-			$linkStartTitle = '<a href="'.htmlspecialchars($v->item_link).'" '.$styleTitle.' >';
+			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleIcon.$linkAttr.'>';
+			$linkStartTitle = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleTitle.$linkAttr.'>';
 			$linkEnd = '</a>';
 		}
 
