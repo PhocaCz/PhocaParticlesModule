@@ -457,7 +457,6 @@
     border-radius: 5px;
     font-weight: 900;
     font-size: 120%;
-    font-family: "Montserrat";
 }
 
 .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPriceOriginal,
@@ -474,7 +473,6 @@
     transform: rotate(-4deg);
     font-weight: 900;
     font-size: 130%;
-    font-family: "Montserrat";
 }
 
 .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPrice,
@@ -489,7 +487,6 @@
     transform: rotate(-4deg);
     font-weight: 900;
     font-size: 160%;
-    font-family: "Montserrat";
 }
 
 
