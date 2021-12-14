@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>13/12/2021</creationDate>
+	<creationDate>14/12/2021</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.5</version>
+	<version>4.0.8</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 
@@ -142,13 +142,16 @@
         </fieldset>
 
         <fieldset name="items" label="MOD_PHOCAPARTICLES_FIELDSET_ITEMS_LABEL">
+            <field name="items" type="subform" label="MOD_PHOCAPARTICLES_FIELD_ITEMS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEMS_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" formsource="modules/mod_phocaparticles/models/forms/item.xml"/>
+        </fieldset>
+
+        <fieldset name="phocacart" label="MOD_PHOCAPARTICLES_FIELDSET_PHOCACART_LABEL">
+
+            <field name="phocacart_product_id" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_PHOCACART_PRODUCT_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_PHOCACART_PRODUCT_ID_DESC"/>
+        </fieldset>
 
 
-				<field name="items" type="subform" label="MOD_PHOCAPARTICLES_FIELD_ITEMS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEMS_DESC" multiple="true" layout="joomla.form.field.subform.repeatable" formsource="modules/mod_phocaparticles/models/forms/item.xml"/>
-
-
-			</fieldset>
-                <fieldset name="advanced">
+        <fieldset name="advanced">
 				<field name="layout" class="form-select" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description=""/>
 				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="" rows="3"/>
 				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="" default="1" filter="integer">

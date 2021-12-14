@@ -9,7 +9,9 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License version 2 or later;
  */
 
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
 
 defined('_JEXEC') or die('Restricted access');// no direct access
@@ -52,6 +54,8 @@ $p['main_label']            = $params->get( 'main_label', '');
 $p['main_price'] 			= $params->get( 'main_price', '');
 $p['main_price_original']   = $params->get( 'main_price_original', '');
 
+$p['phocacart_product_id']   = $params->get( 'phocacart_product_id', 0);
+
 
 $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
 $p['image_feature_box_size']= $params->get( 'image_feature_box_size', 1);
@@ -84,6 +88,56 @@ if (empty($optionA) && empty($viewA) && empty($idA)) {
 	return '';
 }
 
+// Phoca Cart
+if ((int)$p['phocacart_product_id'] > 0) {
+
+    if (ComponentHelper::isEnabled('com_phocacart', true)) {
+        JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
+        $v			= PhocacartProduct::getProduct($p['phocacart_product_id']);
+
+
+        if (isset($v->title) && $v->title != '') {
+            $p['main_title'] = $v->title;
+        }
+
+        if (isset($v->description_long) && $v->description_long != '') {
+            $p['main_content'] = $v->description_long;
+        }
+
+        $price 				= new PhocacartPrice;
+        if (isset($v->price) && $v->price != '' && $v->price > 0) {
+            $p['main_price'] = $price->getPriceFormat($v->price);
+        }
+        if (isset($v->price_original) && $v->price_original != '' && $v->price_original > 0) {
+            $p['main_price_original'] = $price->getPriceFormat($v->price_original);
+        }
+
+        if (isset($v->id) && isset($v->catid) && isset($v->alias) && isset($v->catalias)) {
+            $link = JRoute::_(PhocacartRoute::getItemRoute($v->id, $v->catid, $v->alias, $v->catalias));
+            $p['main_button_link'] = $link;
+        }
+
+        if ($p['main_button_title'] == '') {
+            $p['main_button_title'] = Text::_('MOD_PHOCAPARTICLES_PHOCACART_BUY_NOW');
+        }
+
+        if (isset($v->image) && $v->image != '') {
+            $pathItem 	= PhocacartPath::getPath('productimage');
+            $image      = PhocacartImage::getImageDisplay($v->image, array(), $pathItem, 0, 0, 0, 'large', '', array());
+            if (isset($image['image']->rel) && $image['image']->rel != '') {
+                $p['main_image'] = $image['image']->rel;
+            }
+        }
+        if (isset($v->id)) {
+            $labels     = PhocacartTag::getTagLabels($v->id);
+
+            if (isset($labels[0]->title) && $labels[0]->title) {
+                $p['main_label'] = $labels[0]->title;
+            }
+        }
+    }
+}
+
 // Main Background Image
 $styleType = str_replace('_', ' ', $p['type']);
 $styleType = ucwords($styleType);
@@ -112,8 +166,15 @@ if (!empty($style)) {
      $document->addStyledeclaration(implode("\n",  $style));
 }
 
-
-$items = (array)$params->get('items');
+$i = 0;
+$items = array();
+$itemsA = (array)$params->get('items');
+if (!empty($itemsA)) {
+    foreach($itemsA as $k => $v) {
+        $items[$i] = $v;
+        $i++;
+    }
+}
 JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
 
 

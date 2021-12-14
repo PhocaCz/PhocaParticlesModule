@@ -117,9 +117,22 @@ if ($p['main_image'] != '') {
 
 // OPEN CONTENT
 if ($p['main_content'] != '') {
-    echo '<div class="phModParticlesItemContent'.$cC.'">'.HTMLHelper::_('content.prepare', $p['main_content']).'';
+    echo '<div class="phModParticlesItemContent'.$cC.'">';
 } else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
-    echo '<div class="phModParticlesItemContent' . $cC . '">' . HTMLHelper::_('content.prepare', $items[0]->item_content) . '';
+    echo '<div class="phModParticlesItemContent' . $cC . '">';
+}
+
+if ($p['main_title'] != '') {
+    echo '<div class="phModParticlesItemTitle">'.$p['main_title'].'</div>';
+} else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
+    echo '<div class="phModParticlesItemTitle">'.$items[0]->item_title.'</div>';
+}
+
+
+if ($p['main_content'] != '') {
+    echo HTMLHelper::_('content.prepare', $p['main_content']).'';
+} else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
+    echo HTMLHelper::_('content.prepare', $items[0]->item_content) . '';
 }
 
 // BUTTON Local (item) or GLOBAL (main)

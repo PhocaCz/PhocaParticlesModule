@@ -141,8 +141,8 @@ if (!empty($items)) {
 
         if (isset($v->item_icon_class) && $v->item_icon_class != '') {
             echo '<div class="phModParticlesIcon" ' . $styleIcon . '>' . $linkStartIcon . '<i class="' . htmlspecialchars(strip_tags($v->item_icon_class)) . '"></i>' . $linkEnd . '</div>';
-       // } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
-		//	echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
+        } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
+			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
 		} else if (isset($v->item_image) && $v->item_image != '') {
 			echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
 		}

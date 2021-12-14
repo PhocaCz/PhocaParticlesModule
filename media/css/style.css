@@ -203,14 +203,14 @@
 
 .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemImage,
 .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent {
-    padding-left: 0;
+    padding-left: 1%;
     padding-right: 5%;
 }
 
 .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
 .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
     padding-left: 5%;
-    padding-right: 0;
+    padding-right: 1%;
 }
 
 .phModParticlesItemImage.pmpw40,
@@ -504,4 +504,10 @@
     border-radius: 3px;
     padding: 0.8vw 1.2vw;
     margin: 0 auto;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemTitle,
+.phModParticlesImageContent .phModParticlesItemContent .phModParticlesItemTitle {
+    font-weight: 900;
+    font-size: 240%;
 }

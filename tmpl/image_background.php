@@ -65,12 +65,6 @@ if ($p['main_icon_class'] != '') {
     echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'</div>';
 }
 
-
-if (isset($items[0]->item_image) && $items[0]->item_image != '') {
-
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
-}
-
 // TITLE Local (item) or GLOBAL (main)
 if ($p['main_title'] != '') {
     echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $p['main_title']. $linkEnd . '</div>';
