@@ -50,6 +50,7 @@ $p['main_button_link'] 		= $params->get( 'main_button_link', '');
 $p['main_button_attributes'] = $params->get( 'main_button_attributes', '');
 $p['main_content'] 			= $params->get( 'main_content', '');
 $p['main_background_image'] = $params->get( 'main_background_image', '');
+$p['main_background_image_gradient'] = $params->get( 'main_background_image_gradient', '');
 $p['main_label']            = $params->get( 'main_label', '');
 $p['main_price'] 			= $params->get( 'main_price', '');
 $p['main_price_original']   = $params->get( 'main_price_original', '');
@@ -155,7 +156,13 @@ if ($image != '') {
            $image =  $imgClean->url;
         }
     }
-    $style[] = 'background-image: url('.JURI::base(true) . '/'.$image.');';
+
+    $gradient = '';
+    if ($p['main_background_image_gradient'] != '') {
+        $gradient = $p['main_background_image_gradient'] . ', ';
+    }
+
+    $style[] = 'background-image: '.$gradient.'url('.JURI::base(true) . '/'.$image.');';
     $style[] = 'background-repeat: no-repeat;';
 	$style[] = 'background-size: cover;';
     $style[] = '}';

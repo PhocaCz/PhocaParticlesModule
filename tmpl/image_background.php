@@ -36,12 +36,25 @@ $linkStartIcon = '';
 $linkStartTitle = '';
 $linkEnd = '';
 $linkAttr = '';
+
+
+// TITLE Local (item) or GLOBAL (main)
+$title = '';
+$titleAlt= '';
+if ($p['main_title'] != '') {
+    $title = $p['main_title'];
+    $titleAlt = htmlspecialchars($title);
+} else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
+    $title = $items[0]->item_title;
+    $titleAlt = htmlspecialchars($title);
+}
+
 if ($p['main_link'] != '') {
     if ($p['main_link_attributes'] != '') {
         $linkAttr = ' '.$p['main_link_attributes'];
     }
 
-    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleIcon.$linkAttr.'>';
+    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
     $linkStartTitle = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleTitle.$linkAttr.'>';
     $linkEnd = '</a>';
 } else if (isset($items[0]->item_link) && $items[0]->item_link != '') {
@@ -49,7 +62,7 @@ if ($p['main_link'] != '') {
         $linkAttr = ' '.$items[0]->item_link_attributes;
     }
 
-    $linkStartIcon = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleIcon.$linkAttr.'>';
+    $linkStartIcon = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
     $linkStartTitle = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleTitle.$linkAttr.'>';
     $linkEnd = '</a>';
 }
@@ -67,9 +80,9 @@ if ($p['main_icon_class'] != '') {
 
 // TITLE Local (item) or GLOBAL (main)
 if ($p['main_title'] != '') {
-    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $p['main_title']. $linkEnd . '</div>';
+    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 } else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
-    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $items[0]->item_title. $linkEnd . '</div>';
+    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 }
 
 // IMAGE Local (item) or GLOBAL (main)

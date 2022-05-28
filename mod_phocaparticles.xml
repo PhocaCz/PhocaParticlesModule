@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>14/12/2021</creationDate>
+	<creationDate>28/05/2022</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.8</version>
+	<version>4.0.9</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<projectName>PhocaParticlesModule</projectName>
 

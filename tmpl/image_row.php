@@ -47,7 +47,7 @@ if (!empty($items)) {
             $linkAttr = ' '.$v->item_link_attributes;
         }
 		if (isset($v->item_link) && $v->item_link != '') {
-			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleIcon.$linkAttr.'>';
+			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
 			$linkStartTitle = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleTitle.$linkAttr.'>';
 			$linkEnd = '</a>';
 		}

@@ -65,6 +65,12 @@ switch($p['image_content_size']) {
 }
 
 
+$title = '';
+$titleAlt= '';
+if (isset($p['main_title']) && $p['main_title'] != '') {
+    $title = $p['main_title'];
+    $titleAlt = htmlspecialchars($title);
+}
 
 $linkStartIcon = '';
 $linkStartTitle = '';
@@ -75,17 +81,12 @@ if (isset($p['main_link_attributes']) && $p['main_link_attributes'] != '') {
 }
 
 if ($p['main_link'] != '') {
-    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'" '.$styleIcon.'  '.$linkAttr.'>';
+    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'" '.$styleIcon.'  '.$linkAttr.' aria-label="'.$titleAlt.'">';
     $linkStartTitle = '<a href="'.htmlspecialchars($p['main_link']).'" '.$styleTitle.'  '.$linkAttr.'>';
     $linkEnd = '</a>';
 }
 
-$title = '';
-$titleAlt= '';
-if (isset($p['main_title']) && $p['main_title'] != '') {
-    $title = $p['main_title'];
-    $titleAlt = htmlspecialchars($title);
-}
+
 
 echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
