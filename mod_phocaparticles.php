@@ -10,6 +10,7 @@
  */
 
 use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
@@ -18,11 +19,11 @@ defined('_JEXEC') or die('Restricted access');// no direct access
 
 
 
-
-$app 						= JFactory::getApplication();
-$document 					= JFactory::getDocument();
+$app 						= Factory::getApplication();
+$document 					= Factory::getDocument();
 $p 							= array();
 
+$moduleclass_sfx 			= htmlspecialchars((string)$params->get('moduleclass_sfx', ''), ENT_COMPAT, 'UTF-8');
 $version 			= new Version();
 $p['is_j4'] 		= $version->isCompatible('4.0.0-alpha');
 
@@ -54,8 +55,10 @@ $p['main_background_image_gradient'] = $params->get( 'main_background_image_grad
 $p['main_label']            = $params->get( 'main_label', '');
 $p['main_price'] 			= $params->get( 'main_price', '');
 $p['main_price_original']   = $params->get( 'main_price_original', '');
-
 $p['phocacart_product_id']   = $params->get( 'phocacart_product_id', 0);
+
+$p['main_top_code'] 		= $params->get( 'main_top_code', '');
+$p['main_bottom_code'] 		= $params->get( 'main_bottom_code', '');
 
 
 $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
@@ -139,11 +142,29 @@ if ((int)$p['phocacart_product_id'] > 0) {
     }
 }
 
+// Random ID changes each reload, add something more constant, use the same way like Joomla core modules
+if (isset($module->id) && $module->id > 0) {
+    $moduleId = $module->id;
+} else {
+    $moduleId = rand ( 10000 , 99999 );
+}
+
+$id = 'ph-mod-phoca-particles-'.$moduleId;
+$idClass = 'phModParticle'.$moduleId;
+$idJs = 'pS'.$moduleId;
+
+$classA = [];
+$classA[] = 'phModParticles';
+$classA[] = $idClass;
+$classA[] = $moduleclass_sfx;
+$class    = trim(implode(' ', $classA));
+
 // Main Background Image
 $styleType = str_replace('_', ' ', $p['type']);
 $styleType = ucwords($styleType);
 $styleType = str_replace(' ', '', $styleType);
-$styleType = '.phModParticles'.htmlspecialchars($styleType);
+//$styleType = '.phModParticles'.htmlspecialchars($styleType);
+$styleType = '.'.$idClass.' .phModParticles'.htmlspecialchars($styleType);
 
 
 // Background Image
@@ -186,12 +207,11 @@ JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
 
 
 if ($p['custom_css'] != '') {
+    $p['custom_css'] = str_replace('{moduleclass}', '.'.$idClass, $p['custom_css']);
 	$document->addStyledeclaration($p['custom_css']);
 }
 
-$rand = rand ( 10000 , 99999 );
-$id = 'ph-mod-phoca-particles-'.$rand;
-$idJs = 'pS'.$rand;
+
 
 require(JModuleHelper::getLayoutPath('mod_phocaparticles', $p['type'] ));
 ?>

@@ -13,5 +13,6 @@
 		"Phoca Cart": "https://www.phoca.cz/phocacart/"
 	},
 	"projectColor": "#C14641",
-	"projectBranch": "main"
+	"projectBranch": "main",
+	"nameSpace": "Joomla\\Module\\PhocaParticles"
 }

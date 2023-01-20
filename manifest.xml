@@ -23,10 +23,10 @@
 		<description><![CDATA[ Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts in module instances or articles. ]]></description>
 		<element>mod_phocaparticles</element>
 		<type>module</type>
-		<version>4.0.9</version>
-		<infourl title="Phoca Particles Module 4.0.9">https://www.phoca.cz/</infourl>
+		<version>4.1.1</version>
+		<infourl title="Phoca Particles Module 4.1.1">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/4.0.9/mod_phocaparticles_v4.0.9.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/4.1.1/mod_phocaparticles_v4.1.1.zip</downloadurl>
 		</downloads>
 		<tags>
 			<tag>stable</tag>

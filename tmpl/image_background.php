@@ -16,10 +16,14 @@ use Joomla\CMS\HTML\HTMLHelper;
 $document = Factory::getDocument();
 
 
-echo '<div class="phModParticles" id="'. $id .'">';
+echo '<div class="'.$class .'" id="'. $id .'">';
 
 if ($p['description_top'] != '') {
     echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
+}
+
+if ($p['main_top_code'] != '') {
+    echo $p['main_top_code'];
 }
 
 
@@ -137,6 +141,9 @@ if ($p['main_button_title']  != '') {
 echo '</div>';
 echo '</div>';
 
+if ($p['main_bottom_code'] != '') {
+    echo $p['main_bottom_code'];
+}
 
 if ($p['description_bottom'] != '') {
     echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';

@@ -2,23 +2,28 @@
 <extension type="module" client="site" method="upgrade" version="4.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>28/05/2022</creationDate>
+	<creationDate>20/01/2023</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.0.9</version>
+	<version>4.1.1</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
+	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
 
 	<media destination="mod_phocaparticles" folder="media">
 		<folder>css</folder>
 		<folder>js</folder>
+		<folder>images</folder>
 		<filename>index.html</filename>
 	</media>
 
 	<files>
 		<folder>tmpl</folder>
+		<folder>src</folder>
+		<folder>layouts</folder>
+		<folder>services</folder>
 		<folder>models</folder>
 		<filename module="mod_phocaparticles">mod_phocaparticles.php</filename>
 		<filename module="mod_phocaparticles">index.html</filename>
@@ -42,7 +47,7 @@
 			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
 
 
-            <field name="type" type="list" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
+            <field name="type" type="Phocaradioimage" addfieldpath="Joomla\Module\PhocaParticles\Site\Field" addfieldprefix="Joomla\Module\PhocaParticles\Site\Field" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
                 <option value="feature_box">MOD_PHOCAPARTICLES_FEATURE_BOX</option>
                 <option value="feature_row">MOD_PHOCAPARTICLES_FEATURE_ROW</option>
 				<option value="image_row">MOD_PHOCAPARTICLES_IMAGE_ROW</option>
@@ -133,6 +138,9 @@
 
             <field name="main_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_DESC"/>
 
+
+			<field name="main_top_code" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_TOP_CODE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_TOP_CODE_DESC"/>
+			<field name="main_bottom_code" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BOTTOM_CODE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BOTTOM_CODE_DESC"/>
 
             <field name="main_label" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LABEL_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LABEL_DESC"/>
             <field name="main_price" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_PRICE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_PRICE_DESC"/>

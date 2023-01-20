@@ -13,10 +13,14 @@ defined('_JEXEC') or die('Restricted access');
 use Joomla\CMS\HTML\HTMLHelper;
 
 
-echo '<div class="phModParticles" id="'. $id .'">';
+echo '<div class="'.$class .'" id="'. $id .'">';
 
 if ($p['description_top'] != '') {
     echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
+}
+
+if ($p['main_top_code'] != '') {
+    echo $p['main_top_code'];
 }
 
 echo '<div class="phModParticlesImageContent">';
@@ -95,7 +99,10 @@ if ($p['main_image'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != ''){
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
+} else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'';
 }
+
 
 
 if ($p['main_label'] != '') {
@@ -112,6 +119,8 @@ if ($p['main_price'] != '') {
 if ($p['main_image'] != '') {
     echo '</div>';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != ''){
+    echo '</div>';
+} else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
     echo '</div>';
 }
 
@@ -173,12 +182,21 @@ if ($p['main_content'] != '') {
 
 echo '</div>'; //  end phModParticlesItem
 
+
+
+
 echo '</div>'; // end phModParticlesImageContent
 
+
+if ($p['main_bottom_code'] != '') {
+    echo $p['main_bottom_code'];
+}
 
 if ($p['description_bottom'] != '') {
     echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';
 }
+
+
 
 echo '</div>'; // end phModParticles
 

@@ -213,6 +213,15 @@
     padding-right: 1%;
 }
 
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemImage,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
+    .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
+        padding: 3%;
+    }
+}
+
 .phModParticlesItemImage.pmpw40,
 .phModParticlesItemImage.pmpw40,
 .phModParticlesItemImage.pmpw40 {
@@ -416,7 +425,7 @@
         min-height: calc(var(--ibheight) / 1.5);
     }
 }
-@media (min-width: 992px) { 
+@media (min-width: 972px) { 
     .phModParticlesImageBackground {
         min-height: var(--ibheight);
     }
@@ -510,4 +519,9 @@
 .phModParticlesImageContent .phModParticlesItemContent .phModParticlesItemTitle {
     font-weight: 900;
     font-size: 240%;
+}
+
+.phModParticlesDescTop,
+.phModParticlesDescBottom {
+    padding: 1em;
 }
