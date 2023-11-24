@@ -111,6 +111,9 @@ if ($p['main_price'] != '') {
 // CLOSE IMAGE BLOCK
 if ($p['main_image'] != '') {
     echo '</div>';
+} else if ($p['image_empty_space'] == 1){
+    // Display empty space instead of image, in case e.g. the background image includes some part like image
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'></div>';
 }
 
 

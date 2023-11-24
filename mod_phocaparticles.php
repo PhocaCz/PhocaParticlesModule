@@ -43,6 +43,8 @@ $p['main_title'] 			= $params->get( 'main_title', '');
 $p['main_icon_class'] 		= $params->get( 'main_icon_class', '');
 $p['main_image_svg'] 		= $params->get( 'main_image_svg', '');
 $p['main_image'] 			= $params->get( 'main_image', '');
+$p['main_video']            = $params->get( 'main_video', '');
+$p['image_empty_space']     = $params->get( 'image_empty_space', 0);
 $p['main_description'] 		= $params->get( 'main_description', '');
 $p['main_link'] 			= $params->get( 'main_link', '');
 $p['main_link_attributes'] 	= $params->get( 'main_link_attributes', '');
@@ -203,8 +205,10 @@ if (!empty($itemsA)) {
         $i++;
     }
 }
-JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
 
+//JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('mod_phocaparticles', 'media/mod_phocaparticles/css/style.css', array('version' => 'auto'));
 
 if ($p['custom_css'] != '') {
     $p['custom_css'] = str_replace('{moduleclass}', '.'.$idClass, $p['custom_css']);

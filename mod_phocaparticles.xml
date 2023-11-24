@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" client="site" method="upgrade" version="4.0">
+<extension type="module" client="site" method="upgrade" version="5.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>20/01/2023</creationDate>
+	<creationDate>25/11/2023</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>4.1.1</version>
+	<version>5.0.0</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -126,6 +126,9 @@
             <field name="main_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_DESC"/>
             <field name="main_background_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_DESC"/>
 
+			<field name="main_video" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_DESC"/>
+
+
             <field name="main_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_DESC"/>
 
             <field name="main_link" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_LINK_DESC"/>
@@ -147,6 +150,12 @@
             <field name="main_price_original" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_ORIGINAL_PRICE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_ORIGINAL_PRICE_DESC"/>
 
 
+			<field name="image_empty_space" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_EMPTY_SPACE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_EMPTY_SPACE_DESC" filter="integer">
+				<option value="0">MOD_PHOCAPARTICLES_NO</option>
+            	<option value="1">MOD_PHOCAPARTICLES_YES</option>
+			</field>
+
+			image_empty_space
         </fieldset>
 
         <fieldset name="items" label="MOD_PHOCAPARTICLES_FIELDSET_ITEMS_LABEL">

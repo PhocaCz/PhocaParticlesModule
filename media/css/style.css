@@ -525,3 +525,10 @@
 .phModParticlesDescBottom {
     padding: 1em;
 }
+
+
+
+.phModParticlesVideoBox iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}

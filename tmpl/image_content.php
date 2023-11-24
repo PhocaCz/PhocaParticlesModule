@@ -95,12 +95,17 @@ if ($p['main_link'] != '') {
 echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
 // OPEN IMAGE BLOCK
+
 if ($p['main_image'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != ''){
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 } else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'';
+} else if ($p['main_video'] != '') {
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>';
+   echo '<div class="phModParticlesVideoBox"><iframe width="560" height="315" src="//www.youtube.com/embed/'.htmlspecialchars(strip_tags($p['main_video'])).'" frameborder="0" allowfullscreen></iframe></div>';
+
 }
 
 
@@ -122,6 +127,12 @@ if ($p['main_image'] != '') {
     echo '</div>';
 } else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
     echo '</div>';
+} else if ($p['image_empty_space'] == 1){
+    // Display empty space instead of image, in case e.g. the background image includes some part like image
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'></div>';
+} else if ($p['main_video'] != '') {
+    echo '</div>';
+
 }
 
 

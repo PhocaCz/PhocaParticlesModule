@@ -69,6 +69,23 @@ if (!empty($items)) {
 		if (isset($v->item_description) && $v->item_description != '') {
 			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
 		}
+
+
+		if (isset($v->button_title) && $v->button_title != '') {
+			$buttonLink = '';
+			if (isset($v->button_link) && $v->button_link != '') {
+				$buttonLink = $v->button_link;
+			}
+
+			$buttonAttr = '';
+			if (isset($v->button_attributes) && $v->button_attributes != '') {
+				$buttonAttr = $v->button_attributes;
+			}
+
+			echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
+		}
+
+
 		echo '</div>';
 	}
 
