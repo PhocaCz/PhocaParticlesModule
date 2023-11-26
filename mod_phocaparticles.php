@@ -11,6 +11,7 @@
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
@@ -217,5 +218,5 @@ if ($p['custom_css'] != '') {
 
 
 
-require(JModuleHelper::getLayoutPath('mod_phocaparticles', $p['type'] ));
+require(ModuleHelper::getLayoutPath('mod_phocaparticles', $p['type'] ));
 ?>

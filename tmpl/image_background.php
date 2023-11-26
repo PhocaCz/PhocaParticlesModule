@@ -12,6 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
 $document = Factory::getDocument();
 
@@ -91,9 +92,9 @@ if ($p['main_title'] != '') {
 
 // IMAGE Local (item) or GLOBAL (main)
 if ($p['main_image'] != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
 }
 
 // DESC Local (item) or GLOBAL (main)

@@ -11,6 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
 
 echo '<div class="'.$class .'" id="'. $id .'">';
@@ -94,7 +95,7 @@ echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
 // OPEN IMAGE BLOCK
 if ($p['main_image'] != '') {
-    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 }
 
 
@@ -150,7 +151,7 @@ if (!empty($items)) {
         } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
 			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
 		} else if (isset($v->item_image) && $v->item_image != '') {
-			echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.JURI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
+			echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
 		}
 
         echo '</div>';

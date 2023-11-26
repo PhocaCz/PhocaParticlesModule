@@ -6,11 +6,16 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
+
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+
 defined('JPATH_BASE') or die;
 jimport('joomla.html.html');
 jimport('joomla.form.formfield');
 
-class JFormFieldPhocaHeadExpert extends JFormField
+class JFormFieldPhocaHeadExpert extends FormField
 {
 	protected $type = 'PhocaHeadExpert';
 	protected function getLabel() { return '';}
@@ -20,23 +25,23 @@ class JFormFieldPhocaHeadExpert extends JFormField
 		$tc = 'phocadownload';
 		$ts = 'media/com_'.$tc.'/css/administrator/';
 		$ti = 'media/com_'.$tc.'/images/administrator/';
-		JHTML::stylesheet( $ts.'/'.$tc.'options.css' );
+		HTMLHelper::stylesheet( $ts.'/'.$tc.'options.css' );
 		echo '<div style="clear:both;"></div>';
 		$phocaImage	= ( (string)$this->element['phocaimage'] ? $this->element['phocaimage'] : '' );
 		$image 		= '';
 
 		if ($phocaImage != ''){
-			$image 	= Joomla\CMS\HTML\HTMLHelper::_('image', $ti . $phocaImage, '' );
+			$image 	= HTMLHelper::_('image', $ti . $phocaImage, '' );
 		}
 
 		if ($this->element['default']) {
 			if ($image != '') {
 				return '<div class="ph-options-head-expert">'
-				.'<div>'. $image.' <strong>'. JText::_($this->element['default']) . '</strong></div>'
+				.'<div>'. $image.' <strong>'. Text::_($this->element['default']) . '</strong></div>'
 				.'</div>';
 			} else {
 				return '<div class="ph-options-head-expert">'
-				.'<strong>'. JText::_($this->element['default']) . '</strong>'
+				.'<strong>'. Text::_($this->element['default']) . '</strong>'
 				.'</div>';
 			}
 		} else {
