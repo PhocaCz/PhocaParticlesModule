@@ -11,6 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
 
 if (!empty($items)) {
 	echo '<div class="'.$class .'" id="'. $id .'">';
@@ -40,7 +41,13 @@ if (!empty($items)) {
             $titleAlt = htmlspecialchars($title);
         }
 
-        echo '<div class="phModParticlesItem'.$boxWidthClass.'">';
+        $boxItemClass = '';
+        if (isset($v->item_class) && $v->item_class != '') {
+            $boxItemClass = ' ' . htmlspecialchars($v->item_class);
+        }
+
+        echo '<div class="phModParticlesItem'.$boxWidthClass.$boxItemClass.'">';
+        echo '<div class="phModParticlesItemInnerBox">';
 
 		$linkStartIcon = '';
 		$linkStartTitle = '';
@@ -70,6 +77,7 @@ if (!empty($items)) {
 			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
 		}
 		echo '</div>';
+        echo '</div>';
 	}
 
 

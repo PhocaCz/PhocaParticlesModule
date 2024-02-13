@@ -40,7 +40,12 @@ if (!empty($items)) {
             $titleAlt = htmlspecialchars($title);
         }
 
-        echo '<div class="phModParticlesItem">';
+        $boxItemClass = '';
+        if (isset($v->item_class) && $v->item_class != '') {
+            $boxItemClass = ' ' . htmlspecialchars($v->item_class);
+        }
+
+        echo '<div class="phModParticlesItem'.$boxItemClass.'">';
 
 		$linkStartIcon = '';
 		$linkStartTitle = '';

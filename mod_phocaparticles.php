@@ -15,6 +15,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Version;
+use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die('Restricted access');// no direct access
 
@@ -186,7 +187,7 @@ if ($image != '') {
         $gradient = $p['main_background_image_gradient'] . ', ';
     }
 
-    $style[] = 'background-image: '.$gradient.'url('.JURI::base(true) . '/'.$image.');';
+    $style[] = 'background-image: '.$gradient.'url('.URI::base(true) . '/'.$image.');';
     $style[] = 'background-repeat: no-repeat;';
 	$style[] = 'background-size: cover;';
     $style[] = '}';
