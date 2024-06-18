@@ -14,8 +14,8 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Version;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Version;
 
 defined('_JEXEC') or die('Restricted access');// no direct access
 
