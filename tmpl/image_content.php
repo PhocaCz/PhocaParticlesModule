@@ -11,6 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 
@@ -105,7 +106,19 @@ if ($p['main_image'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'';
 } else if ($p['main_video'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>';
-   echo '<div class="phModParticlesVideoBox"><iframe width="560" height="315" src="//www.youtube.com/embed/'.htmlspecialchars(strip_tags($p['main_video'])).'" frameborder="0" allowfullscreen></iframe></div>';
+    echo '<div class="phModParticlesVideoBox"><iframe width="'.htmlspecialchars(strip_tags($p['main_video_width'])).'" height="'.htmlspecialchars(strip_tags($p['main_video_height'])).'" src="//www.youtube.com/embed/'.htmlspecialchars(strip_tags($p['main_video'])).'" frameborder="0" allowfullscreen></iframe></div>';
+} else if ($p['main_video_file']!= '') {
+
+    $poster = '';
+    if ($p['main_video_file_thumbnail'] != '') {
+        $poster = 'poster="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_video_file_thumbnail'])).'"';
+    }
+
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>';
+    echo '<div class="phModParticlesVideoBox"><video width="'.htmlspecialchars(strip_tags($p['main_video_width'])).'" height="'.htmlspecialchars(strip_tags($p['main_video_height'])).'" controls loading="lazy"'.$poster.'>';
+    echo '<source src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_video_file'])).'" type="video/mp4" controls>';
+    echo Text::_('MOD_PHOCAPARTICLES_YOUR_BROWSWER_DOES_NOT_SUPPORT_VIDEO_TAG');
+    echo '</video></div>';
 
 }
 
@@ -133,7 +146,8 @@ if ($p['main_image'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'></div>';
 } else if ($p['main_video'] != '') {
     echo '</div>';
-
+} else if ($p['main_video_file'] != '') {
+    echo '</div>';
 }
 
 

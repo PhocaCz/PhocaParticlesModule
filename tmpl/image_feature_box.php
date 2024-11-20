@@ -62,6 +62,15 @@ switch($p['image_feature_box_size']) {
         $flexClass = ' pmpReverse';
     break;
 
+    case 7:
+        $iC = ' pmpw50';
+        $cC = ' pmpw25';
+    break;
+    case 8:
+        $iC = ' pmpw30';
+        $cC = ' pmpw35';
+    break;
+
     case 1:
     default:
         $iC = ' pmpw40';
@@ -93,32 +102,36 @@ if ($p['main_link'] != '') {
 echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
 
+$imageOutput = [];
+$columnOutput = [];
+
+
 // OPEN IMAGE BLOCK
 if ($p['main_image'] != '') {
-    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
+    $imageOutput[] = '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 }
 
 
 if ($p['main_label'] != '') {
-    echo '<div class="phModParticlesItemLabel'.$cC.'">'.$p['main_label'].'</div>';
+    $imageOutput[] = '<div class="phModParticlesItemLabel'.$cC.'">'.$p['main_label'].'</div>';
 }
 if ($p['main_price_original'] != '') {
-    echo '<div class="phModParticlesItemPriceOriginal'.$cC.'">'.$p['main_price_original'].'</div>';
+    $imageOutput[] = '<div class="phModParticlesItemPriceOriginal'.$cC.'">'.$p['main_price_original'].'</div>';
 }
 if ($p['main_price'] != '') {
-    echo '<div class="phModParticlesItemPrice'.$cC.'">'.$p['main_price'].'</div>';
+    $imageOutput[] = '<div class="phModParticlesItemPrice'.$cC.'">'.$p['main_price'].'</div>';
 }
 
 // CLOSE IMAGE BLOCK
 if ($p['main_image'] != '') {
-    echo '</div>';
+    $imageOutput[] = '</div>';
 } else if ($p['image_empty_space'] == 1){
     // Display empty space instead of image, in case e.g. the background image includes some part like image
-    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'></div>';
+    $imageOutput[] = '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'></div>';
 }
 
 
-echo '<div class="phModParticlesItemFeatureBox'.$cC.'">';
+
 
 if (!empty($items)) {
 	foreach($items as $k => $v) {
@@ -144,50 +157,121 @@ if (!empty($items)) {
 		}
 
 
-        echo '<div class="phModParticlesIconBox">';
+        $columnOutput[$k][] =  '<div class="phModParticlesIconBox">';
 
         if (isset($v->item_icon_class) && $v->item_icon_class != '') {
-            echo '<div class="phModParticlesIcon" ' . $styleIcon . '>' . $linkStartIcon . '<i class="' . htmlspecialchars(strip_tags($v->item_icon_class)) . '"></i>' . $linkEnd . '</div>';
+            $columnOutput[$k][] = '<div class="phModParticlesIcon" ' . $styleIcon . '>' . $linkStartIcon . '<i class="' . htmlspecialchars(strip_tags($v->item_icon_class)) . '"></i>' . $linkEnd . '</div>';
         } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
-			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
+			$columnOutput[$k][]  = '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
 		} else if (isset($v->item_image) && $v->item_image != '') {
-			echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
+			$columnOutput[$k][] = '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
 		}
 
-        echo '</div>';
-        echo '<div class="phModParticlesDescBox">';
+        $columnOutput[$k][] = '</div>';
+        $columnOutput[$k][] =  '<div class="phModParticlesDescBox">';
 
 		if ($title != '') {
-			echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
+			$columnOutput[$k][] =  '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 		}
 		if (isset($v->item_description) && $v->item_description != '') {
-			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
+			$columnOutput[$k][] =  '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
 		}
-        echo '</div>';
+        $columnOutput[$k][] =  '</div>';
 
 
 	}
 }
 
-echo '<div class="phModParticlesIconBox"></div>';
-echo '<div class="phModParticlesDescBox">';
-// BUTTON Local (item) or GLOBAL (main)
-if ($p['main_button_title']  != '') {
-    $buttonLink = '';
-    if ($p['main_button_link']  != '') {
-        $buttonLink = $p['main_button_link'] ;
+
+if ($p['image_feature_box_size'] != 7 && $p['image_feature_box_size'] != 8) {
+
+    // 1) Standard output - one feature box and one image column
+
+    // First the image
+    echo implode("\n", $imageOutput);
+
+    // Then the feature box
+    echo '<div class="phModParticlesItemFeatureBox' . $cC . '">';
+
+    if (!empty($columnOutput)) {
+        foreach ($columnOutput as $k => $v) {
+
+            if (!empty($v)) {
+                echo implode("\n", $v);
+            }
+        }
     }
 
-    $buttonAttr = '';
-    if ($p['main_button_attributes'] != '') {
-        $buttonAttr = $p['main_button_attributes'];
+
+
+    echo '<div class="phModParticlesIconBox"></div>';
+    echo '<div class="phModParticlesDescBox">';
+    // BUTTON Local (item) or GLOBAL (main)
+    if ($p['main_button_title']  != '') {
+        $buttonLink = '';
+        if ($p['main_button_link']  != '') {
+            $buttonLink = $p['main_button_link'] ;
+        }
+
+        $buttonAttr = '';
+        if ($p['main_button_attributes'] != '') {
+            $buttonAttr = $p['main_button_attributes'];
+        }
+
+        echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+    }
+    echo '</div>'; // end phModParticlesDescBox
+
+    echo '</div>'; //  end phModParticlesItemFeatureBox
+
+
+} else {
+
+    // 2) Feature box is divided into two columns and the output is: half feature box column | image column | half feature box column
+    //    There is no more general part with button as such will be duplicated in both columns
+
+    $columnOutput2 = [];
+    if (!empty($columnOutput)) {
+        $columnOutput2 = array_chunk($columnOutput, (int)ceil(count($columnOutput) / 2));
     }
 
-    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+
+    echo '<div class="phModParticlesItemFeatureBox' . $cC . '">';
+
+    if (!empty($columnOutput2[0])) {
+        foreach ($columnOutput2[0] as $k => $v) {
+
+            if (!empty($v)) {
+                echo implode("\n", $v);
+            }
+        }
+    }
+
+    echo '</div>'; //  end phModParticlesItemFeatureBox
+
+    echo implode("\n", $imageOutput);
+
+    echo '<div class="phModParticlesItemFeatureBox' . $cC . '">';
+
+    if (!empty($columnOutput2[1])) {
+        foreach ($columnOutput2[1] as $k => $v) {
+
+            if (!empty($v)) {
+                echo implode("\n", $v);
+            }
+        }
+    }
+
+    echo '</div>'; //  end phModParticlesItemFeatureBox
+
+
+
 }
-echo '</div>'; // end phModParticlesDescBox
 
-echo '</div>'; //  end phModParticlesItemFeatureBox
+
+
+
+
 
 echo '</div>'; //  end phModParticlesItem
 

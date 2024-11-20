@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="5.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>12/06/2024</creationDate>
+	<creationDate>20/11/2024</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>5.0.6</version>
+	<version>5.0.8</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -54,6 +54,7 @@
 				<option value="image_content">MOD_PHOCAPARTICLES_IMAGE_AND_CONTENT</option>
                 <option value="image_background">MOD_PHOCAPARTICLES_IMAGE_BACKGROUND</option>
                 <option value="image_feature_box">MOD_PHOCAPARTICLES_IMAGE_FEATURE_BOX</option>
+				<option value="grid_box">MOD_PHOCAPARTICLES_GRID_BOX</option>
             </field>
 
 
@@ -91,24 +92,26 @@
 			<field name="phocahead3" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL"/>
 
 			<field name="image_content_size" type="list" default="1" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_CONTENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_CONTENT_DESC">
-                <option value="1">COM_PHOCACART_IMAGE_40_CONTENT_60</option>
-                <option value="2">COM_PHOCACART_IMAGE_50_CONTENT_50</option>
-				<option value="3">COM_PHOCACART_IMAGE_60_CONTENT_40</option>
-				<option value="4">COM_PHOCACART_CONTENT_40_IMAGE_60</option>
-                <option value="5">COM_PHOCACART_CONTENT_50_IMAGE_50</option>
-				<option value="6">COM_PHOCACART_CONTENT_60_IMAGE_40</option>
+                <option value="1">MOD_PHOCAPARTICLES_IMAGE_40_CONTENT_60</option>
+                <option value="2">MOD_PHOCAPARTICLES_IMAGE_50_CONTENT_50</option>
+				<option value="3">MOD_PHOCAPARTICLES_IMAGE_60_CONTENT_40</option>
+				<option value="4">MOD_PHOCAPARTICLES_CONTENT_40_IMAGE_60</option>
+                <option value="5">MOD_PHOCAPARTICLES_CONTENT_50_IMAGE_50</option>
+				<option value="6">MOD_PHOCAPARTICLES_CONTENT_60_IMAGE_40</option>
             </field>
 
 
             <field name="phocahead4" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL"/>
 
 			<field name="image_feature_box_size" type="list" default="1" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_BOX_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_BOX_DESC">
-                <option value="1">COM_PHOCACART_IMAGE_40_FEATURE_BOX_60</option>
-                <option value="2">COM_PHOCACART_IMAGE_50_FEATURE_BOX_50</option>
-				<option value="3">COM_PHOCACART_IMAGE_60_FEATURE_BOX_40</option>
-				<option value="4">COM_PHOCACART_FEATURE_BOX_40_IMAGE_60</option>
-                <option value="5">COM_PHOCACART_FEATURE_BOX_50_IMAGE_50</option>
-				<option value="6">COM_PHOCACART_FEATURE_BOX_60_IMAGE_40</option>
+                <option value="1">MOD_PHOCAPARTICLES_IMAGE_40_FEATURE_BOX_60</option>
+                <option value="2">MOD_PHOCAPARTICLES_IMAGE_50_FEATURE_BOX_50</option>
+				<option value="3">MOD_PHOCAPARTICLES_IMAGE_60_FEATURE_BOX_40</option>
+				<option value="4">MOD_PHOCAPARTICLES_FEATURE_BOX_40_IMAGE_60</option>
+                <option value="5">MOD_PHOCAPARTICLES_FEATURE_BOX_50_IMAGE_50</option>
+				<option value="6">MOD_PHOCAPARTICLES_FEATURE_BOX_60_IMAGE_40</option>
+				<option value="7">MOD_PHOCAPARTICLES_FEATURE_BOX_25_IMAGE_50_FEATURE_BOX_25</option>
+				<option value="8">MOD_PHOCAPARTICLES_FEATURE_BOX_35_IMAGE_30_FEATURE_BOX_35</option>
             </field>
 
 
@@ -127,6 +130,12 @@
             <field name="main_background_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_DESC"/>
 
 			<field name="main_video" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_DESC"/>
+
+			<field name="main_video_file" default="" type="media" types="videos" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_FILE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_FILE_DESC"/>
+			<field name="main_video_file_thumbnail" default="" type="media" types="images" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_FILE_THUMBNAIL_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_FILE_THUMBNAIL_DESC"/>
+
+			<field name="main_video_width" default="560" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_WIDTH_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_WIDTH_DESC"/>
+			<field name="main_video_height" default="315" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_HEIGHT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_HEIGHT_DESC"/>
 
 
             <field name="main_description" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_DESC"/>

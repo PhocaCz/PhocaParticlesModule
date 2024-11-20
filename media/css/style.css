@@ -255,6 +255,20 @@
     flex-direction: row-reverse;
 }
 
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw25,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw25 {
+    width: 25%;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw30,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw30 {
+    width: 30%;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw35,
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw35 {
+    width: 35%;
+}
 
 .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw40,
 .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
@@ -270,6 +284,22 @@
 }
 
 @media only screen and (max-width: 768px) {
+
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw25,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw25 {
+        width: 100%;
+    }
+
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw30,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw30 {
+        width: 100%;
+    }
+
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw35,
+    .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw35 {
+        width: 100%;
+    }
+
     .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemImage.pmpw40,
     .phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
         width: 100%;
@@ -598,4 +628,85 @@
 .phParticlesImageRowThemeProducts .phModParticlesItem.dark .phModParticlesItemInnerBox {
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(25,25,25,1) 100%);
+}
+
+
+/* Grid */
+.phModParticlesGridBoxBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItem.pmpw50 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50 {
+    width: 50%;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox.pmpw100 {
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesGridBoxBox .phModParticlesItem.pmpw50,
+    .phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50 {
+        width: 100%;
+    }
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox {
+    padding: 1em;
+    border: 5px solid transparent;
+    box-sizing: border-box;
+    background-clip: padding-box;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItem .phModParticlesItemRow {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.phModParticlesGridBoxBox .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesGridBoxBox .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesGridBoxBox .phModParticlesTitle {
+	font-size: 150%;
+	/*flex-grow: 1;*/
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesGridBoxBox .phModParticlesDesc {
+	margin-top: 1em;
+}
+
+.phModParticlesGridBoxBox .phModPrticlesBackgroundImage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox .phModParticlesButtonBox {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 2vw;
+    color: #fff;
+    background: #000;
+    border-radius: 3px;
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
 }

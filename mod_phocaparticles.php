@@ -46,6 +46,10 @@ $p['main_icon_class'] 		= $params->get( 'main_icon_class', '');
 $p['main_image_svg'] 		= $params->get( 'main_image_svg', '');
 $p['main_image'] 			= $params->get( 'main_image', '');
 $p['main_video']            = $params->get( 'main_video', '');
+$p['main_video_file']            = $params->get( 'main_video_file', '');
+$p['main_video_file_thumbnail']            = $params->get( 'main_video_file_thumbnail', '');
+$p['main_video_width']            = $params->get( 'main_video_width', '560');
+$p['main_video_height']            = $params->get( 'main_video_height', '315');
 $p['image_empty_space']     = $params->get( 'image_empty_space', 0);
 $p['main_description'] 		= $params->get( 'main_description', '');
 $p['main_link'] 			= $params->get( 'main_link', '');
@@ -216,8 +220,6 @@ if ($p['custom_css'] != '') {
     $p['custom_css'] = str_replace('{moduleclass}', '.'.$idClass, $p['custom_css']);
 	$document->addStyledeclaration($p['custom_css']);
 }
-
-
 
 require(ModuleHelper::getLayoutPath('mod_phocaparticles', $p['type'] ));
 ?>
