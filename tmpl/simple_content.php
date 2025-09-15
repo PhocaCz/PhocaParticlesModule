@@ -33,7 +33,7 @@ $styleIcon  = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_col
 $styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
 
 
-echo '<div class="phModParticlesImageBackground">';
+echo '<div class="phModParticlesSimpleContent">';
 echo '<div class="phModParticlesItem">';
 
 // LINK Local (item) or GLOBAL (main)
@@ -90,22 +90,13 @@ if ($p['main_title'] != '') {
     echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 }
 
-// IMAGE Local (item) or GLOBAL (main)
-if ($p['main_image'] != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
-} else if (isset($items[0]->item_image) && $items[0]->item_image != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
-}
-
 // DESC Local (item) or GLOBAL (main)
+// CONTENT Local (item) or GLOBAL (main)
 if ($p['main_description'] != '') {
     echo '<div class="phModParticlesDesc">'.$p['main_description'].'</div>';
 } else if (isset($items[0]->item_description) && $items[0]->item_description != '') {
     echo '<div class="phModParticlesDesc">'.$items[0]->item_description.'</div>';
-}
-
-// CONTENT Local (item) or GLOBAL (main)
-if ($p['main_content'] != '') {
+} else if ($p['main_content'] != '') {
     echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $p['main_content']).'</div>';
 } else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
     echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $items[0]->item_content).'</div>';
@@ -138,8 +129,19 @@ if ($p['main_button_title']  != '') {
     echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
 }
 
+// IMAGE Local (item) or GLOBAL (main)
+if ($p['main_image'] != '') {
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
+} else if (isset($items[0]->item_image) && $items[0]->item_image != '') {
+    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
+}
+
+
 
 echo '</div>';
+
+echo '<div class="phModParticlesFooter" '.$styleIcon.'></div>';
+
 echo '</div>';
 
 if ($p['main_bottom_code'] != '') {

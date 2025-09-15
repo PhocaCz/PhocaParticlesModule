@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="5.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>22/06/2025</creationDate>
+	<creationDate>14/09/2025</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>5.1.0</version>
+	<version>5.1.2</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -55,6 +55,9 @@
                 <option value="image_background">MOD_PHOCAPARTICLES_IMAGE_BACKGROUND</option>
                 <option value="image_feature_box">MOD_PHOCAPARTICLES_IMAGE_FEATURE_BOX</option>
 				<option value="grid_box">MOD_PHOCAPARTICLES_GRID_BOX</option>
+				<option value="simple_content">MOD_PHOCAPARTICLES_SIMPLE_CONTENT</option>
+				<option value="comparison_table">MOD_PHOCAPARTICLES_COMPARISON_TABLE</option>
+				<option value="simple_button">MOD_PHOCAPARTICLES_SIMPLE_BUTTON_TABLE</option>
             </field>
 
 
@@ -78,6 +81,7 @@
 
 
             <field name="custom_css" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_DESC"/>
+				<field name="button_css" default="btn btn-primary" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_BUTTON_CSS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BUTTON_CSS_LABEL"/>
 
 			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL"/>
 

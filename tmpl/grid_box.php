@@ -181,7 +181,7 @@ if (!empty($items)) {
                 $buttonAttr = $v->button_attributes;
             }
 
-            $itemO[$k][] = '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
+            $itemO[$k][] = '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
         }
 
 
@@ -279,7 +279,7 @@ if ($p['main_button_title']  != '') {
         $buttonAttr = $p['main_button_attributes'];
     }
 
-    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
 }
 echo '</div>'; // end phModParticlesDescBox
 */

@@ -75,6 +75,7 @@ $p['image_content_size'] 	= $params->get( 'image_content_size', 1);
 
 
 $p['custom_css'] 			= $params->get( 'custom_css', '');
+$p['button_css'] 			= htmlspecialchars($params->get( 'button_css', 'btn btn-primary'));
 
 
 $view 						= $app->input->get('view', '');
@@ -161,18 +162,21 @@ $id = 'ph-mod-phoca-particles-'.$moduleId;
 $idClass = 'phModParticle'.$moduleId;
 $idJs = 'pS'.$moduleId;
 
+// Main Background Image
+$styleType = str_replace('_', ' ', $p['type']);
+$styleType = ucwords($styleType);
+$styleType = $styleTypeClass = str_replace(' ', '', $styleType);
+//$styleType = '.phModParticles'.htmlspecialchars($styleType);
+$styleType = '.'.$idClass.' .phModParticles'.htmlspecialchars($styleType);
+
 $classA = [];
 $classA[] = 'phModParticles';
+$classA[] = 'phModParticles'. htmlspecialchars($styleTypeClass) . 'Container';
 $classA[] = $idClass;
 $classA[] = $moduleclass_sfx;
 $class    = trim(implode(' ', $classA));
 
-// Main Background Image
-$styleType = str_replace('_', ' ', $p['type']);
-$styleType = ucwords($styleType);
-$styleType = str_replace(' ', '', $styleType);
-//$styleType = '.phModParticles'.htmlspecialchars($styleType);
-$styleType = '.'.$idClass.' .phModParticles'.htmlspecialchars($styleType);
+
 
 
 // Background Image

@@ -242,6 +242,11 @@
 }
 
 
+.phModParticlesImageContent .phModParticlesItemImage .phModParticlesSvg {
+    margin: 3em;
+}
+
+
 /* Image FeatureBox */
 .phModParticlesImageFeatureBox .phModParticlesItem {
     display: flex;
@@ -430,8 +435,8 @@
 .phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
 .phModParticlesImageBackground .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
     font-size: 2vw;
-    color: #000;
-    background: #fff;
+   /* color: #000;
+    background: #fff;*/
     border-radius: 3px;
     padding: 1.5vw;
     margin: 0 auto;
@@ -470,7 +475,145 @@
 }
 
 
+/* SimpleContent */
+.phModParticlesSimpleContent {
+}
+
+.phModParticlesSimpleContent .phModParticlesItem {
+    padding: 1em;
+    padding-bottom: 2em;
+}
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesTitle,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesDesc,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesContent,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox {
+    line-height: 1;
+}
+
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesTitle {
+    margin: auto;
+    margin-top: 4vw;
+    font-size: 5vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesImage {
+    margin: auto;
+    margin-top: 3vw;
+    text-align: center;
+}
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesContent {
+
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesDesc {
+    margin: auto;
+    margin-top: 1vw;
+    font-size: 1.6vw;
+    text-align: center;
+    font-weight: normal;
+
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox {
+    margin-top: 3vw;
+    text-align: center;
+    padding: 1%;
+}
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
+    font-size: 2vw;
+    /*color: #fff;
+    background: #000;
+    border-radius: 3px;*/
+    padding: 1vw 3vw;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+[data-bs-theme="dark"]{
+    .phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
+    .phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
+       /* color: #000;
+        background: #fff;*/
+    }
+}
+
+/* Comparison Table */
+.phModParticlesComparisonTable {
+   /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px;
+    max-width: 960px;
+    margin: 0 auto 30px;*/
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*align-items: center; no equal height */
+    align-content: center;
+    width: 100%;
+    padding: 1em 5em;
+}
+
+
+.phModParticlesComparisonTable .phModParticlesItem {
+    position: relative;
+    padding: 1em;
+    padding-bottom: 1em;
+    margin: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesContent {
+    text-align: justify;
+}
+
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesButtonBox {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+
+.phModParticlesComparisonTable .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesComparisonTable .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesComparisonTable .phModParticlesTitle {
+	font-size: 150%;
+	/*flex-grow: 1;*/
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesComparisonTable .phModParticlesDesc {
+	margin-top: 1em;
+}
+
+.phModParticlesComparisonTable .phModParticlesContent {
+    margin: 1em;
+    height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    flex: 1;
+}
+
+
 /* General */
+.phModParticles {
+    width: 100%;
+}
 .phModParticlesIcon a,
 .phModParticlesIcon a:hover,
 .phModParticlesTitle,
@@ -538,14 +681,16 @@
     margin: 0 auto;
 }
 
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesButtonBox .phModParticlesButton,
 .phModParticlesItemFeatureBox .phModParticlesButtonBox .phModParticlesButton,
 .phModParticlesImageContent .phModParticlesItemContent .phModParticlesButtonBox .phModParticlesButton {
     font-size: 2vw;
-    color: #fff;
+    /*color: #fff;
     background: #000;
-    border-radius: 3px;
+    border-radius: 3px;*/
     padding: 0.8vw 1.2vw;
     margin: 0 auto;
+    text-decoration: none;
 }
 
 .phModParticlesImageFeatureBox .phModParticlesItemTitle,
@@ -703,8 +848,8 @@
 
 .phModParticlesGridBoxBox .phModParticlesItemBox .phModParticlesButtonBox .phModParticlesButton {
     font-size: 2vw;
-    color: #fff;
-    background: #000;
+   /* color: #fff;
+    background: #000;*/
     border-radius: 3px;
     padding: 0.8vw 1.2vw;
     margin: 0 auto;

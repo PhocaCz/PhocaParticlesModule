@@ -204,10 +204,13 @@ if ($p['image_feature_box_size'] != 7 && $p['image_feature_box_size'] != 8) {
 
 
 
-    echo '<div class="phModParticlesIconBox"></div>';
-    echo '<div class="phModParticlesDescBox">';
+
     // BUTTON Local (item) or GLOBAL (main)
     if ($p['main_button_title']  != '') {
+
+        echo '<div class="phModParticlesIconBox"></div>';
+        echo '<div class="phModParticlesDescBox">';
+
         $buttonLink = '';
         if ($p['main_button_link']  != '') {
             $buttonLink = $p['main_button_link'] ;
@@ -218,9 +221,11 @@ if ($p['image_feature_box_size'] != 7 && $p['image_feature_box_size'] != 8) {
             $buttonAttr = $p['main_button_attributes'];
         }
 
-        echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+        echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+
+        echo '</div>'; // end phModParticlesDescBox
     }
-    echo '</div>'; // end phModParticlesDescBox
+
 
     echo '</div>'; //  end phModParticlesItemFeatureBox
 

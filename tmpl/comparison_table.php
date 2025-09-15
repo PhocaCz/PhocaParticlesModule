@@ -24,7 +24,7 @@ if (!empty($items)) {
         echo $p['main_top_code'];
     }
 
-	echo '<div class="phModParticlesFeatureBox">';
+	echo '<div class="phModParticlesComparisonTable">';
 
 	$styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
 	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
@@ -45,7 +45,7 @@ if (!empty($items)) {
             $boxItemClass = ' ' . htmlspecialchars($v->item_class);
         }
 
-        echo '<div class="phModParticlesItem'.$boxItemClass.'">';
+        echo '<div class="card phModParticlesItem'.$boxItemClass.'">';
 
 		$linkStartIcon = '';
 		$linkStartTitle = '';
@@ -74,12 +74,29 @@ if (!empty($items)) {
 		if ($title != '') {
 			echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
 		}
+
 		if (isset($v->item_description) && $v->item_description != '') {
 			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
+		} else if (isset($v->item_content) && $v->item_content != '') {
+            echo '<div class="phModParticlesContent">'.$v->item_content.'</div>';
+        }
+
+        if (isset($v->item_button_title) && $v->item_button_title != '') {
+			$buttonLink = '';
+			if (isset($v->item_button_link) && $v->item_button_link != '') {
+				$buttonLink = $v->item_button_link;
+			}
+
+			$buttonAttr = '';
+			if (isset($v->item_button_attributes) && $v->item_button_attributes != '') {
+				$buttonAttr = $v->item_button_attributes;
+			}
+
+			echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->item_button_title.'</a></div>';
 		}
 
 
-		if (isset($v->button_title) && $v->button_title != '') {
+		/*if (isset($v->button_title) && $v->button_title != '') {
 			$buttonLink = '';
 			if (isset($v->button_link) && $v->button_link != '') {
 				$buttonLink = $v->button_link;
@@ -91,7 +108,7 @@ if (!empty($items)) {
 			}
 
 			echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
-		}
+		}*/
 
 
 		echo '</div>';

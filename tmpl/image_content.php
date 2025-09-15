@@ -100,6 +100,8 @@ echo '<div class="phModParticlesItem'.$boxWidthClass.$flexClass.'">';
 
 if ($p['main_image'] != '') {
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
+} else if ($p['main_image_svg'] != '') {
+    echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'><div class="phModParticlesSvg">'. $linkStartIcon .$p['main_image_svg']. $linkEnd .'</div>';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != ''){
     echo '<div class="phModParticlesItemImage'.$iC.'" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'';
 } else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
@@ -137,6 +139,8 @@ if ($p['main_price'] != '') {
 // CLOSE IMAGE BLOCK
 if ($p['main_image'] != '') {
     echo '</div>';
+} else if ($p['main_image_svg'] != ''){
+    echo '</div>';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != ''){
     echo '</div>';
 } else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != ''){
@@ -166,9 +170,9 @@ if ($p['main_title'] != '') {
 
 
 if ($p['main_content'] != '') {
-    echo HTMLHelper::_('content.prepare', $p['main_content']).'';
+    echo '<div class="phModParticlesItemContentIn">'. HTMLHelper::_('content.prepare', $p['main_content']).'</div>';
 } else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
-    echo HTMLHelper::_('content.prepare', $items[0]->item_content) . '';
+    echo '<div class="phModParticlesItemContentIn">'. HTMLHelper::_('content.prepare', $items[0]->item_content) . '</div>';
 }
 
 // BUTTON Local (item) or GLOBAL (main)
@@ -183,7 +187,7 @@ if ($p['main_button_title']  != '') {
         $buttonAttr = $p['main_button_attributes'];
     }
 
-    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
 } else if (isset($items[0]->button_title) && $items[0]->button_title != '') {
     $buttonLink = '';
     if (isset($items[0]->button_link) && $items[0]->button_link != '') {
@@ -195,7 +199,7 @@ if ($p['main_button_title']  != '') {
         $buttonAttr = $items[0]->button_attributes;
     }
 
-    echo '<div class="phModParticlesButtonBox"><a class="phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
+    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
 }
 
 
