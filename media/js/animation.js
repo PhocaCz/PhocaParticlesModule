@@ -462,8 +462,8 @@
         };
     }
 
-    phRegister("phAnimStepGrow", createStepShrinkEffect(1, 1.4, 0.4));
-    phRegister("phAnimStepShrink", createStepShrinkEffect(1, 0.6, 0.4));
+    phRegister("phAnimStepGrow", createStepShrinkEffect(1, 1.25, 0.4));
+    phRegister("phAnimStepShrink", createStepShrinkEffect(1, 0.75, 0.4));
 
 
     /* ------------------------------------------------------------

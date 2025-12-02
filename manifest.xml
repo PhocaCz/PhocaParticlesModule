@@ -69,7 +69,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/6.0.1/mod_phocaparticles_v6.0.1.zip</downloadurl>
 		</downloads>
-		<sha512>52243a78434ce4f16e6d22dbbfdb0c4404698f62a0bc959d6450d0bb9c0b491beccc6a44095973f60288e087c58b616b46f33b1a98484f13fb7d5df31d8092c1</sha512>
+		<sha512>a2df97d1d476c039515b3b2ff7b562abb2d1cf129d50df2220cbfd0735df774becb2f998d816e7c72e167231abb7b0ca34b8874cb164912a78487b4848c6fdba</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>

@@ -404,6 +404,7 @@ html.scrolling [style*="background-attachment: fixed"] {
     animation: slideInRightFade 0.9s ease-out forwards;
 }
 
+.phAnimPulseIn,
 .phAnimStepGrow,
 .phAnimStepShrink {
     display: inline-block;       /* no scroll while scale */
