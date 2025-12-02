@@ -12,86 +12,62 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Uri\Uri;
+use Joomla\Module\PhocaParticles\Site\Helper\PhocaParticlesHelper;
 
 if (!empty($items)) {
-	echo '<div class="'.$class .'" id="'. $id .'">';
+    echo '<div class="'.$class .'" id="'. $id .'">';
 
-	if ($p['description_top'] != '') {
-		echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
-	}
+    echo ($p['description_top'] != '') ? '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>' : '';
 
-    if ($p['main_top_code'] != '') {
-        echo $p['main_top_code'];
-    }
+    // Main Top Code
+    echo $p['main_top_code'] ?? '';
 
-	echo '<div class="phModParticlesImageRow">';
+    // Main Title
+    echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
 
-	$styleIcon = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
-	$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
-	$boxWidthClass = ' pmpw'.$p['image_row_box_size'];
+    // Main Description
+    echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
 
+    echo '<div class="phModParticlesImageRow">';
 
 
-	foreach($items as $k => $v) {
+    foreach($items as $k => $v) {
 
-        $title = '';
-        $titleAlt= '';
-        if (isset($v->item_title) && $v->item_title != '') {
-            $title = $v->item_title;
-            $titleAlt = htmlspecialchars($title);
-        }
+        $titleObject    = PhocaParticlesHelper::getTitleObject($v);
+        $linkObject     = PhocaParticlesHelper::getLinkObject($v, $p, $titleObject);
+        $boxItemClass   = (($v->item_class ?? '') !== '') ? ' ' . htmlspecialchars($v->item_class) : '';
+        $titlePrefix    = (($v->item_title_prefix ?? '') !== '') ? '<span class="phModParticlesTitlePrefix">' . htmlspecialchars($v->item_title_prefix) . '</span>' : '';
+        $titleSuffix    = (($v->item_title_suffix ?? '') !== '') ? '<span class="phModParticlesTitleSuffix">' . htmlspecialchars($v->item_title_suffix) . '</span>' : '';
 
-        $boxItemClass = '';
-        if (isset($v->item_class) && $v->item_class != '') {
-            $boxItemClass = ' ' . htmlspecialchars($v->item_class);
-        }
-
-        echo '<div class="phModParticlesItem'.$boxWidthClass.$boxItemClass.'">';
+        echo '<div class="phModParticlesItem'.$p['box_width_class'].$boxItemClass.'">';
         echo '<div class="phModParticlesItemInnerBox">';
 
-		$linkStartIcon = '';
-		$linkStartTitle = '';
-		$linkEnd = '';
-        $linkAttr = '';
-
-        if (isset($v->item_link_attributes) && $v->item_link_attributes != '') {
-            $linkAttr = ' '.$v->item_link_attributes;
+        if (($v->item_icon_class ?? '') !== '') {
+             echo '<div class="phModParticlesIcon" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<i class="'.htmlspecialchars(strip_tags($v->item_icon_class)).'"></i>'. $linkObject['end'] .'</div>';
+        } else if (($v->item_image_svg ?? '') !== '') {
+             echo '<div class="phModParticlesSvg" '.$p['style_icon'].'>'. $linkObject['starticon'] .$v->item_image_svg. $linkObject['end'] .'</div>';
+        } else if (($v->item_image ?? '') !== '') {
+             echo '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img'.PhocaParticlesHelper::completeValueAttribute($p['item_image_animation'] ).' src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleObject['alt'].'" />'. $linkObject['end'] .'</div>';
         }
-		if (isset($v->item_link) && $v->item_link != '') {
-			$linkStartIcon = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
-			$linkStartTitle = '<a href="'.htmlspecialchars($v->item_link).'"'.$styleTitle.$linkAttr.'>';
-			$linkEnd = '</a>';
-		}
 
-		if (isset($v->item_icon_class) && $v->item_icon_class != '') {
-			echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($v->item_icon_class)).'"></i>'. $linkEnd .'</div>';
-        } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
-			echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$v->item_image_svg. $linkEnd .'</div>';
-		} else if (isset($v->item_image) && $v->item_image != '') {
-			echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleAlt.'" />'. $linkEnd .'</div>';
-		}
-		if ($title != '') {
-			echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
-		}
-		if (isset($v->item_description) && $v->item_description != '') {
-			echo '<div class="phModParticlesDesc">'.$v->item_description.'</div>';
-		}
-		echo '</div>';
+        echo ($titleObject['title'] != '') ? '<div class="phModParticlesTitle" ' . $p['style_title'] . '>' . $linkObject['starttitle'] . $titlePrefix . PhocaParticlesHelper::completeValueContent($titleObject['title'], $p['item_title_animation']) . $titleSuffix . $linkObject['end'] . '</div>' : '';
+
+        echo (($v->item_description ?? '') !== '') ? '<div class="phModParticlesDesc">' . PhocaParticlesHelper::completeValueContent($v->item_description, $p['item_description_animation']) . '</div>' : '';
+
         echo '</div>';
-	}
-
-
-	echo '</div>';
-
-
-    if ($p['main_bottom_code'] != '') {
-        echo $p['main_bottom_code'];
+        echo '</div>';
     }
 
-	if ($p['description_bottom'] != '') {
-		echo '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>';
-	}
 
-	echo '</div>';
+    echo '</div>';
+
+
+    // Main Bottom Code
+    echo $p['main_bottom_code'] ?? '';
+
+    // Description Bottom
+    echo ($p['description_bottom'] != '') ? '<div class="phModParticlesDescBottom">'.HTMLHelper::_('content.prepare', $p['description_bottom']).'</div>' : '';
+
+    echo '</div>';
 }
 

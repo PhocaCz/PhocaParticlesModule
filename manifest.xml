@@ -29,6 +29,7 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/4.1.1/mod_phocaparticles_v4.1.1.zip</downloadurl>
 		</downloads>
+		<sha512>3d758f95e73299c5d031a46164706b6741ebaa09e41cb06cd98b48dd3afcf3aa24c3ec2ea4593829aba3ee351e82d35eec7817afe4cc4105b066251069c9c49c</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
@@ -56,6 +57,26 @@
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
 		<targetplatform name="joomla" version="5\.*"/>
+		<client>site</client>
+	</update>
+	<update>
+		<name><![CDATA[ Phoca Particles Module ]]></name>
+		<description><![CDATA[ Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts in module instances or articles. ]]></description>
+		<element>mod_phocaparticles</element>
+		<type>module</type>
+		<version>6.0.1</version>
+		<infourl title="Phoca Particles Module 6.0.1">https://www.phoca.cz/</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/6.0.1/mod_phocaparticles_v6.0.1.zip</downloadurl>
+		</downloads>
+		<sha512>52243a78434ce4f16e6d22dbbfdb0c4404698f62a0bc959d6450d0bb9c0b491beccc6a44095973f60288e087c58b616b46f33b1a98484f13fb7d5df31d8092c1</sha512>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
+		<maintainerurl>https://www.phoca.cz/</maintainerurl>
+		<section>Updates</section>
+		<targetplatform name="joomla" version="(5|6)\.*"/>
 		<client>site</client>
 	</update>
 </updates>

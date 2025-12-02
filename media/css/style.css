@@ -47,6 +47,12 @@
 }
 
 
+@media only screen and (max-width: 768px) {
+    .phModParticlesFeatureBox .phModParticlesItem {
+        width: 100%;
+    }
+}
+
 
 /* Feature Row */
 .phModParticlesFeatureRow {
@@ -221,7 +227,7 @@
     .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent,
     .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
     .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
-        padding: 3%;
+        padding: 5% 3%;
     }
 }
 
@@ -382,7 +388,307 @@
     margin-bottom: 1em;
 }
 
+/* Content Feature Box */
+.phModParticlesContentFeatureBox .phModParticlesItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
 
+}
+.phModParticlesContentFeatureBox .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw25,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw25 {
+    width: 25%;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw30,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw30 {
+    width: 30%;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw35,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw35 {
+    width: 35%;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw40,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
+    width: 40%;
+}
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw50,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw50 {
+    width: 50%;
+}
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw60,
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw60 {
+    width: 60%
+}
+
+@media only screen and (max-width: 768px) {
+
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw25,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw25 {
+        width: 100%;
+    }
+
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw30,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw30 {
+        width: 100%;
+    }
+
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw35,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw35 {
+        width: 100%;
+    }
+
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw40,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw40 {
+        width: 100%;
+    }
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw50,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw50 {
+        width: 100%;
+    }
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw60,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox.pmpw60 {
+        width: 100%
+    }
+}
+
+.phModParticlesItemContent.pmpw40,
+.phModParticlesItemContent.pmpw40,
+.phModParticlesItemContent.pmpw40 {
+    display: flex;
+    align-items: center;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox {
+    padding: 0;
+    padding-left: 3em;
+}
+.phModParticlesContentFeatureBox .phModParticlesItem.pmpReverse .phModParticlesItemFeatureBox {
+    padding: 0;
+    padding-right: 2em;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox {
+    position: relative;
+    padding: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox .phModParticlesIconBox {
+    width: 25%;
+    text-align: right;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemFeatureBox .phModParticlesDescBox {
+   width: 75%;
+   text-align: left;
+   padding: 0 0 0 1em;
+}
+
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesSvg svg {
+    height: 5em;
+}
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesImage img {
+    height: 5em;
+    width: auto;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesTitle {
+	font-size: 150%;
+	/*flex-grow: 1;*/
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesDesc {
+	margin-top: 0;
+    margin-bottom: 1em;
+}
+
+
+
+/* Content Feature Accordion, Image Feature Accordion */
+.phModParticlesAccordion {
+    width: 100%;
+    padding: 1em;
+}
+
+.phModParticlesAccordionItem {
+    border-bottom: 1px solid #ddd;
+}
+
+.phModParticlesAccordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.2rem;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.phModParticlesAccordionHeaderIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    fill: none;
+    stroke: #777;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.phModParticlesAccordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.phModParticlesAccordionContent > :last-child {
+    padding-bottom: 1em;
+}
+
+.phModParticlesAccordionItem.active .phModParticlesAccordionHeaderIcon {
+    transform: rotate(180deg);
+    stroke: #000;
+}
+
+.phModParticlesAccordionItem.active .phModParticlesAccordionHeader {
+    color: #000;
+}
+
+.phModParticlesAccordionContent,
+.phModParticlesAccordionImage {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 300ms ease;
+}
+
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem,
+.phModParticlesContentFeatureAccordion .phModParticlesItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem.pmpReverse,
+.phModParticlesContentFeatureAccordion .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+/*
+.phModParticlesItemContent,
+.phModParticlesItemFeatureAccordion {
+    flex-grow: 1;
+}*/
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw40,
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw40,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw40,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw40 {
+    width: 40%;
+
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw50,
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw50,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw50,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw50 {
+    width: 50%;
+
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw60,
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw60,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw60,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw60 {
+    width: 60%
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw40,
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw40,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw40,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw40 {
+        width: 100%;
+    }
+
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw50,
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw50,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw50,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw50 {
+        width: 100%;
+    }
+
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage.pmpw60,
+    .phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw60,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw60,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion.pmpw60 {
+        width: 100%
+    }
+}
+
+
+
+.phModParticlesItemFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion,
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion {
+    padding: 0 2em;
+}
+
+.phModParticlesItemFeatureAccordion .phModParticlesItem.pmpReverse .phModParticlesItemFeatureAccordion
+.phModParticlesContentFeatureAccordion .phModParticlesItem.pmpReverse .phModParticlesItemFeatureAccordion {
+    padding: 0 2em;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemFeatureAccordion {
+    position: relative;
+    padding: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem .phModParticlesItemImage img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    display: block;
+}
 
 /* Image Background */
 .phModParticlesImageBackground {}
@@ -416,7 +722,7 @@
 .phModParticlesImageBackground .phModParticlesItem .phModParticlesContent {
     margin-top: 5%;
 }
-    
+
 .phModParticlesImageBackground .phModParticlesItem .phModParticlesDesc {
     margin: auto;
     margin-top: 5%;
@@ -441,34 +747,34 @@
     padding: 1.5vw;
     margin: 0 auto;
     text-transform: uppercase;
-}    
+}
 
 :root {
     --ibheight: 100vh;
     /* minus e.g. menu */
     /*--ibheight: calc(100vh - 200px);*/
 }
-@media (max-width: 576px) {  
+@media (max-width: 576px) {
     .phModParticlesImageBackground {
         min-height: calc(var(--ibheight) / 3);
     }
 }
-@media (min-width: 576px) {  
+@media (min-width: 576px) {
     .phModParticlesImageBackground {
         min-height: calc(var(--ibheight) / 2);
     }
 }
-@media (min-width: 768px) {  
+@media (min-width: 768px) {
     .phModParticlesImageBackground {
         min-height: calc(var(--ibheight) / 1.5);
     }
 }
-@media (min-width: 972px) { 
+@media (min-width: 972px) {
     .phModParticlesImageBackground {
         min-height: var(--ibheight);
     }
 }
-@media (min-width: 1200px) {  
+@media (min-width: 1200px) {
     .phModParticlesImageBackground {
         min-height: var(--ibheight);
     }
@@ -512,6 +818,7 @@
     margin: auto;
     margin-top: 1vw;
     font-size: 1.6vw;
+    font-size: clamp(1rem, 1.6vw, 2rem);
     text-align: center;
     font-weight: normal;
 
@@ -525,6 +832,7 @@
 .phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
 .phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
     font-size: 2vw;
+    font-size: clamp(1.2rem, 2vw, 3rem);
     /*color: #fff;
     background: #000;
     border-radius: 3px;*/
@@ -777,9 +1085,25 @@
 
 
 /* Grid */
+
+
 .phModParticlesGridBoxBox {
     display: flex;
     flex-wrap: wrap;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.phModParticlesGridBoxBox.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItem {
+    flex-basis: calc(50% - 0.5em);
+    flex-grow: 0;
+    flex-shrink: 0;
+        column-gap: 1em;
+    row-gap: 1em;
 }
 
 .phModParticlesGridBoxBox .phModParticlesItem.pmpw50 {
@@ -795,16 +1119,9 @@
     width: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-    .phModParticlesGridBoxBox .phModParticlesItem.pmpw50,
-    .phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50 {
-        width: 100%;
-    }
-}
 
 .phModParticlesGridBoxBox .phModParticlesItemBox {
-    padding: 1em;
-    border: 5px solid transparent;
+    padding: 1.5em;
     box-sizing: border-box;
     background-clip: padding-box;
 }
@@ -813,6 +1130,32 @@
     display: flex;
     flex-wrap: wrap;
     height: 100%;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50 {
+    flex-basis: calc(50% - 0.5em);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItemBox.pmpw100 {
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesGridBoxBox .phModParticlesItem.pmpw50,
+    .phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50 {
+        width: 100%;
+    }
+
+    .phModParticlesGridBoxBox .phModParticlesItemBox.pmpw50,
+    .phModParticlesGridBoxBox .phModParticlesItem {
+        flex-basis: 100%;
+    }
 }
 
 .phModParticlesGridBoxBox .phModParticlesIcon {
@@ -824,8 +1167,7 @@
 
 .phModParticlesGridBoxBox .phModParticlesTitle {
 	font-size: 150%;
-	/*flex-grow: 1;*/
-    margin-top: 0em;
+    margin-top: 0;
     font-weight: bold;
 }
 
@@ -833,7 +1175,7 @@
 	margin-top: 1em;
 }
 
-.phModParticlesGridBoxBox .phModPrticlesBackgroundImage {
+.phModParticlesGridBoxBox .phModParticlesBackgroundImage {
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
@@ -848,10 +1190,201 @@
 
 .phModParticlesGridBoxBox .phModParticlesItemBox .phModParticlesButtonBox .phModParticlesButton {
     font-size: 2vw;
-   /* color: #fff;
-    background: #000;*/
     border-radius: 3px;
     padding: 0.8vw 1.2vw;
     margin: 0 auto;
     text-decoration: none;
 }
+
+.phModParticlesGridBoxBox .phModParticlesItem .phModParticlesItemRow .phModParticlesItemBox {
+    border-radius: 10px;
+    padding: 1.5em;
+}
+
+.phModParticlesGridBoxBox .phModParticlesItem .phModParticlesItemRow .phModParticlesItemBox {
+    background-color: #f0f0f0;
+}
+
+/* Grid - Subtype: Column*/
+
+.phModParticlesGridBoxBox.phGridBoxColumn {
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.phModParticlesGridBoxBox.phGridBoxColumn .phModParticlesItem:nth-child(2) {
+    flex-direction: row;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.phModParticlesGridBoxBox.phGridBoxColumn .phModParticlesItem .phModParticlesItemRow {
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .phModParticlesGridBoxBox.phGridBoxColumn {
+        flex-direction: column;
+    }
+
+    .phModParticlesGridBoxBox.phGridBoxColumn .phModParticlesItem:nth-child(2) {
+        flex-direction: column;
+    }
+}
+
+.phModParticlesGridBoxBox.phGridBoxColumn .phModParticlesItem:nth-child(2) .phModParticlesItemRow {
+    flex: 1;
+}
+
+.phModParticlesGridBoxBox.phGridBoxColumn .phModParticlesItem:nth-child(2) .phModParticlesItemRow .phModParticlesItemBox.pmpw50 {
+    width: 100%;
+    flex-basis: auto;
+}
+
+
+/* Specific classes */
+.phFontColorDark,
+.phFontColorDark a:not(.btn):not(.dropdown-item) {
+    color: #000;
+}
+
+
+.phFontColorLight,
+.phFontColorLight a:not(.btn):not(.dropdown-item) {
+    color: #fff;
+}
+
+.phModParticlesTitlePrefix,
+.phModParticlesTitleSuffix {
+    display: inline;
+}
+
+
+.phModParticlesContentFeatureAccordionContainer .phModParticlesItemTitle,
+.phModParticlesContentFeatureBoxContainer .phModParticlesItemTitle,
+.phModParticlesFeatureBoxContainer .phModParticlesItemTitle {
+    font-weight: 900;
+    font-size: 240%;
+    text-align: center;
+}
+
+.phModParticlesContentFeatureAccordionContainer .phModParticlesItemDesc,
+.phModParticlesContentFeatureBoxContainer .phModParticlesItemDesc,
+.phModParticlesFeatureBoxContainer .phModParticlesItemDesc {
+    text-align: center;
+}
+
+/* Because of possible map */
+.phModParticlesItemContentIn {
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+
+/* Image Rotate */
+.phModParticlesImageRotate {
+    position: relative;
+    height: 300vh;
+    width: 100%;
+}
+/*
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageRotate {
+        height: 300vh;
+    }
+}
+*/
+.phModParticlesImageRotateStage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.phModParticlesImageRotateTextOverlay {
+    text-align: center;
+    padding: 1em;
+    max-width: 90%;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 35;
+    position:absolute;
+    top: 6em;
+}
+
+.phModParticlesImageRotateTextOverlayTitle {
+    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 0.25em;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.phModParticlesImageRotateTextOverlayDesc {
+    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.6vw, 1.6rem);
+}
+
+.phModParticlesImageRotateTextOverlaySuffix {
+    text-align: center;
+    max-width: 90%;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 35;
+    position:absolute;
+    bottom: 11em;
+    right: 7em;
+}
+
+.phModParticlesImageRotateTextOverlayTitleSuffix {
+    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 0.25em;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/*
+.phModParticlesImageRotateTextOverlayTitleSuffix > div {
+    padding: 0.25em 1em;
+    border-radius: 0;
+    color: #fff;
+    font-weight: bold;
+    background: #cbccbc;
+}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-1 { background: #946ba5;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-2 { background: #a5935c;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-3 { background: #97a59d;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-4 { background: #a5797a;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-5 { background: #a5a376;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-6 { background: #B22222;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-7 { background: #445680;}
+.phModParticlesImageRotateTextOverlayTitleSuffix .item-8 { background: #af41ad;}
+*/
+
+.phModParticlesImageRotateStack {
+    display: grid;
+    position: relative;
+    width: 70vw;
+    max-width: 70vw;
+    /*width: 100%;*/
+}
+
+.phModParticlesImageRotateFrame{
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.phModParticlesImageRotateFrame.active {
+    opacity: 1;
+}
+

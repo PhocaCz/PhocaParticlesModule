@@ -84,21 +84,32 @@ Factory::getDocument()->addStyleDeclaration('
         flex-wrap: wrap;
         flex: 1;
     }
-    .ph-image-label-box-item {
-        border: 2px solid #285185;
-        border-radius: 5px;
-        padding: 0;
+    
+    .ph-image-label-box .form-check {
+        flex: 0 0 33%;
+        padding: 0.25em;
         margin: 0 0 1em 0;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        flex: 1 1 0;
         text-align: center;
+        flex: 0 0 32%;
+    }
+    
+    .ph-image-label-box-item {
+        border: 2px solid #285185;
+        border-radius: 5px;
+        height: 100%;
+        
     }
     .ph-image-label-box-item label {
         padding: 1em 1em 1em 2em;
         text-align: center;
+    }
+    
+    .ph-image-label-box-item label img {
+       
     }
 ');
 

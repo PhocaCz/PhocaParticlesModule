@@ -52,7 +52,7 @@ class PhocaradioimageField extends ListField
     protected function getLayoutPaths()
     {
 
-
+        // modules/mod_phocaparticles/layouts/field/phocaradioimage.php
         $paths   = parent::getLayoutPaths();
         $paths[] = JPATH_SITE . '/modules/mod_phocaparticles/layouts';
 

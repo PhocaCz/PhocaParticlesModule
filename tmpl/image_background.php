@@ -12,9 +12,12 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Uri\Uri;
+use Joomla\Module\PhocaParticles\Site\Helper\PhocaParticlesHelper;
 
-$document = Factory::getDocument();
+$layoutBTN = new FileLayout('phocaparticles.button', JPATH_SITE . '/modules/mod_phocaparticles/layouts');
+
 
 
 echo '<div class="'.$class .'" id="'. $id .'">';
@@ -28,115 +31,63 @@ if ($p['main_top_code'] != '') {
 }
 
 
-$style      = array();
-$styleIcon  = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
-$styleTitle = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
-
-
 echo '<div class="phModParticlesImageBackground">';
 echo '<div class="phModParticlesItem">';
 
-// LINK Local (item) or GLOBAL (main)
-$linkStartIcon = '';
-$linkStartTitle = '';
-$linkEnd = '';
-$linkAttr = '';
 
+$titleObject    = PhocaParticlesHelper::getTitleObjectMain($p);
+$linkObject     = PhocaParticlesHelper::getLinkObjectMain($p, $titleObject);
 
-// TITLE Local (item) or GLOBAL (main)
-$title = '';
-$titleAlt= '';
-if ($p['main_title'] != '') {
-    $title = $p['main_title'];
-    $titleAlt = htmlspecialchars($title);
-} else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
-    $title = $items[0]->item_title;
-    $titleAlt = htmlspecialchars($title);
-}
+$titleObjectItem = !empty($items[0]) ? PhocaParticlesHelper::getTitleObject($items[0]) : ['title' => '', 'alt' => ''];
+$linkObjectItem = !empty($items[0]) ? PhocaParticlesHelper::getLinkObject($items[0], $p, $titleObjectItem) : ['starticon' => '', 'starttitle' => '', 'end' => '', 'attribute' => ''];
 
-if ($p['main_link'] != '') {
-    if ($p['main_link_attributes'] != '') {
-        $linkAttr = ' '.$p['main_link_attributes'];
-    }
-
-    $linkStartIcon = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
-    $linkStartTitle = '<a href="'.htmlspecialchars($p['main_link']).'"'.$styleTitle.$linkAttr.'>';
-    $linkEnd = '</a>';
-} else if (isset($items[0]->item_link) && $items[0]->item_link != '') {
-    if (isset($items[0]->item_link_attributes) && $items[0]->item_link_attributes != '') {
-        $linkAttr = ' '.$items[0]->item_link_attributes;
-    }
-
-    $linkStartIcon = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleIcon.$linkAttr.' aria-label="'.$titleAlt.'">';
-    $linkStartTitle = '<a href="'.htmlspecialchars($items[0]->item_link).'"'.$styleTitle.$linkAttr.'>';
-    $linkEnd = '</a>';
-}
 
 // ICON/SVG Local (item) or GLOBAL (main)
 if ($p['main_icon_class'] != '') {
-    echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($p['main_icon_class'])).'"></i>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesIcon" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<i class="'.htmlspecialchars(strip_tags($p['main_icon_class'])).'"></i>'. $linkObject['end'] .'</div>';
 } else if ($p['main_image_svg'] != '') {
-    echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$p['main_image_svg']. $linkEnd .'</div>';
+    echo '<div class="phModParticlesSvg" '.$p['style_icon'].'>'. $linkObject['starticon'] .$p['main_image_svg']. $linkObject['end'] .'</div>';
 } else if (isset($items[0]->item_icon_class) && $items[0]->item_icon_class != '') {
-    echo '<div class="phModParticlesIcon" '.$styleIcon.'>'. $linkStartIcon .'<i class="'.htmlspecialchars(strip_tags($items[0]->item_icon_class)).'"></i>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesIcon" '.$p['style_icon'].'>'. $linkObjectItem['starticon'] .'<i class="'.htmlspecialchars(strip_tags($items[0]->item_icon_class)).'"></i>'. $linkObjectItem['end'] .'</div>';
 } else if (isset($items[0]->item_image_svg) && $items[0]->item_image_svg != '') {
-    echo '<div class="phModParticlesSvg" '.$styleIcon.'>'. $linkStartIcon .$items[0]->item_image_svg. $linkEnd .'</div>';
+    echo '<div class="phModParticlesSvg" '.$p['style_icon'].'>'. $linkObjectItem['starticon'] .$items[0]->item_image_svg. $linkObjectItem['end'] .'</div>';
 }
 
 // TITLE Local (item) or GLOBAL (main)
 if ($p['main_title'] != '') {
-    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
+    echo '<div class="phModParticlesTitle" '.$p['style_title'].'>'. $linkObject['starttitle'] . PhocaParticlesHelper::completeValueContent( $titleObject['title'], $p['main_title_animation']) . $linkObject['end'] . '</div>';
 } else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
-    echo '<div class="phModParticlesTitle" '.$styleTitle.'>'. $linkStartTitle . $title. $linkEnd . '</div>';
+    echo '<div class="phModParticlesTitle" '.$p['style_title'].'>'. $linkObjectItem['starttitle'] . PhocaParticlesHelper::completeValueContent( $titleObjectItem, $p['item_title_animation']) . $linkObjectItem['end'] . '</div>';
 }
 
 // IMAGE Local (item) or GLOBAL (main)
 if ($p['main_image'] != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img'.PhocaParticlesHelper::completeValueAttribute($p['main_image_animation'] ).' src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_image'])).'"/>'. $linkObject['end'] .'</div>';
 } else if (isset($items[0]->item_image) && $items[0]->item_image != '') {
-    echo '<div class="phModParticlesImage" '.$styleIcon.'>'. $linkStartIcon .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkEnd .'</div>';
+    echo '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObjectItem['starticon'] .'<img'.PhocaParticlesHelper::completeValueAttribute($p['item_image_animation'] ).' src="'.URI::base() . '/'.htmlspecialchars(strip_tags($items[0]->item_image)).'"/>'. $linkObjectItem['end'] .'</div>';
 }
 
 // DESC Local (item) or GLOBAL (main)
 if ($p['main_description'] != '') {
-    echo '<div class="phModParticlesDesc">'.$p['main_description'].'</div>';
+    echo '<div class="phModParticlesDesc">'.PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']).'</div>';
 } else if (isset($items[0]->item_description) && $items[0]->item_description != '') {
-    echo '<div class="phModParticlesDesc">'.$items[0]->item_description.'</div>';
+    echo '<div class="phModParticlesDesc">'.PhocaParticlesHelper::completeValueContent($items[0]->item_description, $p['item_description_animation']).'</div>';
 }
 
 // CONTENT Local (item) or GLOBAL (main)
 if ($p['main_content'] != '') {
-    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $p['main_content']).'</div>';
+    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($p['main_content'], $p['main_content_animation'])).'</div>';
 } else if (isset($items[0]->item_content) && $items[0]->item_content != '') {
-    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', $items[0]->item_content).'</div>';
+    echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($items[0]->item_content, $p['item_content_animation'])).'</div>';
 }
 
 // BUTTON Local (item) or GLOBAL (main)
-if ($p['main_button_title']  != '') {
-    $buttonLink = '';
-    if ($p['main_button_link']  != '') {
-        $buttonLink = $p['main_button_link'] ;
-    }
+$dB           = [];
+$dB['items']     = $items;
+$dB['params']   = $p;
+$dB['alternative_items_button'] = 1;
+echo $layoutBTN->render($dB);
 
-    $buttonAttr = '';
-    if ($p['main_button_attributes'] != '') {
-        $buttonAttr = $p['main_button_attributes'];
-    }
-
-    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
-} else if (isset($items[0]->button_title) && $items[0]->button_title != '') {
-    $buttonLink = '';
-    if (isset($items[0]->button_link) && $items[0]->button_link != '') {
-        $buttonLink = $items[0]->button_link;
-    }
-
-    $buttonAttr = '';
-    if (isset($items[0]->button_attributes) && $items[0]->button_attributes != '') {
-        $buttonAttr = $items[0]->button_attributes;
-    }
-
-    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$items[0]->button_title.'</a></div>';
-}
 
 
 echo '</div>';

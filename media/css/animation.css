@@ -1,0 +1,412 @@
+/* Disable background-attachment: fixed during scrolling */
+html.scrolling .phAnimBgStayFixed .phModParticlesSimpleContent {
+    background-attachment: scroll !important;
+}
+
+html.scrolling [style*="background-attachment: fixed"] {
+    background-attachment: scroll !important;
+}
+
+/* ScaleInFade */
+@keyframes scaleInFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.phAnimScaleInFade {
+    opacity: 0;
+    transform: scale(0.8);
+    transform-origin: center;
+    display: block; 
+}
+.phAnimScaleInFade.active {
+    animation: scaleInFade 1.2s ease-out forwards;
+}
+
+/*
+.phModParticlesItemTitle:has(.phAnimScaleInFade) {
+    display: flex;
+    justify-content: flex-start;
+}
+*/
+
+/* SlideUpFade */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.phAnimSlideUpFade {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.phAnimSlideUpFade.active {
+    animation: slideUpFade 0.9s ease-out forwards;
+}
+
+/* SoftPop */
+@keyframes softPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.phAnimSoftPop {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.phAnimSoftPop.active {
+    animation: softPop 0.6s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* RotateInFade */
+@keyframes rotateInFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.phAnimRotateInFade {
+    opacity: 0;
+    transform: scale(0.9) rotate(-5deg);
+}
+.phAnimRotateInFade.active {
+    animation: rotateInFade 0.8s ease-out forwards;
+}
+
+@keyframes blurIn {
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: scale(0.97);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+.phAnimBlurIn {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(0.97);
+}
+.phAnimBlurIn.active {
+    animation: blurIn 0.7s ease-out forwards;
+}
+
+/* FlipIn */
+@keyframes flipIn {
+    0% {
+        opacity: 0;
+        transform: rotateX(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+.phAnimFlipIn {
+    opacity: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+
+.phAnimFlipIn.active {
+    animation: flipIn 0.7s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+
+/* DropIn */
+@keyframes dropIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.phAnimDropIn {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+.phAnimDropIn.active {
+    animation: dropIn 0.9s ease-out forwards;
+}
+
+
+/* PulseIn */
+@keyframes pulseIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.phAnimPulseIn {
+    opacity: 0;
+    transform: scale(0.8);
+}
+.phAnimPulseIn.active {
+    animation: pulseIn 0.5s ease-out forwards;
+}
+
+/* FadeInDown */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.phAnimFadeInDown {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.phAnimFadeInDown.active {
+    animation: fadeInDown 0.6s ease-out forwards;
+}
+
+/* KenBurnsBg */
+@keyframes KenBurnsBg {
+    0% {
+        background-size: 110%;
+        background-position: center center;
+    }
+    100% {
+        background-size: 125%;
+        background-position: top center;
+    }
+}
+
+.phAnimKenBurnsBg {
+    background-size: 110%;
+    animation: KenBurnsBg 12s ease-in-out forwards;
+    /* infinite version: animation: kenburnsBg 12s ease-in-out infinite alternate; */
+}
+@media only screen and (max-width: 768px) {
+    .phAnimKenBurnsBg {
+        background-size: cover;
+        animation:none;
+    }
+}
+
+@keyframes KenBurnsImg {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.15) translate(-10px, -10px);
+    }
+}
+
+/* KenBurnsImg */
+.phAnimKenBurnsImg {
+    display: block;
+    width: 100%; 
+    height: auto;
+    transform-origin: center;
+    animation: KenBurnsImg 12s ease-in-out forwards;
+    /* infinite version: animation: kenburnsImg 12s ease-in-out infinite alternate; */
+}
+
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage:has(.phAnimKenBurnsImg) {
+    padding: 0;
+    overflow: hidden;
+  /*  height: 500px;
+    max-width: 500px;*/
+    margin: 0 auto;
+}
+
+
+/* Zoom Image */
+.phAnimZoomImage {    
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    width: 100%;
+    height: 100%;
+    /* Ensures the image covers the card without stretching */
+    object-fit: cover;
+    /* The transition properties are defined here */
+    transition: transform 1.2s cubic-bezier(.23,1,.32,1), opacity 1s ease-out;
+    will-change: transform, opacity;
+    /* Initial state (scale/opacity) will be set by JS */
+}
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage:has(.phAnimZoomImage) {
+    padding: 0;
+    overflow: hidden;
+    height: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage:has(.phAnimZoomImage) {
+        height: 300px;
+        max-width: 300px;
+        margin: 2em auto;
+    }
+}
+
+
+/* CounterNumber */
+.phModParticlesTitle:has(.phAnimCounterNumber) {
+    font-size:5em;
+    font-weight: bold;
+}
+
+.phAnimCounterNumber {
+    display: inline;
+}
+
+/* scrambleWord */
+.phModParticlesTitle:has(.phAnimScrambleWord) {
+    font-size:2em;
+    font-weight: bold;
+}
+.phAnimScrambleWord {
+    display: inline-block;
+    min-width: 10ch;
+}
+.phAnimScrambleWord span {
+    display: inline-block;
+}
+
+
+/* Letters */
+.phAnimLetters {
+    line-height: 1.15;
+    display: inline-block;
+}
+/* Initial hidden state, controlled by CSS transition on the <span>s */
+.phAnimLetters span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateX(20px);
+    transition: all .50s cubic-bezier(.23,1,.32,1);
+    will-change: opacity, transform;
+}
+
+/* slideInLeftFade */
+@keyframes slideInLeftFade {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* slideInRightFade */
+/*
+@keyframes slideInRightFade {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.phAnimSlideLeftRight .phModParticlesItemImage {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeftFade 0.9s ease-out forwards;
+}
+.phAnimSlideLeftRight .phModParticlesItemContent {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRightFade 0.9s ease-out forwards;
+}
+*/
+/* slideInLeftFade definice */
+@keyframes slideInLeftFade {
+    0% { opacity: 0; transform: translateX(-50px); }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; transform: translateX(0); }
+}
+/* slideInRightFade definice */
+@keyframes slideInRightFade {
+    0% { opacity: 0; transform: translateX(50px); }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Default state - hidden */
+.phAnimSlideLeftRight .phModParticlesItemImage,
+.phAnimSlideLeftRight .phModParticlesItemContent {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+/* Running animation ONLY when parent has class .active */
+.phAnimSlideLeftRight.active .phModParticlesItemImage {
+    animation: slideInLeftFade 0.9s ease-out forwards;
+}
+
+.phAnimSlideLeftRight.active .phModParticlesItemContent {
+    animation: slideInRightFade 0.9s ease-out forwards;
+}
+
+.phAnimStepGrow,
+.phAnimStepShrink {
+    display: inline-block;       /* no scroll while scale */
+    overflow: hidden;            /* hides any overlaps */
+    transform-origin: center center;
+}

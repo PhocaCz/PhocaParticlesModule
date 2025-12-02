@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" client="site" method="upgrade" version="5.0">
+<extension type="module" client="site" method="upgrade" version="6.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>14/09/2025</creationDate>
+	<creationDate>02/12/2025</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>5.1.2</version>
+	<version>6.0.1</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -39,12 +39,12 @@
 		<fields name="params" addfieldpath="/modules/mod_phocaparticles/models/fields">
 			<fieldset name="basic">
 
-			<!--<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL"/>-->
+			<!--<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_FEATURE_BOX_HEADER_LABEL"/>-->
 
 
 
 
-			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
+			<field name="phocahead1" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_GENERAL_OPTIONS_HEADER_LABEL"/>
 
 
             <field name="type" type="Phocaradioimage" addfieldpath="Joomla\Module\PhocaParticles\Site\Field" addfieldprefix="Joomla\Module\PhocaParticles\Site\Field" default="feature_box" label="MOD_PHOCAPARTICLES_FIELD_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_TYPE_DESC">
@@ -58,6 +58,10 @@
 				<option value="simple_content">MOD_PHOCAPARTICLES_SIMPLE_CONTENT</option>
 				<option value="comparison_table">MOD_PHOCAPARTICLES_COMPARISON_TABLE</option>
 				<option value="simple_button">MOD_PHOCAPARTICLES_SIMPLE_BUTTON_TABLE</option>
+				<option value="content_feature_box">MOD_PHOCAPARTICLES_CONTENT_FEATURE_BOX</option>
+				<option value="image_feature_accordion">MOD_PHOCAPARTICLES_IMAGE_FEATURE_ACCORDION</option>
+				<option value="content_feature_accordion">MOD_PHOCAPARTICLES_CONTENT_FEATURE_ACCORDION</option>
+				<option value="image_rotate">MOD_PHOCAPARTICLES_IMAGE_ROTATE</option>
             </field>
 
 
@@ -83,7 +87,7 @@
             <field name="custom_css" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_CUSTOM_CSS_DESC"/>
 				<field name="button_css" default="btn btn-primary" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_BUTTON_CSS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BUTTON_CSS_LABEL"/>
 
-			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL"/>
+			<field name="phocahead2" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_BOX_HEADER_LABEL"/>
 
 			<field name="image_row_box_size" type="list" default="25" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_ROW_DESC">
                 <option value="25">25%</option>
@@ -93,7 +97,7 @@
             </field>
 
 
-			<field name="phocahead3" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL"/>
+			<field name="phocahead3" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_CONTENT_HEADER_LABEL"/>
 
 			<field name="image_content_size" type="list" default="1" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_CONTENT_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_CONTENT_DESC">
                 <option value="1">MOD_PHOCAPARTICLES_IMAGE_40_CONTENT_60</option>
@@ -105,7 +109,7 @@
             </field>
 
 
-            <field name="phocahead4" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL" description="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_DESC" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL"/>
+            <field name="phocahead4" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_BOX_HEADER_LABEL"/>
 
 			<field name="image_feature_box_size" type="list" default="1" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_BOX_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_BOX_DESC">
                 <option value="1">MOD_PHOCAPARTICLES_IMAGE_40_FEATURE_BOX_60</option>
@@ -116,6 +120,51 @@
 				<option value="6">MOD_PHOCAPARTICLES_FEATURE_BOX_60_IMAGE_40</option>
 				<option value="7">MOD_PHOCAPARTICLES_FEATURE_BOX_25_IMAGE_50_FEATURE_BOX_25</option>
 				<option value="8">MOD_PHOCAPARTICLES_FEATURE_BOX_35_IMAGE_30_FEATURE_BOX_35</option>
+            </field>
+
+				<field name="phocahead7" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_CONTENT_FEATURE_BOX_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_CONTENT_FEATURE_BOX_HEADER_LABEL"/>
+
+			<field name="content_feature_box_size" type="list" default="3" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_CONTENT_FEATURE_BOX_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_CONTENT_FEATURE_BOX_DESC">
+                <option value="1">MOD_PHOCAPARTICLES_CONTENT_40_FEATURE_BOX_60</option>
+                <option value="2">MOD_PHOCAPARTICLES_CONTENT_50_FEATURE_BOX_50</option>
+				<option value="3">MOD_PHOCAPARTICLES_CONTENT_60_FEATURE_BOX_40</option>
+				<option value="4">MOD_PHOCAPARTICLES_FEATURE_BOX_40_CONTENT_60</option>
+                <option value="5">MOD_PHOCAPARTICLES_FEATURE_BOX_50_CONTENT_50</option>
+				<option value="6">MOD_PHOCAPARTICLES_FEATURE_BOX_60_CONTENT_40</option>
+				<option value="7">MOD_PHOCAPARTICLES_FEATURE_BOX_25_CONTENT_50_FEATURE_BOX_25</option>
+				<option value="8">MOD_PHOCAPARTICLES_FEATURE_BOX_35_CONTENT_30_FEATURE_BOX_35</option>
+            </field>
+
+
+				<field name="phocahead8" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_ACCORDION_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_IMAGE_FEATURE_ACCORDION_HEADER_LABEL"/>
+
+			<field name="image_feature_accordion_size" type="list" default="2" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_ACCORDION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_IMAGE_FEATURE_ACCORDION_DESC">
+                <option value="1">MOD_PHOCAPARTICLES_IMAGE_40_FEATURE_ACCORDION_60</option>
+                <option value="2">MOD_PHOCAPARTICLES_IMAGE_50_FEATURE_ACCORDION_50</option>
+				<option value="3">MOD_PHOCAPARTICLES_IMAGE_60_FEATURE_ACCORDION_40</option>
+				<option value="4">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_40_IMAGE_60</option>
+                <option value="5">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_50_IMAGE_50</option>
+				<option value="6">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_60_IMAGE_40</option>
+            </field>
+
+				<field name="phocahead9" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_CONTENT_FEATURE_ACCORDION_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_CONTENT_FEATURE_ACCORDION_HEADER_LABEL"/>
+
+			<field name="content_feature_accordion_size" type="list" default="2" label="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_CONTENT_FEATURE_ACCORDION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_BOX_SIZE_CONTENT_FEATURE_ACCORDION_DESC">
+                <option value="1">MOD_PHOCAPARTICLES_CONTENT_40_FEATURE_ACCORDION_60</option>
+                <option value="2">MOD_PHOCAPARTICLES_CONTENT_50_FEATURE_ACCORDION_50</option>
+				<option value="3">MOD_PHOCAPARTICLES_CONTENT_60_FEATURE_ACCORDION_40</option>
+				<option value="4">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_40_CONTENT_60</option>
+                <option value="5">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_50_CONTENT_50</option>
+				<option value="6">MOD_PHOCAPARTICLES_FEATURE_ACCORDION_60_CONTENT_40</option>
+            </field>
+
+			<field name="phocahead10" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_GRID_BOX_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_GRID_BOX_HEADER_LABEL"/>
+
+			<field name="grid_box_type" type="list" default="1" label="MOD_PHOCAPARTICLES_FIELD_GRID_BOX_TYPE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_GRID_BOX_TYPE_DESC">
+                <option value="phGridBoxRow">MOD_PHOCAPARTICLES_FIELD_GRID_BOX_ROW</option>
+                <option value="phGridBoxColumn">MOD_PHOCAPARTICLES_FIELD_GRID_BOX_COLUMN</option>
+				<option value="phGridBoxRow pmpReverse">MOD_PHOCAPARTICLES_FIELD_GRID_BOX_ROW_REVERSE</option>
+                <option value="phGridBoxColumn pmpReverse">MOD_PHOCAPARTICLES_FIELD_GRID_BOX_COLUMN_REVERSE</option>
             </field>
 
 
@@ -154,6 +203,8 @@
 
             <field name="main_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_DESC"/>
 
+			<!--<field name="secondary_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_SECONDARY_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_SECONDARY_CONTENT_DESC"/>-->
+
 
 			<field name="main_top_code" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_TOP_CODE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_TOP_CODE_DESC"/>
 			<field name="main_bottom_code" default="" type="textarea" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BOTTOM_CODE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BOTTOM_CODE_DESC"/>
@@ -179,6 +230,127 @@
 
             <field name="phocacart_product_id" default="" type="text" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_PHOCACART_PRODUCT_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_PHOCACART_PRODUCT_ID_DESC"/>
         </fieldset>
+
+		<fieldset name="animation" label="MOD_PHOCAPARTICLES_FIELDSET_ANIMATION_LABEL">
+
+			<field name="enable_animation" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="MOD_PHOCAPARTICLES_FIELD_ENABLE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ENABLE_ANIMATION_DESC" filter="integer">
+				<option value="0">MOD_PHOCAPARTICLES_NO</option>
+            	<option value="1">MOD_PHOCAPARTICLES_YES</option>
+			</field>
+
+			<field name="phocahead5" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_MAIN_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_MAIN_HEADER_LABEL"/>
+
+
+
+			<field name="main_title_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_TITLE_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="main_description_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_DESCRIPTION_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimRotateInFade">phAnimRotateInFade</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="main_content_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_CONTENT_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimRotateInFade">phAnimRotateInFade</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="main_image_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimZoomImage">phAnimZoomImage</option>
+				<option value="phAnimKenBurnsImg">phAnimKenBurnsImg</option>
+			</field>
+
+			<field name="main_background_image_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimKenBurnsBg">phAnimKenBurnsBg</option>
+			</field>
+
+			<field name="phocahead6" type="phocahead" label="MOD_PHOCAPARTICLES_FIELD_ITEMS_HEADER_LABEL" default="MOD_PHOCAPARTICLES_FIELD_ITEMS_HEADER_LABEL"/>
+
+
+			<field name="item_title_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimCounterNumber">phAnimCounterNumber</option>
+				<option value="phAnimScrambleWord">phAnimScrambleWord</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="item_description_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_DESCRIPTION_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="item_content_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimScaleInFade">phAnimScaleInFade</option>
+				<option value="phAnimSlideUpFade">phAnimSlideUpFade</option>
+				<option value="phAnimSoftPop">phAnimSoftPop</option>
+				<option value="phAnimRotateInFade">phAnimRotateInFade</option>
+				<option value="phAnimBlurIn">phAnimBlurIn</option>
+				<option value="phAnimFlipIn">phAnimFlipIn</option>
+				<option value="phAnimDropIn">phAnimDropIn</option>
+				<option value="phAnimPulseIn">phAnimPulseIn</option>
+				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
+				<option value="phAnimLetters">phAnimLetters</option>
+				<option value="phAnimStepGrow">phAnimStepGrow</option>
+				<option value="phAnimStepShrink">phAnimStepShrink</option>
+			</field>
+
+			<field name="item_image_animation" type="phocacombobox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_ANIMATION_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_IMAGE_ANIMATION_DESC" default="" hint="MOD_PHOCAPARTICLES_TYPE_TO_SEARCH_OR_ADD_NEW_VALUE" class="phoca-combobox" filter="string" pattern="^([A-Za-z0-9_-]+\s?)+$">
+				<option value="phAnimZoomImage">phAnimZoomImage</option>
+				<option value="phAnimKenBurnsImg">phAnimKenBurnsImg</option>
+			</field>
+
+
+		</fieldset>
 
 
         <fieldset name="advanced">

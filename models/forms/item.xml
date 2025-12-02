@@ -19,5 +19,8 @@
 		<field name="item_content" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" label="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_LABEL" filter="safehtml" description="MOD_PHOCAPARTICLES_FIELD_ITEM_CONTENT_DESC"/>
 
 		<field name="item_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_ITEM_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_CLASS_DESC"/>
+
+		<field name="item_title_prefix" default="" type="textarea" rows="1" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_PREFIX_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_PREFIX_DESC"/>
+		<field name="item_title_suffix" default="" type="textarea" rows="1" filter="safehtml" label="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_SUFFIX_LABEL" description="MOD_PHOCAPARTICLES_FIELD_ITEM_TITLE_SUFFIX_DESC"/>
 	</fieldset>
 </form>

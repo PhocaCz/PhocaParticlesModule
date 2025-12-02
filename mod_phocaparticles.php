@@ -16,9 +16,9 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Version;
+use Joomla\Module\PhocaParticles\Site\Helper\PhocaParticlesHelper;
 
 defined('_JEXEC') or die('Restricted access');// no direct access
-
 
 
 $app 						= Factory::getApplication();
@@ -58,6 +58,7 @@ $p['main_button_title'] 	= $params->get( 'main_button_title', '');
 $p['main_button_link'] 		= $params->get( 'main_button_link', '');
 $p['main_button_attributes'] = $params->get( 'main_button_attributes', '');
 $p['main_content'] 			= $params->get( 'main_content', '');
+$p['secondary_content'] 			= $params->get( 'secondary_content', '');
 $p['main_background_image'] = $params->get( 'main_background_image', '');
 $p['main_background_image_gradient'] = $params->get( 'main_background_image_gradient', '');
 $p['main_label']            = $params->get( 'main_label', '');
@@ -72,11 +73,26 @@ $p['main_bottom_code'] 		= $params->get( 'main_bottom_code', '');
 $p['image_row_box_size'] 	= $params->get( 'image_row_box_size', '25');
 $p['image_feature_box_size']= $params->get( 'image_feature_box_size', 1);
 $p['image_content_size'] 	= $params->get( 'image_content_size', 1);
-
+$p['content_feature_box_size']= $params->get( 'content_feature_box_size', 1);
+$p['content_feature_accordion_size']= $params->get( 'content_feature_accordion_size', 2);
+$p['image_feature_accordion_size']= $params->get( 'image_feature_accordion_size', 2);
+$p['grid_box_type']              = $params->get( 'grid_box_type', 'phGridBoxRow');
 
 $p['custom_css'] 			= $params->get( 'custom_css', '');
 $p['button_css'] 			= htmlspecialchars($params->get( 'button_css', 'btn btn-primary'));
 
+$p['enable_animation']      = $params->get( 'enable_animation', 0);
+
+// Animation
+$p['main_title_animation']              = $params->get( 'main_title_animation', '');
+$p['main_description_animation']        = $params->get( 'main_description_animation', '');
+$p['main_content_animation']            = $params->get( 'main_content_animation', '');
+$p['main_image_animation']              = $params->get( 'main_image_animation', '');
+$p['main_background_image_animation']   = $params->get( 'main_background_image_animation', '');
+$p['item_title_animation']              = $params->get( 'item_title_animation', '');
+$p['item_description_animation']        = $params->get( 'item_description_animation', '');
+$p['item_content_animation']            = $params->get( 'item_content_animation', '');
+$p['item_image_animation']              = $params->get( 'item_image_animation', '');
 
 $view 						= $app->input->get('view', '');
 $option 					= $app->input->get('option', '');
@@ -198,6 +214,7 @@ if ($image != '') {
     $style[] = 'background-image: '.$gradient.'url('.URI::base(true) . '/'.$image.');';
     $style[] = 'background-repeat: no-repeat;';
 	$style[] = 'background-size: cover;';
+    $style[] = 'background-position: center;';
     $style[] = '}';
 }
 
@@ -220,9 +237,103 @@ if (!empty($itemsA)) {
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_phocaparticles', 'media/mod_phocaparticles/css/style.css', array('version' => 'auto'));
 
+if ($p['type'] == 'content_feature_accordion' || $p['type'] == 'image_feature_acordion' || $p['type'] == 'image_rotate') {
+    $wa->registerAndUseScript('mod_phocaparticles.particlesjs', 'media/mod_phocaparticles/js/particles.min.js', array('version' => 'auto'));
+}
+
+if ($p['enable_animation'] == 1) {
+    $wa->registerAndUseStyle('mod_phocaparticles.animationcss', 'media/mod_phocaparticles/css/animation.css', array('version' => 'auto'));
+    $wa->registerAndUseScript('mod_phocaparticles.animationjs', 'media/mod_phocaparticles/js/animation.min.js', array('version' => 'auto'));
+}
+
 if ($p['custom_css'] != '') {
     $p['custom_css'] = str_replace('{moduleclass}', '.'.$idClass, $p['custom_css']);
 	$document->addStyledeclaration($p['custom_css']);
+}
+
+
+/* STYLE */
+
+$p['style_icon'] = $p['icon_color'] != '' ? ' style="color: '.strip_tags($p['icon_color']).';"' : '';
+$p['style_title'] = $p['title_color'] != '' ? ' style="color: '.strip_tags($p['title_color']).';"' : '';
+
+/* Sizde of boxes */
+$boxSizes = [];
+if ($p['type'] == 'image_feature_box') {
+    $boxSizes = $p['image_feature_box_size'];
+} else if ($p['type'] == 'content_feature_box') {
+    $boxSizes = $p['content_feature_box_size'];
+} else if ($p['type'] == 'image_content') {
+    $boxSizes = $p['image_content_size'];
+} else if ($p['type'] == 'image_feature_accordion') {
+    $boxSizes = $p['image_feature_accordion_size'];
+} else if  ($p['type'] == 'content_feature_accordion') {
+    $boxSizes = $p['content_feature_accordion_size'];
+}
+
+
+$p['box_width_class'] = '';
+$p['box_flex_class'] = '';
+
+if ($p['type'] == 'image_row') {
+    $p['box_width_class'] = ' pmpw'.$p['image_row_box_size'];
+} else if ($p['type'] == 'gridbox') {
+    $p['box_width_class'] = ' pmpw50';
+}
+/*
+ * ic   image     content
+ * cc   content   feature
+ */
+
+switch($boxSizes) {
+
+    case 2:
+        $p['box_size_ic'] = ' pmpw50';
+        $p['box_size_cc'] = ' pmpw50';
+
+    break;
+
+    case 3:
+        $p['box_size_ic'] = ' pmpw60';
+        $p['box_size_cc'] = ' pmpw40';
+    break;
+
+    case 4:
+        $p['box_size_ic'] = ' pmpw60';
+        $p['box_size_cc'] = ' pmpw40';
+        $p['box_flex_class'] = ' pmpReverse';
+    break;
+
+    case 5:
+        $p['box_size_ic'] = ' pmpw50';
+        $p['box_size_cc'] = ' pmpw50';
+        $p['box_flex_class'] = ' pmpReverse';
+    break;
+
+    case 6:
+        $p['box_size_ic'] = ' pmpw40';
+        $p['box_size_cc'] = ' pmpw60';
+        $p['box_flex_class'] = ' pmpReverse';
+    break;
+
+    case 7:
+        $p['box_size_ic'] = ' pmpw50';
+        $p['box_size_cc'] = ' pmpw25';
+    break;
+    case 8:
+        $p['box_size_ic'] = ' pmpw30';
+        $p['box_size_cc'] = ' pmpw35';
+    break;
+
+    case 1:
+        $p['box_size_ic'] = ' pmpw40';
+        $p['box_size_cc'] = ' pmpw60';
+    break;
+
+    default:
+        $p['box_size_ic'] = '';
+        $p['box_size_cc'] = '';
+    break;
 }
 
 require(ModuleHelper::getLayoutPath('mod_phocaparticles', $p['type'] ));
