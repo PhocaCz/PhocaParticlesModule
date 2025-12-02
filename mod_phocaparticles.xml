@@ -252,7 +252,6 @@
 				<option value="phAnimPulseIn">phAnimPulseIn</option>
 				<option value="phAnimFadeInDown">phAnimFadeInDown</option>
 				<option value="phAnimLetters">phAnimLetters</option>
-				<option value="phAnimLetters">phAnimLetters</option>
 				<option value="phAnimStepGrow">phAnimStepGrow</option>
 				<option value="phAnimStepShrink">phAnimStepShrink</option>
 			</field>
