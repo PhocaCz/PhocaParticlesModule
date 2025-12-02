@@ -1261,6 +1261,44 @@
     display: inline;
 }
 
+.phModParticlesItemRow {
+    position: relative;
+}
+
+/* Overlay */
+.phOverlayLighten,
+.phOverlayDarken {
+    overflow: hidden;
+    position: relative;
+}
+.phOverlayDarken::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.phOverlayLighten::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+}
+
+.phOverlayLighten > *,
+.phOverlayDarken > * {
+  position: relative; 
+  z-index: 2; 
+}
+
 
 .phModParticlesContentFeatureAccordionContainer .phModParticlesItemTitle,
 .phModParticlesContentFeatureBoxContainer .phModParticlesItemTitle,
