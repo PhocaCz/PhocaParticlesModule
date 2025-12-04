@@ -109,7 +109,7 @@ Factory::getDocument()->addStyleDeclaration('
     }
     
     .ph-image-label-box-item label img {
-       
+        max-width: 100%;
     }
 ');
 
