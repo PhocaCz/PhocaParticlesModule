@@ -94,9 +94,9 @@ $p['item_description_animation']        = $params->get( 'item_description_animat
 $p['item_content_animation']            = $params->get( 'item_content_animation', '');
 $p['item_image_animation']              = $params->get( 'item_image_animation', '');
 
-$view 						= $app->input->get('view', '');
-$option 					= $app->input->get('option', '');
-$idCom						= $app->input->get('id', '');
+$view 						= $app->getInput()->get('view', '');
+$option 					= $app->getInput()->get('option', '');
+$idCom						= $app->getInput()->get('id', '');
 
 $optionA 	= array_map('trim', explode(',', $p['display_option']));// Remove spaces
 $viewA 		= array_map('trim', explode(',', $p['display_view']));
