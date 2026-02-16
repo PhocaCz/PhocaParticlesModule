@@ -1,0 +1,54 @@
+/* Phoca Particles - Feature Row */
+
+:root {
+    --pp-feature-row-item-bg-color: transparent;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesFeatureRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.phModParticlesFeatureRow .phModParticlesItem {
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.phModParticlesFeatureRow .phModParticlesIcon {
+    font-size: 5em;
+    padding: 0.5em;
+}
+.phModParticlesFeatureRow .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesFeatureRow .phModParticlesTitle {
+    font-size: 150%;
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesFeatureRow .phModParticlesDesc {
+    margin-top: 1em;
+    text-align: left;
+}
+
+.phModParticlesFeatureRow .phModParticlesDescBox {
+    text-align: left;
+}

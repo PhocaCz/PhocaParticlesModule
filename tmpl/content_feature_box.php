@@ -22,8 +22,10 @@ echo '<div class="'.$class .'" id="'. $id .'">';
 
 echo ($p['description_top'] != '') ? '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>' : '';
 echo $p['main_top_code'] ?? '';
+
+/*
 echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
-echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
+echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';*/
 
 echo '<div class="phModParticlesContentFeatureBox">';
 
@@ -31,17 +33,31 @@ echo '<div class="phModParticlesItem'.$p['box_width_class'].$p['box_flex_class']
 
 if ($p['content_feature_box_size'] != 7 && $p['content_feature_box_size'] != 8) {
 
+    // CONTENT
+    // START
+    echo '<div class="phModParticlesItemContent'.$p['box_size_ic'].'">';
+
+    // Title
+    echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
+
+    // Main Descripton
+    echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
+
     // MAIN CONTENT
     if ($p['main_content'] != '') {
-        echo '<div class="phModParticlesItemContent'.$p['box_size_ic'].'">'
-        . '<div class="phModParticlesItemContentIn">'. HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($p['main_content'], $p['main_content_animation'])).'</div>'
-        . '</div>';
+        echo  '<div class="phModParticlesItemContentIn">'. HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($p['main_content'], $p['main_content_animation'])).'</div>';
     }
+
+    // Button
+    echo $layoutBTN->render(['items' => $items, 'params' => $p]);
+
+    // END
+    echo  '</div>';
 
     // FEATURE BOX
     echo '<div class="phModParticlesItemFeatureBox' . $p['box_size_cc'] . '">';
     echo $layoutFB->render(['items' => $items, 'params' => $p]);
-    echo $layoutBTN->render(['items' => $items, 'params' => $p]);
+    //echo $layoutBTN->render(['items' => $items, 'params' => $p]);
     echo '</div>'; //  end phModParticlesItemFeatureBox
 
 } else {
@@ -59,11 +75,26 @@ if ($p['content_feature_box_size'] != 7 && $p['content_feature_box_size'] != 8) 
     echo '</div>'; //  end phModParticlesItemFeatureBox
 
     // CONTENT
-    if ($p['main_content'] != '') {
-        echo '<div class="phModParticlesItemContent' . $p['box_size_ic'] . '">'
-        . '<div class="phModParticlesItemContentIn">' . HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($p['main_content'], $p['main_content_animation'])) . '</div>'
-        . '</div>';
-    }
+    // START
+    echo '<div class="phModParticlesItemContent' . $p['box_size_ic'] . '">';
+
+    // Title
+        echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
+
+        // Main Descripton
+        echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
+
+        // MAIN CONTENT
+        if ($p['main_content'] != '') {
+            echo  '<div class="phModParticlesItemContentIn">'. HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($p['main_content'], $p['main_content_animation'])).'</div>';
+        }
+
+     // Button
+    echo $layoutBTN->render(['items' => $items, 'params' => $p]);
+
+    // END
+    echo  '</div>';
+
 
     // Feature box divided
     echo '<div class="phModParticlesItemFeatureBox' . $p['box_size_cc'] . '">';

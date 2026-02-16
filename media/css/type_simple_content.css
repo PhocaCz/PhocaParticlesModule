@@ -1,0 +1,92 @@
+/* Phoca Particles - Simple Content */
+
+:root {
+    --pp-simple-content-title-color: inherit;
+    --pp-simple-content-desc-color: inherit;
+    --pp-image-feature-box-label-bg-color: #9e0f0f;
+    --pp-image-feature-box-label-color: #ffffff;
+    --pp-image-feature-box-price-original-bg-color: #ffffff;
+    --pp-image-feature-box-price-original-color: #000000;
+    --pp-image-feature-box-price-original-border-color: #000000;
+    --pp-image-feature-box-price-bg-color: #f8e914;
+    --pp-image-feature-box-price-color: #000000;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesImage {
+    margin: auto;
+    margin-top: 3vw;
+    text-align: center;
+}
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesContent,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesDesc {
+    margin: auto;
+    margin-top: 1vw;
+    font-size: 1.6vw;
+    font-size: clamp(1rem, 1.6vw, 2rem);
+    text-align: center;
+    font-weight: normal;
+
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox {
+    margin-top: 3vw;
+    text-align: center;
+    padding: 1%;
+}
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton,
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesButtonBox a.phModParticlesButton:hover {
+    font-size: 2vw;
+    font-size: clamp(1.2rem, 2vw, 3rem);
+    padding: 1vw 3vw;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.phModParticlesSimpleContent .phModParticlesItemImage {
+    position: relative;
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesItemLabel {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    padding: 0.25em 1em;
+    background: var(--pp-image-feature-box-label-bg-color);
+    color: var(--pp-image-feature-box-label-color);
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 120%;
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesItemPriceOriginal {
+    position: absolute;
+    bottom: 4.5em;
+    right: 4.5em;
+    padding: 0.3vw 1.5vw;
+    border: 4px solid var(--pp-image-feature-box-price-original-border-color);
+    background: var(--pp-image-feature-box-price-original-bg-color);
+    color: var(--pp-image-feature-box-price-original-color);
+    border-radius: 5px;
+    text-decoration: line-through;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 130%;
+}
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesItemPrice {
+    position: absolute;
+    bottom: 1em;
+    right: 3em;
+    padding: 0.8vw 2.5vw;
+    background: var(--pp-image-feature-box-price-bg-color);
+    color: var(--pp-image-feature-box-color);
+    border-radius: 5px;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 160%;
+}
+

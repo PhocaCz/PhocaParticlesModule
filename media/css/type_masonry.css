@@ -1,0 +1,82 @@
+/* Phoca Particles - Masonry */
+
+:root {
+    --pp-masonry-item-bg-color: #f8f8f8;
+}
+
+[data-bs-theme="dark"] {
+    --pp-masonry-item-bg-color: #2a2a2a;
+}
+
+
+.phModParticlesMasonry {
+    columns: 3;
+    column-gap: 1.5em;
+    padding: 1em;
+}
+
+.phModParticlesMasonryItem {
+    break-inside: avoid;
+    margin-bottom: 1.5em;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--pp-masonry-item-bg-color);
+}
+
+.phModParticlesMasonryItem .phModParticlesImage img {
+    width: 100%;
+    display: block;
+}
+
+.phModParticlesMasonryItem .phModParticlesIcon {
+    font-size: 3em;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.phModParticlesMasonryItem .phModParticlesSvg svg {
+    height: 3em;
+}
+
+.phModParticlesMasonryItem .phModParticlesTitle {
+    font-size: 120%;
+    font-weight: bold;
+    padding: 0.75em 1em 0;
+}
+
+.phModParticlesMasonryItem .phModParticlesContent,
+.phModParticlesMasonryItem .phModParticlesDesc {
+    padding: 0.5em 1em;
+}
+
+.phModParticlesMasonryItem .phModParticlesButtonBox {
+    padding: 0.5em 1em 1em;
+}
+
+@media only screen and (max-width: 992px) {
+    .phModParticlesMasonry {
+        columns: 2;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .phModParticlesMasonry {
+        columns: 1;
+    }
+}
+
+.phModParticlesMasonryContainer .phModParticlesItemTitle {
+    font-weight: 900;
+    font-size: 240%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.phModParticlesMasonryContainer .phModParticlesItemDesc {
+    text-align: center;
+}
+
+.phModParticlesMasonryItem .phModParticlesSvg svg {
+    margin: 1em;
+}
+

@@ -1,0 +1,135 @@
+/* Phoca Particles - Card Stack */
+
+:root {
+    --pp-card-stack-bg-color: #ffffff;
+    --pp-card-stack-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+[data-bs-theme="dark"] {
+    --pp-card-stack-bg-color: #2a2a2a;
+    --pp-card-stack-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+.phModParticlesCardStack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 550px; /* Accommodate the card stack + padding */
+    perspective: 1000px;
+    padding: 3em 1em;
+    overflow: hidden; 
+}
+
+.phModParticlesCardStackCard {
+    position: absolute;
+    width: 320px;
+    height: 420px; /* FIXED HEIGHT for uniform cards */
+    max-width: 85%;
+    background: var(--pp-card-stack-bg-color);
+    border-radius: 12px;
+    box-shadow: var(--pp-card-stack-shadow);
+    overflow: hidden; /* Hide outer overflow, scroll inner */
+    display: flex; /* Flexbox for internal layout */
+    flex-direction: column;
+    
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform:
+        translate(calc(var(--card-index) * 4px), calc(var(--card-index) * 4px)); 
+    z-index: calc(var(--card-total) - var(--card-index));
+}
+
+.phModParticlesCardStackCard.ph-active {
+    cursor: pointer;
+}
+
+.phModParticlesCardStackCard .phModParticlesImage {
+    flex: 0 0 auto; /* Don't shrink */
+    height: 200px; /* Fixed image area height */
+    overflow: hidden;
+}
+
+.phModParticlesCardStackCard .phModParticlesImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop to fill */
+    display: block;
+}
+
+.phModParticlesCardStackBody {
+    padding: 3em 1.5em; /* Larger top/bottom padding */
+    overflow-y: auto; /* Scroll text if too long */
+    flex: 1 1 auto; /* Fill remaining space */
+}
+
+.phModParticlesCardStackBody .phModParticlesTitle {
+    font-size: 130%;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.phModParticlesCardStackBody .phModParticlesDesc {
+    margin-bottom: 1em;
+}
+
+.phModParticlesCardStackBody .phModParticlesButtonBox {
+    margin-top: 1em;
+}
+
+/* Hover fan-out effect */
+.phModParticlesCardStack:hover .phModParticlesCardStackCard {
+    transform:
+        translateX(calc((var(--card-index) - var(--card-total) / 2) * 40px))
+        translateY(calc(var(--card-index) * 5px))
+        rotate(calc((var(--card-index) - var(--card-total) / 2) * 3deg));
+}
+
+@media only screen and (max-width: 576px) {
+    .phModParticlesCardStack {
+        min-height: 300px;
+    }
+    .phModParticlesCardStackCard {
+        width: 260px;
+    }
+}
+
+.phModParticlesCardStack .phModParticlesCardStackCard .phModParticlesSvg {
+    text-align: center;
+    padding: 1em;
+}
+.phModParticlesCardStack .phModParticlesCardStackCard .phModParticlesSvg svg {
+  width: 10em;
+  height: auto;
+}
+
+/* Possible Backgrounds for each image */
+/*
+.phModParticlesCardStackCard .phModParticlesImage {
+    padding: 2em;
+}
+.phModParticlesCardStackCard.phModParticlesItem-0 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-0 .phModParticlesImage {
+    background-color: #FFD1DC;
+}
+.phModParticlesCardStackCard.phModParticlesItem-1 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-1 .phModParticlesImage {
+    background-color: #FFECB3;
+}
+.phModParticlesCardStackCard.phModParticlesItem-2 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-2 .phModParticlesImage {
+    background-color: #E1F5FE;
+}
+.phModParticlesCardStackCard.phModParticlesItem-3 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-3 .phModParticlesImage {
+    background-color: #E8F5E9;
+}
+.phModParticlesCardStackCard.phModParticlesItem-4 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-4 .phModParticlesImage {
+    background-color: #F3E5F5;
+}
+.phModParticlesCardStackCard.phModParticlesItem-5 .phModParticlesSvg,
+.phModParticlesCardStackCard.phModParticlesItem-5 .phModParticlesImage {
+    background-color: #F5F5F5;
+}
+*/

@@ -1,0 +1,144 @@
+/* Phoca Particles - Image Gallery */
+
+:root {
+    --pp-image-gallery-overlay-bg: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    --pp-image-gallery-overlay-color: #ffffff;
+    --pp-image-gallery-lightbox-bg: rgba(0, 0, 0, 0.9);
+    --pp-image-gallery-lightbox-close-color: #ffffff;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesImageGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75em;
+}
+
+.phModParticlesImageGalleryItem {
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.phModParticlesImageGalleryThumb {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.phModParticlesImageGalleryThumb img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.phModParticlesImageGalleryThumb:hover img {
+    transform: scale(1.05);
+}
+
+.phModParticlesImageGalleryOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--pp-image-gallery-overlay-bg);
+    color: var(--pp-image-gallery-overlay-color);
+    padding: 1em 0.75em 0.75em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.phModParticlesImageGalleryThumb:hover .phModParticlesImageGalleryOverlay {
+    opacity: 1;
+}
+
+.phModParticlesImageGalleryOverlay .phModParticlesTitle {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.phModParticlesImageGalleryOverlay .phModParticlesDesc {
+    font-size: 85%;
+    margin-top: 0.25em;
+}
+
+/* Lightbox */
+.phModParticlesImageGalleryLightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--pp-image-gallery-lightbox-bg);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.phModParticlesImageGalleryLightbox.active {
+    display: flex;
+}
+
+.phModParticlesImageGalleryLightboxClose {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: transparent;
+    border: none;
+    color: var(--pp-image-gallery-lightbox-close-color);
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.phModParticlesImageGalleryLightboxImg {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.phModParticlesImageGalleryLightboxPrev,
+.phModParticlesImageGalleryLightboxNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    font-size: 3rem;
+    padding: 0.2em 0.4em;
+    cursor: pointer;
+    z-index: 10001;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.phModParticlesImageGalleryLightboxPrev:hover,
+.phModParticlesImageGalleryLightboxNext:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.phModParticlesImageGalleryLightboxPrev {
+    left: 1em;
+}
+
+.phModParticlesImageGalleryLightboxNext {
+    right: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageGalleryLightboxPrev,
+    .phModParticlesImageGalleryLightboxNext {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .phModParticlesImageGallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

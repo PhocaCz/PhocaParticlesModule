@@ -1,0 +1,88 @@
+/* Phoca Particles - Comparison Table */
+
+:root {
+    --pp-comparison-table-item-bg-color: transparent;
+    --pp-comparison-table-item-border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] {
+    --pp-comparison-table-item-border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.phModParticlesComparisonTable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    padding: 1em 5em;
+}
+
+
+.phModParticlesComparisonTable .phModParticlesItem {
+    position: relative;
+    padding: 1em;
+    padding-bottom: 1em;
+    margin: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesContent {
+    text-align: left;
+}
+
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesButtonBox {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+
+.phModParticlesComparisonTable .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesComparisonTable .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesComparisonTable .phModParticlesTitle {
+    font-size: 150%;
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesComparisonTable .phModParticlesDesc {
+    margin-top: 1em;
+}
+
+.phModParticlesComparisonTable .phModParticlesContent {
+    margin: 1em;
+    height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    flex: 1;
+}
+
+.phModParticlesComparisonTable .phModParticlesItem .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 2vw;
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+
+.card.phModParticlesItem {
+    border: 5px solid #4a90d9 !important;
+    border-radius: 1em;
+    background: #fff !important;
+}
+
+.card.phModParticlesItem svg{
+    fill: #4a90d9 !important;
+}

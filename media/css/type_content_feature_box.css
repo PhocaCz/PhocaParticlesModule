@@ -1,0 +1,134 @@
+/* Phoca Particles - Content Feature Box */
+
+:root {
+    --pp-content-feature-box-item-bg-color: transparent;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesContentFeatureBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: start;
+    align-content: center;
+    width: 100%;
+    gap: 1em;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw20 { width: 20%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw25 { width: 25%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw30 { width: 30%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw33 { width: 33.333%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw40 { width: 40%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw50 { width: 50%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw60 { width: 60%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw66 { width: 66.666%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw70 { width: 70%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw75 { width: 75%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw80 { width: 80%; }
+.phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw100 { width: 100%; }
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw20 { width: 20%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw25 { width: 25%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw30 { width: 30%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw33 { width: 33.333%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw40 { width: 40%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw50 { width: 50%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw60 { width: 60%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw66 { width: 66.666%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw70 { width: 70%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw75 { width: 75%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw80 { width: 80%; }
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw100 { width: 100%; }
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw20,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw25,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw30,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw33,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw40,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw50,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw60,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw66,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw70,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw75,
+    .phModParticlesContentFeatureBox .phModParticlesItem .phModParticlesItemContent.pmpw80,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw20,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw25,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw30,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw33,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw40,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw50,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw60,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw66,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw70,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw75,
+    .phModParticlesContentFeatureBox .phModParticlesItemFeatureBox.pmpw80 {
+        width: 100%;
+    }
+}
+
+.phModParticlesContentFeatureBoxContainer .phModParticlesItemTitle {
+    font-weight: 900;
+    font-size: 240%;
+    text-align: center;
+}
+
+.phModParticlesContentFeatureBoxContainer .phModParticlesItemDesc {
+    text-align: center;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesSvg svg {
+    height: 5em;
+}
+.phModParticlesContentFeatureBox .phModParticlesItemFeatureBox .phModParticlesImage img {
+    height: 5em;
+    width: auto;
+}
+
+.phModParticlesContentFeatureBox .phModParticlesButtonBox {
+    text-align: center;
+    margin: 1em;
+}
+.phModParticlesContentFeatureBox .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 1.6vw;
+    /*color: #fff;
+    background: #000;
+    border-radius: 3px;*/
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
+}

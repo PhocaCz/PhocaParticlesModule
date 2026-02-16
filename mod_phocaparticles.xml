@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="6.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>11/12/2025</creationDate>
+	<creationDate>16/02/2026</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>6.0.3</version>
+	<version>6.1.0</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -56,12 +56,25 @@
                 <option value="image_feature_box">MOD_PHOCAPARTICLES_IMAGE_FEATURE_BOX</option>
 				<option value="grid_box">MOD_PHOCAPARTICLES_GRID_BOX</option>
 				<option value="simple_content">MOD_PHOCAPARTICLES_SIMPLE_CONTENT</option>
-				<option value="comparison_table">MOD_PHOCAPARTICLES_COMPARISON_TABLE</option>
 				<option value="simple_button">MOD_PHOCAPARTICLES_SIMPLE_BUTTON_TABLE</option>
+				<option value="comparison_table">MOD_PHOCAPARTICLES_COMPARISON_TABLE</option>
 				<option value="content_feature_box">MOD_PHOCAPARTICLES_CONTENT_FEATURE_BOX</option>
 				<option value="image_feature_accordion">MOD_PHOCAPARTICLES_IMAGE_FEATURE_ACCORDION</option>
 				<option value="content_feature_accordion">MOD_PHOCAPARTICLES_CONTENT_FEATURE_ACCORDION</option>
 				<option value="image_rotate">MOD_PHOCAPARTICLES_IMAGE_ROTATE</option>
+				<option value="slideshow">MOD_PHOCAPARTICLES_SLIDESHOW</option>
+				<option value="timeline">MOD_PHOCAPARTICLES_TIMELINE</option>
+				<option value="masonry">MOD_PHOCAPARTICLES_MASONRY</option>
+				<option value="tab_content">MOD_PHOCAPARTICLES_TAB_CONTENT</option>
+				<option value="marquee">MOD_PHOCAPARTICLES_MARQUEE</option>
+				<option value="card_stack">MOD_PHOCAPARTICLES_CARD_STACK</option>
+				<option value="zigzag">MOD_PHOCAPARTICLES_ZIGZAG</option>
+				<option value="icon_row_list">MOD_PHOCAPARTICLES_ICON_ROW_LIST</option>
+				<option value="image_gallery">MOD_PHOCAPARTICLES_IMAGE_GALLERY</option>
+				<option value="steps">MOD_PHOCAPARTICLES_STEPS</option>
+				<option value="review">MOD_PHOCAPARTICLES_REVIEW</option>
+				<option value="flip_box">MOD_PHOCAPARTICLES_FLIP_BOX</option>
+				<option value="image_hotspots">MOD_PHOCAPARTICLES_IMAGE_HOTSPOTS</option>
             </field>
 
 

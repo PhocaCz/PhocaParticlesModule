@@ -1,0 +1,42 @@
+/* Phoca Particles - Feature Box */
+
+:root {
+    --pp-feature-box-item-bg-color: transparent;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesFeatureBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.phModParticlesFeatureBox .phModParticlesItem {
+    flex: 1;
+    text-align: center;
+    min-width: 150px;
+    padding: 15px;
+}
+
+.phModParticlesFeatureBox .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesFeatureBox .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesFeatureBox .phModParticlesTitle {
+    font-size: 150%;
+    margin-top: 0em;
+    font-weight: bold;
+}
+
+.phModParticlesFeatureBox .phModParticlesDesc {
+    margin-top: 1em;
+}
+

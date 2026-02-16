@@ -1,0 +1,134 @@
+/* Phoca Particles - Slideshow */
+
+:root {
+    --pp-slideshow-nav-bg-color: rgba(0, 0, 0, 0.4);
+    --pp-slideshow-nav-color: #ffffff;
+    --pp-slideshow-nav-hover-bg-color: rgba(0, 0, 0, 0.7);
+    --pp-slideshow-dot-bg-color: #cccccc;
+    --pp-slideshow-dot-active-bg-color: #333333;
+}
+
+[data-bs-theme="dark"] {
+    --pp-slideshow-nav-bg-color: rgba(255, 255, 255, 0.2);
+    --pp-slideshow-nav-hover-bg-color: rgba(255, 255, 255, 0.4);
+    --pp-slideshow-dot-bg-color: #555555;
+    --pp-slideshow-dot-active-bg-color: #dddddd;
+}
+
+
+.phModParticlesSlideshow {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.phModParticlesSlideshowTrack {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.phModParticlesSlideshowSlide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.phModParticlesSlideshowSlide .phModParticlesImage {
+    width: 100%;
+}
+
+.phModParticlesSlideshowSlide .phModParticlesImage img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.phModParticlesSlideshowCaption {
+    padding: 1.5em;
+    text-align: center;
+}
+
+.phModParticlesSlideshowCaption .phModParticlesTitle {
+    font-size: 150%;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.phModParticlesSlideshowCaption .phModParticlesDesc {
+    font-size: 100%;
+}
+
+.phModParticlesSlideshowPrev,
+.phModParticlesSlideshowNext {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--pp-slideshow-nav-bg-color);
+    color: var(--pp-slideshow-nav-color);
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5em 0.75em;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.phModParticlesSlideshowPrev:hover,
+.phModParticlesSlideshowNext:hover {
+    background: var(--pp-slideshow-nav-hover-bg-color);
+}
+
+.phModParticlesSlideshowPrev {
+    left: 0.5em;
+}
+
+.phModParticlesSlideshowNext {
+    right: 0.5em;
+}
+
+.phModParticlesSlideshowDots {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.phModParticlesSlideshowDot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--pp-slideshow-dot-bg-color);
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.phModParticlesSlideshowDot.active {
+    background: var(--pp-slideshow-dot-active-bg-color);
+}
+
+
+.phModParticlesSlideshowContainer .phModParticlesButtonBox {
+    text-align: center;
+    margin: 1em;
+}
+.phModParticlesSlideshowContainer .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 1.6vw;
+    /*color: #fff;
+    background: #000;
+    border-radius: 3px;*/
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.phModParticlesSlideshowContainer .phModParticlesSvg {
+    text-align: center
+}
+.phModParticlesSlideshowContainer .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesSlideshowContainer .phModParticlesSvg svg {
+    height: 5em;
+}

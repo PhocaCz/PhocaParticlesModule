@@ -1,0 +1,133 @@
+/* Phoca Particles - Image Rotate */
+
+:root {
+    /* Variables if needed */
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesImageRotate {
+    position: relative;
+    height: 300vh;
+    width: 100%;
+}
+
+.phModParticlesImageRotateStage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.phModParticlesImageRotateTextOverlay {
+    text-align: center;
+    padding: 1em;
+    max-width: 90%;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 35;
+    position:absolute;
+    top: 6em;
+}
+
+.phModParticlesImageRotateTextOverlayTitle {
+    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 0.25em;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.phModParticlesImageRotateTextOverlayDesc {
+    font-size: 1rem;
+    font-size: clamp(0.8rem, 1.6vw, 1.6rem);
+}
+
+.phModParticlesImageRotateTextOverlaySuffix {
+    text-align: center;
+    max-width: 90%;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 35;
+    position:absolute;
+    bottom: 11em;
+    right: 7em;
+}
+
+.phModParticlesImageRotateTextOverlayTitleSuffix {
+    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 900;
+    margin-bottom: 0.25em;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.phModParticlesImageRotateStack {
+    display: grid;
+    position: relative;
+    width: 70vw;
+    max-width: 70vw;
+}
+
+.phModParticlesImageRotateFrame{
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.phModParticlesImageRotateFrame.active {
+    opacity: 1;
+}
+
+
+/* Possible Backgrounds for each image */
+/*
+.phModParticlesImageRotateStack img[data-track="1"] {
+    background: url(../../../../../images/particles/bg1.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="2"] {
+    background: url(../../../../../images/particles/bg2.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="3"] {
+    background: url(../../../../../images/particles/bg3.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="4"] {
+    background: url(../../../../../images/particles/bg4.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="5"] {
+    background: url(../../../../../images/particles/bg5.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="6"] {
+    background: url(../../../../../images/particles/bg6.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="7"] {
+    background: url(../../../../../images/particles/bg7.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+.phModParticlesImageRotateStack img[data-track="8"] {
+    background: url(../../../../../images/particles/bg8.webp);
+    background-size: cover;
+    background-position:bottom;
+}
+*/

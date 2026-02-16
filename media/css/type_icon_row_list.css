@@ -1,0 +1,78 @@
+/* Phoca Particles - Icon Row List */
+
+:root {
+    --pp-icon-row-list-border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-bs-theme="dark"] {
+    --pp-icon-row-list-border-color: rgba(255, 255, 255, 0.08);
+}
+
+
+.phModParticlesIconRowList {
+    width: 100%;
+    padding: 1em;
+}
+
+.phModParticlesIconRowListItem {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.25em 0;
+    border-bottom: 1px solid var(--pp-icon-row-list-border-color);
+}
+
+.phModParticlesIconRowListItem:last-child {
+    border-bottom: none;
+}
+
+.phModParticlesIconRowListIcon {
+    flex-shrink: 0;
+    width: 4em;
+    text-align: center;
+    margin-right: 1.5em;
+}
+
+.phModParticlesIconRowListIcon .phModParticlesIcon {
+    font-size: 2.5em;
+}
+
+.phModParticlesIconRowListIcon .phModParticlesSvg svg {
+    height: 2.5em;
+}
+
+.phModParticlesIconRowListIcon .phModParticlesImage img {
+    width: 3.5em;
+    height: 3.5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.phModParticlesIconRowListText {
+    flex: 1;
+    min-width: 0;
+}
+
+.phModParticlesIconRowListText .phModParticlesTitle {
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+}
+
+.phModParticlesIconRowListText .phModParticlesDesc {
+    margin-top: 0.25em;
+}
+
+.phModParticlesIconRowListText .phModParticlesButtonBox {
+    margin-top: 0.75em;
+}
+
+@media only screen and (max-width: 576px) {
+    .phModParticlesIconRowListIcon {
+        width: 3em;
+        margin-right: 1em;
+    }
+    .phModParticlesIconRowListIcon .phModParticlesIcon {
+        font-size: 2em;
+    }
+}
+

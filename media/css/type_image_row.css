@@ -1,0 +1,138 @@
+/* Phoca Particles - Image Row */
+
+:root {
+    --pp-image-row-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    /* Theme: Beige */
+    --pp-image-row-beige-bg: radial-gradient(circle, rgba(184,170,168,1) 0%, rgba(126,116,116,1) 100%);
+    /* Theme: Grey */
+    --pp-image-row-grey-bg: radial-gradient(circle, rgba(232,232,232,1) 0%, rgba(169,169,171,1) 100%);
+    /* Theme: Brown */
+    --pp-image-row-brown-bg: radial-gradient(circle, rgba(235,179,166,1) 0%, rgba(137,78,64,1) 100%);
+    /* Theme: Gold */
+    --pp-image-row-gold-bg: radial-gradient(circle, rgba(252,217,128,1) 0%, rgba(218,165,32,1) 100%);
+    /* Theme: Pink */
+    --pp-image-row-pink-bg: radial-gradient(circle, rgba(252,182,195,1) 0%, rgba(242,53,87,1) 100%);
+    /* Theme: Orange */
+    --pp-image-row-orange-bg: radial-gradient(circle, rgba(247,175,147,1) 0%, rgba(240,93,35,1) 100%);
+    /* Theme: Turquoise */
+    --pp-image-row-turquoise-bg: radial-gradient(circle, rgba(166,236,255,1) 0%, rgba(34,178,218,1) 100%);
+    /* Theme: Dark */
+    --pp-image-row-dark-bg: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(25,25,25,1) 100%);
+    --pp-image-row-white-fixed: #fff;
+    --pp-image-row-dark-fixed: #000;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesImageRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.phModParticlesImageRow .phModParticlesItem {
+  /*  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+    position: relative;
+}
+
+.phModParticlesImageRow .phModParticlesItem.pmpw20 { width: 20%; }
+.phModParticlesImageRow .phModParticlesItem.pmpw25 { width: 25%; }
+.phModParticlesImageRow .phModParticlesItem.pmpw33 { width: 33.333%; }
+.phModParticlesImageRow .phModParticlesItem.pmpw50 { width: 50%; }
+.phModParticlesImageRow .phModParticlesItem.pmpw100 { width: 100%; }
+
+.phModParticlesImageRow .phModParticlesItem img {
+    max-width: 100%;
+}
+
+.phModParticlesImageRow .phModParticlesItem .phModParticlesItemInnerBox {
+    padding: 0;
+    margin: 0;
+}
+
+.phModParticlesImageRow .phModParticlesTitle {
+    position: absolute;
+    top: 68%;
+    font-weight: bold;
+    color: var(--pp-image-row-white-fixed);
+    text-shadow: 1px 1px 0px var(--pp-image-row-dark-fixed);
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+.phModParticlesImageRow .phModParticlesDesc {
+    position: absolute;
+    top: 80%;
+    line-height: 1;
+    color: var(--pp-image-row-white-fixed);
+    text-shadow: 1px 1px 0px var(--pp-image-row-dark-fixed);
+    margin: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Theme phParticlesImageRowThemeProducts */
+.phParticlesImageRowThemeProducts .phModParticlesItem .phModParticlesItemInnerBox {
+    margin: 1em;
+    box-shadow: 0 0 14px rgba(0,0,0,.1);
+
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem .phModParticlesTitle {
+    position: absolute;
+    text-shadow: none;
+    font-size: clamp(1vw, 2vw, 3vw);
+    margin-left: 2.5vw;
+    line-height: 1.2;
+    top: 25%;
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem .phModParticlesDesc {
+    position: absolute;
+    text-shadow: none;
+    font-size: clamp(0.8vw, 1.2vw, 1.6vw);
+    margin-left: 2.5vw;
+    top: 55%;
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.beige .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-beige-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.grey .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-grey-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.brown .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-brown-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.gold .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-gold-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.pink .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-pink-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.orange .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-orange-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.turquoise .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-turquoise-bg);
+}
+
+.phParticlesImageRowThemeProducts .phModParticlesItem.dark .phModParticlesItemInnerBox {
+    background: var(--pp-image-row-dark-bg);
+}

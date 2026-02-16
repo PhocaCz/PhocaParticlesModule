@@ -1,0 +1,175 @@
+/* Phoca Particles - Image Hotspots Type */
+
+:root {
+    --pp-hotspot-dot-bg-color: #0d6efd;
+    --pp-hotspot-dot-border-color: #ffffff;
+    --pp-hotspot-dot-shadow-color: rgba(13, 110, 253, 0.3);
+    --pp-hotspot-dot-color: #ffffff;
+    --pp-hotspot-dot-hover-bg-color: #0a58ca;
+    --pp-hotspot-content-bg-color: #ffffff;
+    --pp-hotspot-content-color: #333333;
+    --pp-hotspot-content-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    --pp-hotspot-content-desc-color: #666666;
+}
+
+[data-bs-theme="dark"] {
+    --pp-hotspot-dot-bg-color: #0d6efd; /* Keep primary */
+    --pp-hotspot-content-bg-color: #2a2a2a;
+    --pp-hotspot-content-color: #ffffff;
+    --pp-hotspot-content-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    --pp-hotspot-content-desc-color: #bbbbbb;
+}
+
+
+.phModParticlesImageHotspots {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.phModParticlesImageHotspotsMap {
+    /* Pure wrapper, mostly structural now */
+    display: block;
+    width: 100%;
+}
+
+/* The Frame: THIS IS THE KEY ELEMENT */
+/* It wraps the image and serves as the anchor for absolute positioning */
+/* Users should resize THIS element if they want to resize the map */
+.phModParticlesImageHotspotsFrame {
+    position: relative;
+    display: inline-block; /* Shrink to fit content */
+    width: auto;           /* Default: fit content */
+    max-width: 100%;
+    vertical-align: top;
+    /* Clipping */
+    /* overflow: hidden; Removed to allow tooltips to spill OUT */
+    /* Instead we clip the IMG directly via border-radius */
+}
+
+/* Image/SVG Resizing */
+.phModParticlesImageHotspotsMapImg,
+.phModParticlesImageHotspotsMapSvg svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Apply radius directly to content */
+}
+
+/* 
+   HOTSPOT POSITIONING
+   Sibling to Image (absolute within Frame)
+*/
+.phModParticlesImageHotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Accessibility Focus */
+.phModParticlesImageHotspot:focus .phModParticlesImageHotspotDot {
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.5);
+}
+
+/* The Dot */
+.phModParticlesImageHotspotDot,
+.phModParticlesImageHotspotDotDefault {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    line-height: 1;
+    box-sizing: border-box;
+    background: var(--pp-hotspot-dot-bg-color);
+    border: 2px solid var(--pp-hotspot-dot-border-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--pp-hotspot-dot-shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pp-hotspot-dot-color);
+    font-size: 12px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Pulsing */
+.phModParticlesImageHotspotDot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.6;
+    animation: phHotspotPulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes phHotspotPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+.phModParticlesImageHotspot:hover .phModParticlesImageHotspotDot,
+.phModParticlesImageHotspot:focus .phModParticlesImageHotspotDot {
+    transform: scale(1.2);
+    background: var(--pp-hotspot-dot-hover-bg-color);
+    z-index: 20;
+}
+
+/* Tooltip Content */
+.phModParticlesImageHotspotContent {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--pp-hotspot-content-bg-color);
+    color: var(--pp-hotspot-content-color);
+    width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--pp-hotspot-content-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 100;
+    pointer-events: none;
+    text-align: center;
+}
+
+.phModParticlesImageHotspotContent::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--pp-hotspot-content-bg-color) transparent transparent transparent;
+}
+
+.phModParticlesImageHotspot:hover .phModParticlesImageHotspotContent,
+.phModParticlesImageHotspot:focus .phModParticlesImageHotspotContent,
+.phModParticlesImageHotspot:focus-within .phModParticlesImageHotspotContent {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.phModParticlesImageHotspot:hover,
+.phModParticlesImageHotspot:focus {
+    z-index: 100;
+}
+
+/* Typography */
+.phModParticlesImageHotspotContent .phModParticlesImage { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
+.phModParticlesImageHotspotContent .phModParticlesTitle { font-size: 1.1em; font-weight: bold; margin-bottom: 5px; display: block; }
+.phModParticlesImageHotspotContent .phModParticlesDesc { font-size: 0.9em; color: var(--pp-hotspot-content-desc-color); line-height: 1.4; }
+

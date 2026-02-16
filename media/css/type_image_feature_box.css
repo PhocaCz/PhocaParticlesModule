@@ -1,0 +1,169 @@
+/* Phoca Particles - Image Feature Box */
+
+:root {
+    --pp-image-feature-box-label-bg-color: #9e0f0f;
+    --pp-image-feature-box-label-color: #ffffff;
+    --pp-image-feature-box-price-original-bg-color: #ffffff;
+    --pp-image-feature-box-price-original-color: #000000;
+    --pp-image-feature-box-price-original-border-color: #000000;
+    --pp-image-feature-box-price-bg-color: #f8e914;
+    --pp-image-feature-box-price-color: #000000;
+}
+
+[data-bs-theme="dark"] {
+    /* Keeping these as they are often specific highlights, but defining the structure */
+}
+
+
+.phModParticlesImageFeatureBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: start;
+    align-content: center;
+    width: 100%;
+    gap: 1em;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemImage {
+    position: relative;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemImage img {
+    max-width: 100%;
+    display: block;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw20 { width: 20%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw25 { width: 25%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw30 { width: 30%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw33 { width: 33.333%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw40 { width: 40%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw50 { width: 50%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw60 { width: 60%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw66 { width: 66.666%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw70 { width: 70%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw75 { width: 75%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw80 { width: 80%; }
+.phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw100 { width: 100%; }
+
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw20 { width: 20%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw25 { width: 25%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw30 { width: 30%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw33 { width: 33.333%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw40 { width: 40%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw50 { width: 50%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw60 { width: 60%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw66 { width: 66.666%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw70 { width: 70%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw75 { width: 75%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw80 { width: 80%; }
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw100 { width: 100%; }
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw20,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw25,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw30,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw33,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw40,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw50,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw60,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw66,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw70,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw75,
+    .phModParticlesImageFeatureBox .phModParticlesItemImage.pmpw80,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw20,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw25,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw30,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw33,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw40,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw50,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw60,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw66,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw70,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw75,
+    .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw80 {
+        width: 100%;
+    }
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemLabel {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    padding: 0.25em 1em;
+    background: var(--pp-image-feature-box-label-bg-color);
+    color: var(--pp-image-feature-box-label-color);
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 120%;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPriceOriginal {
+    position: absolute;
+    bottom: 4.5em;
+    right: 4.5em;
+    padding: 0.3vw 1.5vw;
+    border: 4px solid var(--pp-image-feature-box-price-original-border-color);
+    background: var(--pp-image-feature-box-price-original-bg-color);
+    color: var(--pp-image-feature-box-price-original-color);
+    border-radius: 5px;
+    text-decoration: line-through;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 130%;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesItemPrice {
+    position: absolute;
+    bottom: 1em;
+    right: 3em;
+    padding: 0.8vw 2.5vw;
+    background: var(--pp-image-feature-box-price-bg-color);
+    color: var(--pp-image-feature-box-color);
+    border-radius: 5px;
+    transform: rotate(-4deg);
+    font-weight: 900;
+    font-size: 160%;
+}
+
+.phModParticlesItemFeatureBox .phModParticlesDescBox .phModParticlesButtonBox {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.phModParticlesItemFeatureBox .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 2vw;
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesSvg svg {
+    height: 5em;
+}
+.phModParticlesImageFeatureBox .phModParticlesItemFeatureBox .phModParticlesImage img {
+    height: 5em;
+    width: auto;
+}

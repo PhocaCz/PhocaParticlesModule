@@ -10,6 +10,7 @@
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 defined('_JEXEC') or die;
@@ -78,40 +79,11 @@ if ($dataAttribute) {
 
 $imagePath = JPATH_SITE . '/media/mod_phocaparticles/images';
 
-Factory::getDocument()->addStyleDeclaration('
-    .ph-image-label-box {
-        display: flex;
-        flex-wrap: wrap;
-        flex: 1;
-    }
-    
-    .ph-image-label-box .form-check {
-        flex: 0 0 33%;
-        padding: 0.25em;
-        margin: 0 0 1em 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex: 0 0 32%;
-    }
-    
-    .ph-image-label-box-item {
-        border: 2px solid #285185;
-        border-radius: 5px;
-        height: 100%;
-        
-    }
-    .ph-image-label-box-item label {
-        padding: 1em 1em 1em 2em;
-        text-align: center;
-    }
-    
-    .ph-image-label-box-item label img {
-        max-width: 100%;
-    }
-');
+$wa = Factory::getDocument()->getWebAssetManager();
+$wa->registerAndUseStyle('mod_phocaparticles.admin', 'media/mod_phocaparticles/css/admin.css', array('version' => 'auto'));
+
+// Initialize Bootstrap tooltips
+HTMLHelper::_('bootstrap.tooltip', '.ph-info-tooltip', ['html' => true, 'sanitize' => false]);
 
 ?>
 <fieldset <?php echo implode(' ', $attribs); ?>>
@@ -144,6 +116,7 @@ Factory::getDocument()->addStyleDeclaration('
                 $optionClass = !empty($option->class) ? $option->class : $btnClass;
                 $optionClass = trim($optionClass . ' ' . $disabled);
                 $checked     = ((string) $option->value === $value) ? 'checked="checked"' : '';
+                $selectedClass = ((string) $option->value === $value) ? ' ph-selected' : '';
 
                 // Initialize some JavaScript option attributes.
                 $onclick    = !empty($option->onclick) ? 'onclick="' . $option->onclick . '"' : '';
@@ -151,15 +124,33 @@ Factory::getDocument()->addStyleDeclaration('
                 $oid        = $id . $i;
                 $ovalue     = htmlspecialchars($option->value, ENT_COMPAT, 'UTF-8');
                 $attributes = array_filter(array($checked, $disabled, ltrim($style), $onchange, $onclick));
+
+                // Info tooltip
+                $infoKey = 'MOD_PHOCAPARTICLES_INFO_' . strtoupper($option->value);
+                $infoText = Text::_($infoKey);
+                $hasInfo = ($infoText !== $infoKey);
+
+                if ($hasInfo) {
+                    $infoHeader = Text::_('MOD_PHOCAPARTICLES_INFO_HEADER');
+                    if ($infoHeader !== 'MOD_PHOCAPARTICLES_INFO_HEADER') {
+                        $infoText = $infoHeader . $infoText;
+                    }
+                }
                 ?>
                 <?php if ($required) : ?>
                     <?php $attributes[] = 'required'; ?>
                 <?php endif; ?>
-                <div class="ph-image-label-box-item">
+                <div class="ph-image-label-box-item<?php echo $selectedClass; ?>">
+                    <?php if ($hasInfo) : ?>
+                    <span class="ph-info-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="<?php echo htmlspecialchars($infoText); ?>">ℹ</span>
+                    <?php endif; ?>
                     <label for="<?php echo $oid; ?>" class="<?php echo trim($optionClass); ?>"<?php echo $style; ?>>
                         <input class="<?php echo $classToggle; ?>" type="radio" id="<?php echo $oid; ?>" name="<?php echo $name; ?>" value="<?php echo $ovalue; ?>" <?php echo implode(' ', $attributes); ?>>
                         <?php
-                        echo '<img src="' . Uri::root() . 'media/mod_phocaparticles/images/' . $ovalue .'.png" />';
+                        // Check if image exists
+                        $imgSrc = Uri::root() . 'media/mod_phocaparticles/images/' . $ovalue .'.webp';
+                        // Add some error handling or fallback if needed? For now just render.
+                        echo '<img src="' . $imgSrc . '" />';
                         echo '<br>'.$option->text;
                         ?>
                     </label>

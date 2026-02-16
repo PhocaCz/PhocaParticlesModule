@@ -235,9 +235,20 @@ if (!empty($itemsA)) {
 
 //JHTML::stylesheet( 'media/mod_phocaparticles/css/style.css' );
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('mod_phocaparticles', 'media/mod_phocaparticles/css/style.css', array('version' => 'auto'));
 
-if ($p['type'] == 'content_feature_accordion' || $p['type'] == 'image_feature_acordion' || $p['type'] == 'image_rotate') {
+// Common CSS (always loaded)
+$wa->registerAndUseStyle('mod_phocaparticles.common', 'media/mod_phocaparticles/css/common.css', array('version' => 'auto'));
+
+// Type-specific CSS
+$typeCssMap = [
+    'image_feature_accordion' => 'accordion',
+    'content_feature_accordion' => 'accordion',
+];
+$typeCssName = $typeCssMap[$p['type']] ?? $p['type'];
+$wa->registerAndUseStyle('mod_phocaparticles.type.' . $typeCssName, 'media/mod_phocaparticles/css/type_' . $typeCssName . '.css', array('version' => 'auto'));
+
+$jsTypes = ['content_feature_accordion', 'image_feature_accordion', 'image_rotate', 'slideshow', 'tab_content', 'image_gallery', 'card_stack'];
+if (in_array($p['type'], $jsTypes)) {
     $wa->registerAndUseScript('mod_phocaparticles.particlesjs', 'media/mod_phocaparticles/js/particles.min.js', array('version' => 'auto'));
 }
 

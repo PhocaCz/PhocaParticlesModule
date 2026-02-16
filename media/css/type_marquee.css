@@ -1,0 +1,85 @@
+/* Phoca Particles - Marquee (Infinite scroll) */
+
+:root {
+    --pp-marquee-image-filter: grayscale(100%);
+    --pp-marquee-image-opacity: 0.7;
+    --pp-marquee-icon-opacity: 0.7;
+}
+
+[data-bs-theme="dark"] {
+    --pp-marquee-image-filter: grayscale(100%) brightness(1.5);
+}
+
+
+.phModParticlesMarquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.phModParticlesMarqueeTrack {
+    display: flex;
+    width: max-content;
+    animation: phModParticlesMarqueeScroll 30s linear infinite;
+}
+
+.phModParticlesMarqueeItem {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 2em;
+}
+
+.phModParticlesMarqueeItem .phModParticlesImage img {
+    max-height: 60px;
+    width: auto;
+    display: block;
+    filter: var(--pp-marquee-image-filter);
+    opacity: var(--pp-marquee-image-opacity);
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.phModParticlesMarqueeItem:hover .phModParticlesImage img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.phModParticlesMarqueeItem .phModParticlesIcon {
+    font-size: 2.5em;
+    opacity: var(--pp-marquee-icon-opacity);
+    transition: opacity 0.3s;
+}
+
+.phModParticlesMarqueeItem:hover .phModParticlesIcon {
+    opacity: 1;
+}
+
+.phModParticlesMarqueeItem .phModParticlesTitle {
+    font-size: 110%;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Pause on hover */
+.phModParticlesMarquee:hover .phModParticlesMarqueeTrack {
+    animation-play-state: paused;
+}
+
+@keyframes phModParticlesMarqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.phModParticlesMarqueeTrack .phModParticlesMarqueeItem .phModParticlesImage {
+  margin: auto 0.5em;
+}
+.phModParticlesMarqueeTrack .phModParticlesMarqueeItem .phModParticlesSvg svg {
+  margin: auto 0.5em;
+  width: auto;
+  height: 60px;
+}

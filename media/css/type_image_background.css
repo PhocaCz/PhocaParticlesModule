@@ -1,0 +1,59 @@
+/* Phoca Particles - Image Background */
+
+:root {
+    --pp-image-background-title-color: #ffffff;
+    --pp-image-background-title-text-shadow: 2px 2px #000000;
+    --pp-image-background-desc-color: #ffffff;
+    --pp-image-background-desc-text-shadow: 2px 2px #000000;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesImageBackground {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(bg.webp); !important;*/
+}
+
+.phModParticlesImageBackground .phModParticlesItem {
+    text-align: center;
+    padding: 5vw;
+}
+
+.phModParticlesImageBackground .phModParticlesIcon {
+    font-size: 5em;
+}
+.phModParticlesImageBackground .phModParticlesSvg svg {
+    height: 5em;
+}
+
+.phModParticlesImageBackground .phModParticlesTitle {
+    margin-top: 10vw;
+    font-size: 6vw;
+    line-height: 1;
+    text-align: center;
+    color: var(--pp-image-background-title-color);
+    font-weight: bold;
+    text-shadow: var(--pp-image-background-title-text-shadow);
+}
+
+.phModParticlesImageBackground .phModParticlesDesc {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 2vw;
+    color: var(--pp-image-background-desc-color);
+    text-shadow: var(--pp-image-background-desc-text-shadow);
+}
+
+.phModParticlesImageBackground .phModParticlesImage img {
+    max-width: 100%;
+}

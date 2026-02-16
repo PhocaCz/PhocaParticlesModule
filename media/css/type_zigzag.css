@@ -1,0 +1,93 @@
+/* Phoca Particles - Zigzag */
+
+:root {
+    --pp-zigzag-image-border-radius: 8px;
+}
+
+[data-bs-theme="dark"] {
+    /* Variables for dark theme if needed */
+}
+
+
+.phModParticlesZigzag {
+    width: 100%;
+    padding: 1em;
+}
+
+.phModParticlesZigzagRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.phModParticlesZigzagRow.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+
+.phModParticlesZigzagImage {
+    flex: 1;
+    min-width: 300px;
+}
+
+.phModParticlesZigzagImage img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}
+
+.phModParticlesZigzagSvg {
+    flex: 1;
+    min-width: 300px;
+}
+.phModParticlesZigzagSvg svg {
+    width: 100%;
+    display: block;
+}
+
+.phModParticlesZigzagContent {
+    flex: 1;
+    min-width: 300px;
+    padding: 2em;
+}
+
+.phModParticlesZigzagContent .phModParticlesTitle {
+    font-size: 180%;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.phModParticlesZigzagContent .phModParticlesDesc {
+    margin-bottom: 1em;
+}
+
+.phModParticlesZigzagContent .phModParticlesContent {
+    margin-bottom: 1em;
+}
+
+.phModParticlesZigzagContent .phModParticlesButtonBox {
+    margin-top: 1.5em;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesZigzagImage,
+    .phModParticlesZigzagContent {
+        min-width: 100%;
+    }
+    .phModParticlesZigzagRow.pmpReverse {
+        flex-direction: column;
+    }
+}
+
+
+/*
+.phModParticlesZigzag .phModParticlesZigzagRow .phModParticlesZigZagSvg {
+    text-align: center;
+    padding: 1em;
+}
+*/
+.phModParticlesZigzag .phModParticlesZigzagRow .phModParticlesZigZagSvg svg {
+  width: 10em;
+  height: auto;
+}

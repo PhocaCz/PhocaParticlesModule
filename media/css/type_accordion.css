@@ -1,0 +1,272 @@
+/* Phoca Particles - Accordion (shared by image_feature_accordion and content_feature_accordion) */
+
+:root {
+    --pp-accordion-border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] {
+    --pp-accordion-border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* --- Accordion Base --- */
+.phModParticlesAccordion {
+    width: 100%;
+}
+
+.phModParticlesAccordionItem {
+    border-bottom: 1px solid var(--pp-accordion-border-color);
+}
+
+.phModParticlesAccordionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0.5em;
+    cursor: pointer;
+    font-size: 120%;
+    font-weight: bold;
+    user-select: none;
+}
+
+.phModParticlesAccordionHeaderIcon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1em;
+}
+
+.phModParticlesAccordionItem.active .phModParticlesAccordionHeaderIcon {
+    transform: rotate(180deg);
+}
+
+.phModParticlesAccordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 0.5em;
+}
+
+.phModParticlesAccordionContent .phModParticlesDesc,
+.phModParticlesAccordionContent .phModParticlesContent {
+    padding: 0.5em 0 1em 0;
+}
+
+/* --- Image Feature Accordion --- */
+.phModParticlesImageFeatureAccordion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage {
+    position: relative;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage img {
+    max-width: 100%;
+    display: block;
+    border-radius: 1em;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw20 { width: 20%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw25 { width: 25%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw30 { width: 30%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw33 { width: 33.333%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw40 { width: 40%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw50 { width: 50%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw60 { width: 60%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw66 { width: 66.666%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw70 { width: 70%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw75 { width: 75%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw80 { width: 80%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw100 { width: 100%; }
+
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw20 { width: 20%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw25 { width: 25%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw30 { width: 30%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw33 { width: 33.333%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw40 { width: 40%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw50 { width: 50%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw60 { width: 60%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw66 { width: 66.666%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw70 { width: 70%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw75 { width: 75%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw80 { width: 80%; }
+.phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw100 { width: 100%; }
+
+/* Accordion image toggling */
+.phModParticlesAccordionImage {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw20,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw25,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw30,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw33,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw40,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw50,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw60,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw66,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw70,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw75,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemImage.pmpw80,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw20,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw25,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw30,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw33,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw40,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw50,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw60,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw66,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw70,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw75,
+    .phModParticlesImageFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw80 {
+        width: 100%;
+    }
+}
+
+/* --- Content Feature Accordion --- */
+.phModParticlesContentFeatureAccordion {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.phModParticlesContentFeatureAccordion .phModParticlesItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.phModParticlesContentFeatureAccordion .phModParticlesItem.pmpReverse {
+    flex-direction: row-reverse;
+}
+
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw20 { width: 20%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw25 { width: 25%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw30 { width: 30%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw33 { width: 33.333%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw40 { width: 40%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw50 { width: 50%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw60 { width: 60%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw66 { width: 66.666%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw70 { width: 70%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw75 { width: 75%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw80 { width: 80%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw100 { width: 100%; }
+
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    padding: 2em;
+}
+
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw20 { width: 20%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw25 { width: 25%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw30 { width: 30%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw33 { width: 33.333%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw40 { width: 40%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw50 { width: 50%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw60 { width: 60%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw66 { width: 66.666%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw70 { width: 70%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw75 { width: 75%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw80 { width: 80%; }
+.phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw100 { width: 100%; }
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw20,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw25,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw30,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw33,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw40,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw50,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw60,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw66,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw70,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw75,
+    .phModParticlesContentFeatureAccordion .phModParticlesItem .phModParticlesItemContent.pmpw80,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw20,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw25,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw30,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw33,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw40,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw50,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw60,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw66,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw70,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw75,
+    .phModParticlesContentFeatureAccordion .phModParticlesItemFeatureAccordion.pmpw80 {
+        width: 100%;
+    }
+}
+
+.phModParticlesContentFeatureAccordionContainer .phModParticlesItemTitle {
+    font-weight: 900;
+    font-size: 240%;
+    text-align: center;
+}
+
+.phModParticlesContentFeatureAccordionContainer .phModParticlesItemDesc {
+    text-align: center;
+}
+
+.phModParticlesImageFeatureAccordion .phModParticlesButtonBox,
+.phModParticlesContentFeatureAccordion .phModParticlesButtonBox {
+    text-align: center;
+    margin: 1em;
+}
+.phModParticlesImageFeatureAccordion .phModParticlesButtonBox .phModParticlesButton,
+.phModParticlesContentFeatureAccordion .phModParticlesButtonBox .phModParticlesButton {
+    font-size: 1.6vw;
+    /*color: #fff;
+    background: #000;
+    border-radius: 3px;*/
+    padding: 0.8vw 1.2vw;
+    margin: 0 auto;
+    text-decoration: none;
+}

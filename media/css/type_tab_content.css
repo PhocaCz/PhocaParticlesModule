@@ -1,0 +1,92 @@
+/* Phoca Particles - Tab Content */
+
+:root {
+    --pp-tab-border-color: #dddddd;
+    --pp-tab-button-color: #666666;
+    --pp-tab-button-hover-color: #333333;
+    --pp-tab-button-active-color: #4a90d9;
+}
+
+[data-bs-theme="dark"] {
+    --pp-tab-border-color: #444444;
+    --pp-tab-button-color: #aaaaaa;
+    --pp-tab-button-hover-color: #dddddd;
+    --pp-tab-button-active-color: #6ab0ff;
+}
+
+
+.phModParticlesTabContent {
+    width: 100%;
+    padding: 1em;
+}
+
+.phModParticlesTabHeaders {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--pp-tab-border-color);
+    gap: 2px;
+}
+
+.phModParticlesTabButton {
+    padding: 0.75em 1.5em;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 100%;
+    font-weight: 600;
+    color: var(--pp-tab-button-color);
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.phModParticlesTabButton:hover {
+    color: var(--pp-tab-button-hover-color);
+}
+
+.phModParticlesTabButton.active {
+    color: var(--pp-tab-button-active-color);
+    border-bottom-color: var(--pp-tab-button-active-color);
+}
+
+.phModParticlesTabButton i {
+    font-size: 1.1em;
+}
+
+.phModParticlesTabPanels {
+    padding: 1.5em 0;
+}
+
+.phModParticlesTabPanel {
+    display: none;
+}
+
+.phModParticlesTabPanel.active {
+    display: block;
+}
+
+.phModParticlesTabPanel .phModParticlesDesc {
+    margin-bottom: 1em;
+}
+
+.phModParticlesTabPanel .phModParticlesImage img {
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+    .phModParticlesTabHeaders {
+        flex-direction: column;
+    }
+    .phModParticlesTabButton {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+    .phModParticlesTabButton.active {
+        border-left-color: var(--pp-tab-button-active-color);
+        border-bottom-color: transparent;
+    }
+}
+
+

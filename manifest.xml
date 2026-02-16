@@ -29,7 +29,6 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/4.1.1/mod_phocaparticles_v4.1.1.zip</downloadurl>
 		</downloads>
-		<sha512>3d758f95e73299c5d031a46164706b6741ebaa09e41cb06cd98b48dd3afcf3aa24c3ec2ea4593829aba3ee351e82d35eec7817afe4cc4105b066251069c9c49c</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
@@ -49,7 +48,6 @@
 		<downloads>
 			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/5.1.2/mod_phocaparticles_v5.1.2.zip</downloadurl>
 		</downloads>
-		<sha512>9352d441b0285686a1ff817c004b08521fd9097826ae693560b702e747af62bad36a025f8997bffd89915625ea355f7e62c63d2f61991e76f7401a54e25bbe58</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
@@ -64,12 +62,12 @@
 		<description><![CDATA[ Phoca Particles Module - a Joomla! CMS module which displays prepared HTML parts in module instances or articles. ]]></description>
 		<element>mod_phocaparticles</element>
 		<type>module</type>
-		<version>6.0.3</version>
-		<infourl title="Phoca Particles Module 6.0.3">https://www.phoca.cz/</infourl>
+		<version>6.1.0</version>
+		<infourl title="Phoca Particles Module 6.1.0">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/6.0.3/mod_phocaparticles_v6.0.3.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaParticlesModule/releases/download/6.1.0/mod_phocaparticles_v6.1.0.zip</downloadurl>
 		</downloads>
-		<sha512>e93bc7147ee2dea921fa39d2d3000553498ff18c6172132e186ff948120bef7b0748adf739cd552e21d1a9fe3bf2d5ef7ee29e9c81526eb20de2d4ea9528454f</sha512>
+		<sha512>68df1f1f55700df618478238b9177c02c6ab520aa62652fc6b4b131c4b42d6361f27ca97bf6cae53fa6fc9e59865d4722cc2a9ce4f999ed310a7811116da6ef0</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>

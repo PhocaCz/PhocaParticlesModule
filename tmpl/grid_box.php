@@ -16,9 +16,10 @@ use Joomla\Module\PhocaParticles\Site\Helper\PhocaParticlesHelper;
 
 echo '<div class="'.$class .'" id="'. $id .'">';
 
-if ($p['description_top'] != '') {
-    echo '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>';
-}
+echo ($p['description_top'] != '') ? '<div class="phModParticlesDescTop">'.HTMLHelper::_('content.prepare', $p['description_top']).'</div>' : '';
+echo $p['main_top_code'] ?? '';
+echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
+echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
 
 if ($p['main_top_code'] != '') {
     echo $p['main_top_code'];
@@ -84,9 +85,11 @@ if (!empty($items)) {
         if (isset($v->item_image) && $v->item_image != '') {
             $imgClean = HTMLHelper::cleanImageURL($v->item_image);
             if ($imgClean->url != '') {
+                //  could be added before url: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 $itemP[$k]['style'] = ' style="background-image: url('.Uri::base() . $imgClean->url.');"';
             }
         }
+
 
         if (isset($v->item_image) && $v->item_image != '') {
             $itemP[$k]['class'] = ' '.$v->item_class.'';

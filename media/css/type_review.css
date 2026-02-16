@@ -1,0 +1,111 @@
+/* Phoca Particles - Review Type */
+
+:root {
+    --pp-review-bg-color: #ffffff;
+    --pp-review-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    --pp-review-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --pp-review-image-border-color: #f0f0f0;
+    --pp-review-quote-color: #555555;
+    --pp-review-quote-mark-color: #e0e0e0;
+    --pp-review-star-color: #ffc107;
+    --pp-review-name-color: #333333;
+}
+
+[data-bs-theme="dark"] {
+    --pp-review-bg-color: #2a2a2a;
+    --pp-review-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --pp-review-image-border-color: #444444;
+    --pp-review-quote-color: #bbbbbb;
+    --pp-review-quote-mark-color: #444444;
+    --pp-review-name-color: #ffffff;
+}
+
+
+.phModParticlesReviewRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.phModParticlesReviewItem {
+    display: flex;
+}
+
+.phModParticlesReviewCard {
+    background: var(--pp-review-bg-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--pp-review-shadow);
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phModParticlesReviewCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--pp-review-shadow-hover);
+}
+
+.phModParticlesReviewCard .phModParticlesImage {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--pp-review-image-border-color);
+}
+
+.phModParticlesReviewCard .phModParticlesImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.phModParticlesReviewQuote {
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--pp-review-quote-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.phModParticlesReviewQuote::before {
+    content: "“";
+    font-size: 3em;
+    color: var(--pp-review-quote-mark-color);
+    font-family: serif;
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    line-height: 1;
+}
+
+.phModParticlesReviewQuote::after {
+    content: "”";
+    font-size: 3em;
+    color: var(--pp-review-quote-mark-color);
+    font-family: serif;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    line-height: 1;
+}
+
+.phModParticlesReviewStars {
+    color: var(--pp-review-star-color); /* Gold color */
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.phModParticlesReviewName {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--pp-review-name-color);
+    margin-top: auto; /* Push to bottom if content varies */
+}

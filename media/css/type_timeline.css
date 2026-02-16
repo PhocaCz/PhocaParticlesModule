@@ -1,0 +1,136 @@
+/* Phoca Particles - Timeline */
+
+:root {
+    --pp-timeline-line-color: #dddddd;
+    --pp-timeline-dot-bg-color: #4a90d9;
+    --pp-timeline-dot-color: #ffffff;
+    --pp-timeline-dot-shadow-color: #ffffff;
+    --pp-timeline-date-color: #4a90d9;
+}
+
+[data-bs-theme="dark"] {
+    --pp-timeline-line-color: #444444;
+    --pp-timeline-dot-bg-color: #6ab0ff;
+    --pp-timeline-dot-shadow-color: #1a1a2e;
+    --pp-timeline-date-color: #6ab0ff;
+}
+
+
+.phModParticlesTimeline {
+    position: relative;
+    padding: 2em 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Vertical center line */
+.phModParticlesTimeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--pp-timeline-line-color);
+    transform: translateX(-50%);
+}
+
+.phModParticlesTimelineItem {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+/* Left items: content on the left */
+.phModParticlesTimelineLeft .phModParticlesTimelineContent {
+    width: calc(50% - 2em);
+    text-align: right;
+    padding-right: 2em;
+}
+
+.phModParticlesTimelineLeft .phModParticlesTimelineDot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Right items: content on the right */
+.phModParticlesTimelineRight .phModParticlesTimelineContent {
+    width: calc(50% - 2em);
+    margin-left: auto;
+    text-align: left;
+    padding-left: 2em;
+}
+
+.phModParticlesTimelineRight .phModParticlesTimelineDot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* Dot/marker */
+.phModParticlesTimelineDot {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background: var(--pp-timeline-dot-bg-color);
+    color: var(--pp-timeline-dot-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px var(--pp-timeline-dot-shadow-color);
+}
+
+.phModParticlesTimelineDate {
+    font-size: 85%;
+    font-weight: 600;
+    color: var(--pp-timeline-date-color);
+    margin-bottom: 0.25em;
+}
+
+.phModParticlesTimelineContent .phModParticlesTitle {
+    font-size: 130%;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+}
+
+.phModParticlesTimelineContent .phModParticlesDesc {
+    margin-top: 0.5em;
+}
+
+.phModParticlesTimelineContent .phModParticlesButtonBox {
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesTimeline::before {
+        left: 1.25em;
+    }
+
+    .phModParticlesTimelineLeft .phModParticlesTimelineContent,
+    .phModParticlesTimelineRight .phModParticlesTimelineContent {
+        width: calc(100% - 4em);
+        margin-left: 4em;
+        text-align: left;
+        padding-left: 1em;
+        padding-right: 0;
+    }
+
+    .phModParticlesTimelineLeft .phModParticlesTimelineDot,
+    .phModParticlesTimelineRight .phModParticlesTimelineDot {
+        left: 1.25em;
+    }
+}
+
+.phModParticlesTimelineDot .phModParticlesSvg svg {
+    height: 1em;
+    width: auto;
+    fill: var(--pp-timeline-dot-color);
+}
+
