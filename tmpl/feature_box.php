@@ -29,11 +29,11 @@ if (!empty($items)) {
     }
 
     if ($p['main_title'] != '') {
-        echo '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>';
+        echo '<div class="phModParticlesItemTitle phModParticlesItemTitleTop">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>';
     }
 
     if ($p['main_description'] != '') {
-        echo '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>';
+        echo '<div class="phModParticlesItemDesc phModParticlesItemDescTop">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>';
     }
 
 	echo '<div class="phModParticlesFeatureBox">';

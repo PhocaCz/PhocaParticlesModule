@@ -99,14 +99,16 @@
     flex: 1 1 auto;
 }
 
-.phModParticlesItemTitle {
+.phModParticlesItemTitle.phModParticlesItemTitleTop {
     font-weight: 900;
     font-size: 240%;
     text-align: center;
     margin-bottom: 0.25em
 }
 
-.phModParticlesItemDesc {
+
+
+.phModParticlesItemDesc.phModParticlesItemDescTop {
     text-align: center;
     margin-bottom: 1em;
 }

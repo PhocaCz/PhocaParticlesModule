@@ -106,7 +106,8 @@
 /* Possible Backgrounds for each image */
 /*
 .phModParticlesCardStackCard .phModParticlesImage {
-    padding: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 .phModParticlesCardStackCard.phModParticlesItem-0 .phModParticlesSvg,
 .phModParticlesCardStackCard.phModParticlesItem-0 .phModParticlesImage {

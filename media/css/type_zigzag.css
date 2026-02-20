@@ -49,7 +49,9 @@
 .phModParticlesZigzagContent {
     flex: 1;
     min-width: 300px;
-    padding: 2em;
+    /*padding: 2em;*/
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .phModParticlesZigzagContent .phModParticlesTitle {

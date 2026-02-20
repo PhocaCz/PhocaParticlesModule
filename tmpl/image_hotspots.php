@@ -17,8 +17,8 @@ echo ($p['description_top'] != '') ? '<div class="phModParticlesDescTop">'.HTMLH
 echo $p['main_top_code'] ?? '';
 
 // Main Title/Desc outside the map
-echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
-echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
+echo ($p['main_title'] != '') ? '<div class="phModParticlesItemTitle phModParticlesItemTitleTop">' . PhocaParticlesHelper::completeValueContent($p['main_title'], $p['main_title_animation']) . '</div>' : '';
+echo ($p['main_description'] != '') ? '<div class="phModParticlesItemDesc phModParticlesItemDescTop">' . PhocaParticlesHelper::completeValueContent($p['main_description'], $p['main_description_animation']) . '</div>' : '';
 
 echo '<div class="phModParticlesImageHotspots">';
 
@@ -28,7 +28,7 @@ echo '<div class="phModParticlesImageHotspotsMap">';
     // The Frame: Position Context + Clipping + Shrink Wrap choice
     // Hotspots are INSIDE this frame.
     echo '<div class="phModParticlesImageHotspotsFrame">';
-    
+
         if (($p['main_image_svg'] ?? '') !== '') {
             // SVG Handling
             $svgContent = $p['main_image_svg'];
@@ -43,7 +43,7 @@ echo '<div class="phModParticlesImageHotspotsMap">';
         } elseif (($p['main_image'] ?? '') !== '') {
             echo '<img class="phModParticlesImageHotspotsMapImg" src="' . URI::base() . '/' . htmlspecialchars(strip_tags($p['main_image'])) . '" alt="" />';
         }
-        
+
         // Hotspots (Now siblings of the IMG/SVG, inside the Frame)
         if (!empty($items)) {
             foreach ($items as $k => $v) {
@@ -59,7 +59,7 @@ echo '<div class="phModParticlesImageHotspotsMap">';
                 if (is_numeric($left)) $left .= '%';
 
                 echo '<div class="phModParticlesItem phModParticlesImageHotspot ' . $boxItemClass . '" style="top: ' . $top . '; left: ' . $left . ';" tabindex="0">';
-                
+
                 // The Dot
                 echo '<div class="phModParticlesImageHotspotDot">';
                 if (($v->item_icon_class ?? '') !== '') {

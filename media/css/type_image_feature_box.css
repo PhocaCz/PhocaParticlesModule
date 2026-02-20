@@ -62,7 +62,8 @@
     flex-direction: column;
     flex: 1;
     justify-content: center;
-    padding: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .phModParticlesImageFeatureBox .phModParticlesItemFeatureBox.pmpw20 { width: 20%; }

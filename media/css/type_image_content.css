@@ -62,7 +62,8 @@
     flex-direction: column;
     flex: 1;
     justify-content: center;
-    padding: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent.pmpw20 { width: 20%; }
@@ -166,4 +167,25 @@
     font-weight: 900;
     font-size: 240%;
     padding: 1em 0;
+}
+
+.phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemImage,
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent {
+    padding-left: 1%;
+    padding-right: 5%;
+}
+
+.phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
+.phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
+    padding-left: 5%;
+    padding-right: 1%;
+}
+
+@media only screen and (max-width: 768px) {
+    .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemImage,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemContent,
+    .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage,
+    .phModParticlesImageContent .phModParticlesItem.pmpReverse .phModParticlesItemContent {
+        padding: 5% 3%;
+    }
 }
