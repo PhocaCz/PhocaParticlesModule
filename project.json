@@ -10,7 +10,7 @@
 	"projectUrl": "https://www.phoca.cz/phoca-particles-module",
 	"projectDocumentationUrl": "https://www.phoca.cz/documentation/",
 	"projectDemo" : {
-		"Phoca Cart": "https://www.phoca.cz/phocacart/"
+		"Demo (Phoca Cart)": "https://www.phoca.cz/phocacart/"
 	},
 	"projectColor": "#C14641",
 	"projectBranch": "main",
