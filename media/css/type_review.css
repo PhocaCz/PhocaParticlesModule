@@ -23,7 +23,7 @@
 
 .phModParticlesReviewRow {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     padding: 1rem 0;
 }
@@ -91,7 +91,7 @@
     color: var(--pp-review-quote-mark-color);
     font-family: serif;
     position: absolute;
-    bottom: -30px;
+    bottom: -40px;
     right: 0;
     line-height: 1;
 }

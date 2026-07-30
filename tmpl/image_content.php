@@ -36,6 +36,12 @@ if ($p['main_background_image_animation']) {
     echo '<div class="phModParticlesImageContent">';
 }
 
+if ($p['main_background_video'] != '') {
+    echo '<video autoplay muted loop playsinline class="phModParticlesBackgroundVideo">';
+    echo '<source src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_background_video'])).'" type="video/mp4">';
+    echo '</video>';
+}
+
 echo '<div class="phModParticlesItem'.$p['box_width_class'].$p['box_flex_class'].'">';
 
 // MAIN IMAGE - start is a part of layout

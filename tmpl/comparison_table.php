@@ -53,7 +53,7 @@ if (!empty($items)) {
         } else if (isset($v->item_image_svg) && $v->item_image_svg != '') {
 			echo '<div class="phModParticlesSvg" '.$p['style_icon'].'>'. $linkObject['starticon'] .$v->item_image_svg. $linkObject['end'] .'</div>';
 		} else if (isset($v->item_image) && $v->item_image != '') {
-			echo '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img'.PhocaParticlesHelper::completeValueAttribute($p['item_image_animation'] ).' src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleObject['alt'].'" />'. $linkObject['end'] .'</div>';
+			echo '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img'.PhocaParticlesHelper::completeValueAttribute($p['item_image_animation'] ).' src="'.URI::base() . '/' . htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleObject['alt'].'" />'. $linkObject['end'] .'</div>';
 		}
 		if ($titleObject['title'] != '') {
 			echo '<div class="phModParticlesTitle" '.$p['style_title'] .'>'.$linkObject['starttitle'] .$titlePrefix.PhocaParticlesHelper::completeValueContent( $titleObject['title'], $p['item_title_animation']) .$titleSuffix. $linkObject['end'] . '</div>';
@@ -76,7 +76,7 @@ if (!empty($items)) {
 				$buttonAttr = $v->item_button_attributes;
 			}
 
-			echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->item_button_title.'</a></div>';
+			echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.htmlspecialchars($buttonLink).'" '.$buttonAttr.'>'.$v->item_button_title.'</a></div>';
 		}
 
 

@@ -60,7 +60,10 @@ $p['main_button_attributes'] = $params->get( 'main_button_attributes', '');
 $p['main_content'] 			= $params->get( 'main_content', '');
 $p['secondary_content'] 			= $params->get( 'secondary_content', '');
 $p['main_background_image'] = $params->get( 'main_background_image', '');
+$p['main_background_video'] = $params->get( 'main_background_video', '');
 $p['main_background_image_gradient'] = $params->get( 'main_background_image_gradient', '');
+$p['main_background_image_brightness'] = $params->get( 'main_background_image_brightness', '');
+
 $p['main_label']            = $params->get( 'main_label', '');
 $p['main_price'] 			= $params->get( 'main_price', '');
 $p['main_price_original']   = $params->get( 'main_price_original', '');
@@ -93,6 +96,7 @@ $p['item_title_animation']              = $params->get( 'item_title_animation', 
 $p['item_description_animation']        = $params->get( 'item_description_animation', '');
 $p['item_content_animation']            = $params->get( 'item_content_animation', '');
 $p['item_image_animation']              = $params->get( 'item_image_animation', '');
+$p['module_id']              = $params->get( 'module_id', '');
 
 $view 						= $app->getInput()->get('view', '');
 $option 					= $app->getInput()->get('option', '');
@@ -114,8 +118,9 @@ if (empty($optionA) && empty($viewA) && empty($idA)) {
 } else if (!empty($optionA) && in_array($option, $optionA) && !empty($viewA) && in_array($view, $viewA) && !empty($idA) && in_array($idCom, $idA) ) {
 	// OK - option and view and ID is set and it meets the criteria
 } else {
-	return '';
+    return '';
 }
+
 
 // Phoca Cart
 if ((int)$p['phocacart_product_id'] > 0) {
@@ -167,6 +172,8 @@ if ((int)$p['phocacart_product_id'] > 0) {
     }
 }
 
+
+
 // Random ID changes each reload, add something more constant, use the same way like Joomla core modules
 if (isset($module->id) && $module->id > 0) {
     $moduleId = $module->id;
@@ -175,6 +182,9 @@ if (isset($module->id) && $module->id > 0) {
 }
 
 $id = 'ph-mod-phoca-particles-'.$moduleId;
+if ($p['module_id'] != '') {
+    $id = htmlspecialchars($p['module_id']);
+}
 $idClass = 'phModParticle'.$moduleId;
 $idJs = 'pS'.$moduleId;
 
@@ -190,15 +200,44 @@ $classA[] = 'phModParticles';
 $classA[] = 'phModParticles'. htmlspecialchars($styleTypeClass) . 'Container';
 $classA[] = $idClass;
 $classA[] = $moduleclass_sfx;
+
+// Background Image - if background image and brightness applied add the class to change font color
+$image = $p['main_background_image'];
+$video = $p['main_background_video'];
+
+if ($video != '') {
+    $classA[] = 'phFontColorLightAuto';
+} else if ($image != '') {
+    if ($p['main_background_image_brightness'] > 0 && $p['main_background_image_brightness'] < 0.7) {
+        $classA[] = 'phFontColorLightAuto';
+    } else if ($p['main_background_image_brightness'] > 1.5) {
+        $classA[] = 'phFontColorDarkAuto';
+    }
+}
+
+// Complete Class
 $class    = trim(implode(' ', $classA));
 
+// Continue with building background video or image features
+if ($video != '') {
 
+    $style[] = $styleType . '{ position: relative; overflow: hidden; isolation: isolate; z-index: 1;} ';
 
+    $style[] =$styleType.' .phModParticlesBackgroundVideo {';
 
-// Background Image
-$image = $p['main_background_image'];
-if ($image != '') {
-    $style[] = $styleType.' {';
+    $style[] = 'position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; z-index: -1;transform: translate(-50%, -50%);object-fit: cover;';
+
+    if (!empty($p['main_background_image_brightness']) && $p['main_background_image_brightness'] !== '0') {
+       $style[] = 'filter: brightness('.(float)$p['main_background_image_brightness'].');';
+    }
+
+    $style[] = '}';
+
+} else if ($image != '') {
+
+    $style[] = $styleType . '{ position: relative; overflow: hidden; z-index: 1;} ';
+
+    $style[] =$styleType.'::before {';
     if ($p['is_j4']) {
         $imgClean = HTMLHelper::cleanImageURL($image);
         if ($imgClean->url != '') {
@@ -208,13 +247,34 @@ if ($image != '') {
 
     $gradient = '';
     if ($p['main_background_image_gradient'] != '') {
-        $gradient = $p['main_background_image_gradient'] . ', ';
+        // SECURITY: this value is injected directly into a raw <style>
+        // declaration. Strip characters that could close the current
+        // rule/selector, while still allowing normal gradient syntax
+        // such as linear-gradient(0deg, #fff 0%, #000 100%).
+        $gradientSafe = str_replace(['{', '}', '<', '>', ';', '\\'], '', $p['main_background_image_gradient']);
+        $gradient = $gradientSafe . ', ';
     }
 
-    $style[] = 'background-image: '.$gradient.'url('.URI::base(true) . '/'.$image.');';
+    // SECURITY: the image path also ends up inside the same raw <style>
+    // declaration, inside url(...). Restrict it to characters valid in a
+    // relative URL path so a manually-typed value (bypassing the media
+    // picker) cannot be used to break out of the CSS declaration.
+    $imageSafe = preg_replace('/[^A-Za-z0-9\/_\.\-~%]/', '', $image);
+
+    $style[] = 'content: "";position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;';
+    $style[] = 'background-image: '.$gradient."url('".URI::base(true) . '/'.$imageSafe."');";
     $style[] = 'background-repeat: no-repeat;';
 	$style[] = 'background-size: cover;';
     $style[] = 'background-position: center;';
+
+    if (!empty($p['main_background_image_brightness']) && $p['main_background_image_brightness'] !== '0') {
+       $style[] = 'filter: brightness('.(float)$p['main_background_image_brightness'].');';
+    }
+
+    if ($p['main_background_image_animation'] == 'phAnimKenBurnsBg' ) {
+       $style[] = 'animation: KenBurnsImg 12s ease-in-out forwards;';
+    }
+
     $style[] = '}';
 }
 
@@ -238,6 +298,7 @@ $wa = $app->getDocument()->getWebAssetManager();
 
 // Common CSS (always loaded)
 $wa->registerAndUseStyle('mod_phocaparticles.common', 'media/mod_phocaparticles/css/common.css', array('version' => 'auto'));
+$wa->registerAndUseStyle('mod_phocaparticles.background', 'media/mod_phocaparticles/css/background.css', array('version' => 'auto'));
 
 // Type-specific CSS
 $typeCssMap = [

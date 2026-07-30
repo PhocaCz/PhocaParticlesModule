@@ -50,16 +50,14 @@ if (!empty($items)) {
 
         if (($v->item_description ?? '') !== '') {
             echo '<div class="phModParticlesDesc">' . PhocaParticlesHelper::completeValueContent($v->item_description, $p['item_description_animation']) . '</div>';
-        }
-
-        if (($v->item_content ?? '') !== '') {
+        } else if (($v->item_content ?? '') !== '') {
             echo '<div class="phModParticlesContent">' . HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($v->item_content, $p['item_content_animation'])) . '</div>';
         }
 
         if (($v->button_title ?? '') !== '') {
             $buttonLink = $v->button_link ?? '';
             $buttonAttr = $v->button_attributes ?? '';
-            echo '<div class="phModParticlesButtonBox"><a class="' . $p['button_css'] . ' phModParticlesButton" href="' . $buttonLink . '" ' . $buttonAttr . '>' . $v->button_title . '</a></div>';
+            echo '<div class="phModParticlesButtonBox"><a class="' . $p['button_css'] . ' phModParticlesButton" href="' . htmlspecialchars($buttonLink) . '" ' . $buttonAttr . '>' . $v->button_title . '</a></div>';
         }
 
         echo '</div>'; // end content

@@ -52,9 +52,7 @@ if (!empty($items)) {
 
         if (($v->item_description ?? '') !== '') {
             echo '<div class="phModParticlesDesc">' . PhocaParticlesHelper::completeValueContent($v->item_description, $p['item_description_animation']) . '</div>';
-        }
-
-        if (($v->item_content ?? '') !== '') {
+        } else if (($v->item_content ?? '') !== '') {
             echo '<div class="phModParticlesContent">' . HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($v->item_content, $p['item_content_animation'])) . '</div>';
         }
 

@@ -21,6 +21,11 @@
     margin-top: 3vw;
     text-align: center;
 }
+
+.phModParticlesSimpleContent .phModParticlesItem .phModParticlesTitle {
+    text-align: center;
+}
+
 .phModParticlesSimpleContent .phModParticlesItem .phModParticlesContent,
 .phModParticlesSimpleContent .phModParticlesItem .phModParticlesDesc {
     margin: auto;
@@ -90,3 +95,7 @@
     font-size: 160%;
 }
 
+
+.phModParticlesSimpleContentContainer {
+   /* padding: 2em;*/
+}

@@ -9,7 +9,6 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License version 2 or later;
  */
 defined('_JEXEC') or die('Restricted access');
-
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Layout\FileLayout;
@@ -37,6 +36,13 @@ $titleObjectItem = !empty($items[0]) ? PhocaParticlesHelper::getTitleObject($ite
 $linkObjectItem = !empty($items[0]) ? PhocaParticlesHelper::getLinkObject($items[0], $p, $titleObjectItem) : ['starticon' => '', 'starttitle' => '', 'end' => '', 'attribute' => ''];
 
 echo '<div class="phModParticlesSimpleContent">';
+
+if ($p['main_background_video'] != '') {
+    echo '<video autoplay muted loop playsinline class="phModParticlesBackgroundVideo">';
+    echo '<source src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_background_video'])).'" type="video/mp4">';
+    echo '</video>';
+}
+
 echo '<div class="phModParticlesItem">';
 
 
@@ -52,6 +58,7 @@ if ($p['main_icon_class'] != '') {
 }
 
 // TITLE Local (item) or GLOBAL (main)
+
 if ($titleObject['title'] != '') {
     echo '<div class="phModParticlesTitle" '.$p['style_title'].'>'. $linkObject['starttitle'] .PhocaParticlesHelper::completeValueContent($titleObject['title'], $p['main_title_animation']). $linkObject['end'] . '</div>';
 } else if (isset($items[0]->item_title) && $items[0]->item_title != '') {
@@ -74,6 +81,7 @@ if ($p['main_description'] != '') {
     echo '<div class="phModParticlesContent">'.HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($items[0]->item_content, $p['item_content_animation'])).'</div>';
 }
 
+
 // BUTTON Local (item) or GLOBAL (main)
 $dB             = [];
 $dB['items']    = $items;
@@ -89,12 +97,12 @@ echo $layoutMI->render($dI);
 // end is a part of layout
 
 
-
 echo '</div>';
 
 echo '<div class="phModParticlesFooter" '.$p['style_icon'].'></div>';
 
 echo '</div>';
+
 
 if ($p['main_bottom_code'] != '') {
     echo $p['main_bottom_code'];

@@ -28,7 +28,7 @@ if ($p['main_button_title']  != '') {
 
     //echo '<div class="phModParticlesIconBox"></div>';
     //echo '<div class="phModParticlesDescBox">';
-    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
+    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.htmlspecialchars($buttonLink).'" '.$buttonAttr.'>'.$p['main_button_title'].'</a></div>';
     //echo '</div>'; // end phModParticlesDescBox
 
 } else if (isset($d['alternative_items_button']) && $d['alternative_items_button'] == 1 &&  isset($d['items'][0]->button_title) && $d['items'][0]->button_title != '') {
@@ -39,6 +39,6 @@ if ($p['main_button_title']  != '') {
 
     //echo '<div class="phModParticlesIconBox"></div>';
     //echo '<div class="phModParticlesDescBox">';
-    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$d['items'][0]->button_title.'</a></div>';
+    echo '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.htmlspecialchars($buttonLink).'" '.$buttonAttr.'>'.$d['items'][0]->button_title.'</a></div>';
     //echo '</div>'; // end phModParticlesDescBox
 }

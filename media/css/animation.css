@@ -1,3 +1,5 @@
+/* Phoca Particles - Animation Styles */
+
 /* Disable background-attachment: fixed during scrolling */
 html.scrolling .phAnimBgStayFixed .phModParticlesSimpleContent {
     background-attachment: scroll !important;
@@ -246,7 +248,7 @@ html.scrolling [style*="background-attachment: fixed"] {
     }
 }
 
-/* KenBurnsImg */
+/* KenBurnsImg - not applied here, but in the html module because of ::before */
 .phAnimKenBurnsImg {
     display: block;
     width: 100%; 

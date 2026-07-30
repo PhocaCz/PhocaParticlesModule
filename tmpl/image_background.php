@@ -32,6 +32,13 @@ if ($p['main_top_code'] != '') {
 
 
 echo '<div class="phModParticlesImageBackground">';
+
+if ($p['main_background_video'] != '') {
+    echo '<video autoplay muted loop playsinline class="phModParticlesBackgroundVideo">';
+    echo '<source src="'.URI::base() . '/'.htmlspecialchars(strip_tags($p['main_background_video'])).'" type="video/mp4">';
+    echo '</video>';
+}
+
 echo '<div class="phModParticlesItem">';
 
 

@@ -2,12 +2,12 @@
 <extension type="module" client="site" method="upgrade" version="6.0">
 	<name>mod_phocaparticles</name>
 	<author>Jan Pavelka (www.phoca.cz)</author>
-	<creationDate>20/02/2026</creationDate>
+	<creationDate>30/07/2026</creationDate>
 	<authorEmail></authorEmail>
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>6.1.1</version>
+	<version>6.1.4</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -26,7 +26,9 @@
 		<folder>services</folder>
 		<folder>models</folder>
 		<filename module="mod_phocaparticles">mod_phocaparticles.php</filename>
+		<filename module="mod_phocaparticles">FOSS.md</filename>
 		<filename module="mod_phocaparticles">index.html</filename>
+		<filename module="mod_phocaparticles">LICENSE</filename>
 		<filename module="mod_phocaparticles">manifest.xml</filename>
 	</files>
 
@@ -75,6 +77,8 @@
 				<option value="review">MOD_PHOCAPARTICLES_REVIEW</option>
 				<option value="flip_box">MOD_PHOCAPARTICLES_FLIP_BOX</option>
 				<option value="image_hotspots">MOD_PHOCAPARTICLES_IMAGE_HOTSPOTS</option>
+			<option value="price_list">MOD_PHOCAPARTICLES_PRICE_LIST</option>
+
             </field>
 
 
@@ -189,11 +193,14 @@
 
             <field name="main_icon_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_DESC"/>
 
-            <field name="main_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_DESC" filter="raw"/>
+            <field name="main_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_DESC" filter="unfiltered_html"/>
 
 
             <field name="main_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_DESC"/>
-            <field name="main_background_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_DESC"/>
+            <field name="main_background_image" default="" type="media" types="images" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_DESC"/>
+			<field name="main_background_video" default="" type="media" types="videos" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_VIDEO_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_VIDEO_DESC"/>
+
+			<field name="main_background_image_brightness" type="number" label="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_BRIGHTNESS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_BACKGROUND_IMAGE_BRIGHTNESS_DESC" default="" min="0" max="3" step="0.1"/>
 
 			<field name="main_video" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_VIDEO_DESC"/>
 
@@ -367,6 +374,7 @@
 
         <fieldset name="advanced">
 				<field name="layout" class="form-select" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description=""/>
+				<field name="module_id" type="text" label="MOD_PHOCAPARTICLES_FIELD_MODULE_ID_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MODULE_ID_DESC" rows="3"/>
 				<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="" rows="3"/>
 				<field name="cache" type="list" label="COM_MODULES_FIELD_CACHING_LABEL" description="" default="1" filter="integer">
 					<option value="1">JGLOBAL_USE_GLOBAL</option>

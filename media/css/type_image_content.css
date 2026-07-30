@@ -36,6 +36,8 @@
 
 .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .phModParticlesImageContent .phModParticlesItem .phModParticlesItemImage img {

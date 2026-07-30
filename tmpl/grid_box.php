@@ -51,7 +51,7 @@ if (!empty($items)) {
 			$itemO[$k][] = '<div class="phModParticlesSvg" '.$p['style_icon'].'>'. $linkObject['starticon'] .$v->item_image_svg. $linkObject['end'] .'</div>';
 		} else if (isset($v->item_image) && $v->item_image != '') {
 			// This is used in this type for background image
-            //$itemO[$k][]  = '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img src="'.URI::base() . '/'.htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleObject['alt'].'" />'. $linkObject['end'] .'</div>';
+            //$itemO[$k][]  = '<div class="phModParticlesImage" '.$p['style_icon'].'>'. $linkObject['starticon'] .'<img src="'.URI::base() . '/' . htmlspecialchars(strip_tags($v->item_image)).'" alt="'.$titleObject['alt'].'" />'. $linkObject['end'] .'</div>';
 		}
 
         $itemO[$k][] = '</div>';
@@ -63,9 +63,7 @@ if (!empty($items)) {
 		}
 		if (isset($v->item_description) && $v->item_description != '') {
 			$itemO[$k][] = '<div class="phModParticlesDesc">'.PhocaParticlesHelper::completeValueContent($v->item_description, $p['item_description_animation']) .'</div>';
-		}
-
-        if (($v->item_content ?? '') !== '') {
+		} else if (($v->item_content ?? '') !== '') {
             $itemO[$k][] = '<div class="phModParticlesContent">' . HTMLHelper::_('content.prepare', PhocaParticlesHelper::completeValueContent($v->item_content, $p['item_content_animation'])). '</div>';
         }
 
@@ -78,7 +76,7 @@ if (!empty($items)) {
             $buttonLink = $v->button_link ?? '';
             $buttonAttr = $v->button_attributes ?? '';
 
-            $itemO[$k][] = '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.$buttonLink.'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
+            $itemO[$k][] = '<div class="phModParticlesButtonBox"><a class="'.$p['button_css'] .' phModParticlesButton" href="'.htmlspecialchars($buttonLink).'" '.$buttonAttr.'>'.$v->button_title.'</a></div>';
         }
 
 
@@ -86,13 +84,18 @@ if (!empty($items)) {
             $imgClean = HTMLHelper::cleanImageURL($v->item_image);
             if ($imgClean->url != '') {
                 //  could be added before url: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                $itemP[$k]['style'] = ' style="background-image: url('.Uri::base() . $imgClean->url.');"';
+                // SECURITY: this value ends up inside a style="" HTML
+                // attribute AND a CSS url(...) at the same time -
+                // restrict it to safe URL path characters so it cannot
+                // break out of either context.
+                $imgUrlSafe = preg_replace('/[^A-Za-z0-9\/_\.\-~%]/', '', $imgClean->url);
+                $itemP[$k]['style'] = ' style="background-image: url(\''.Uri::base() . $imgUrlSafe.'\');"';
             }
         }
 
 
-        if (isset($v->item_image) && $v->item_image != '') {
-            $itemP[$k]['class'] = ' '.$v->item_class.'';
+        if (isset($v->item_class) && $v->item_class != '') {
+            $itemP[$k]['class'] = ' '.htmlspecialchars($v->item_class);
         }
 
 	}
@@ -103,7 +106,9 @@ $itemClass = $itemP[0]['class'] ?? '';
 echo '<div class="phModParticlesItem'.$p['box_width_class'].$p['box_flex_class'].'">';
 echo '<div class="phModParticlesItemRow">';
 echo '<div class="phModParticlesItemBox phModParticlesBackgroundImage pmpcount0 pmpw100'.$itemClass.'"'.$style.'>';
-echo implode("\n", $itemO[0]);
+if (isset($itemO[0])) {
+    echo implode("\n", $itemO[0]);
+}
 echo '</div>';
 echo '</div>';
 echo '</div>';

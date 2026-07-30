@@ -1,0 +1,96 @@
+/* Phoca Particles - Price List */
+
+:root {
+    --pp-price-list-item-bg: transparent;
+    --pp-price-list-text-color: inherit;
+    --pp-price-list-prefix-color: #6c757d;
+    --pp-price-list-dots-color: #555;
+    --pp-price-list-suffix-color: inherit;
+}
+
+[data-bs-theme="dark"] {
+    --pp-price-list-text-color: #f8f9fa;
+    --pp-price-list-prefix-color: #adb5bd;
+    --pp-price-list-dots-color: #ccc;
+    --pp-price-list-suffix-color: #ffffff;
+}
+
+.phModParticlesPriceListContainer {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.phModParticlesPriceList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75em;
+    margin: 1.5em 0;
+}
+
+.phModParticlesPriceListItem {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.5em;
+    background-color: var(--pp-price-list-item-bg);
+    color: var(--pp-price-list-text-color);
+}
+
+.pmpPriceListMedia {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Consistency with Phoca Particles helper output */
+.pmpPriceListMedia .phModParticlesIcon i,
+.pmpPriceListMedia .phModParticlesSvg svg,
+.pmpPriceListMedia .phModParticlesImage img {
+    height: 1.5em;
+    width: auto;
+    font-size: 1.5em;
+    display: block;
+}
+
+.pmpPriceListPrefix {
+    flex-shrink: 0;
+    color: var(--pp-price-list-prefix-color);
+    font-size: 0.9em;
+}
+
+.pmpPriceListTitle {
+    flex-shrink: 0;
+    font-weight: 600;
+}
+
+.pmpPriceListTitle a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.pmpPriceListLeader {
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--pp-price-list-dots-color);
+    height: 1px;
+    position: relative;
+    top: 0.25em;
+    margin: 0 0.2em;
+}
+
+.pmpPriceListSuffix {
+    flex-shrink: 0;
+    font-weight: 900;
+    color: var(--pp-price-list-suffix-color);
+}
+
+@media only screen and (max-width: 768px) {
+    .pmpPriceListTitle {
+        white-space: normal;
+    }
+
+    .phModParticlesPriceListContainer {
+        padding-left: 1em;
+        padding-right. 1em;
+    }
+}

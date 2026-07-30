@@ -58,6 +58,7 @@ if ($p['image_feature_box_size'] != 7 && $p['image_feature_box_size'] != 8) {
     echo '</div>'; //  end phModParticlesItemFeatureBox
 
     // Main image + start and enb box
+
     echo $layoutMI->render(['items' => $items, 'params' => $p]);
 
     // Feature box divided

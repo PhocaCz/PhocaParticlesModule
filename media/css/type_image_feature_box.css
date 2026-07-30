@@ -24,11 +24,23 @@
 
 .phModParticlesImageFeatureBox .phModParticlesItem {
     display: flex;
-    /*flex-wrap: wrap;*/
+    flex-wrap: nowrap;
     justify-content: start;
     align-content: center;
-    width: 100%;
+    align-items: center;
+    /*width: 100%;*/
     gap: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesTitle {
+    font-weight: bold;
+}
+
+.phModParticlesImageFeatureBox .phModParticlesItem .phModParticlesButtonBox {
+    margin-top: 1.5em;
+    text-align: center;
 }
 
 .phModParticlesImageFeatureBox .phModParticlesItem.pmpReverse {

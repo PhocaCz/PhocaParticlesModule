@@ -85,7 +85,7 @@ echo '<div class="phModParticlesImageHotspotsMap">';
                 if (($v->button_title ?? '') !== '') {
                     $buttonLink = $v->button_link ?? '';
                     $buttonAttr = $v->button_attributes ?? '';
-                    echo '<div class="phModParticlesButtonBox"><a class="' . $p['button_css'] . ' phModParticlesButton" href="' . $buttonLink . '" ' . $buttonAttr . '>' . $v->button_title . '</a></div>';
+                    echo '<div class="phModParticlesButtonBox"><a class="' . $p['button_css'] . ' phModParticlesButton" href="' . htmlspecialchars($buttonLink) . '" ' . $buttonAttr . '>' . $v->button_title . '</a></div>';
                 }
                 echo '</div>'; // End Tooltip
                 echo '</div>'; // End Hotspot
