@@ -60,7 +60,7 @@ If you need additional information beyond this GitHub repository, further docume
 
 #### Demo
 
-- [Phoca Cart](https://www.phoca.cz/phocacart/)
+- [Demo (Phoca Cart)](https://www.phoca.cz/phocacart/)
 
 ### Version (Joomla! 3.x - no longer supported)
 3.0.8
@@ -69,7 +69,7 @@ If you need additional information beyond this GitHub repository, further docume
 ### Version (Joomla! 5.x - no longer supported)
 5.1.2
 ### Version (Joomla! 6.x)
-6.1.4
+6.1.5
 
 ### License
 

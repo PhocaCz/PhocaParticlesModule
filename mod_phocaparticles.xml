@@ -7,7 +7,7 @@
 	<authorUrl>https://www.phoca.cz</authorUrl>
 	<copyright>Jan Pavelka</copyright>
 	<license>GNU/GPL</license>
-	<version>6.1.4</version>
+	<version>6.1.5</version>
 	<description>MOD_PHOCAPARTICLES_DESCRIPTION</description>
 	<namespace path="src">Joomla\Module\PhocaParticles</namespace>
 	<projectName>PhocaParticlesModule</projectName>
@@ -193,7 +193,7 @@
 
             <field name="main_icon_class" default="" type="text" label="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_ICON_CLASS_DESC"/>
 
-            <field name="main_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_DESC" filter="unfiltered_html"/>
+            <field name="main_image_svg" default="" type="textarea" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_SVG_DESC" filter="raw"/>
 
 
             <field name="main_image" default="" type="media" label="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_LABEL" description="MOD_PHOCAPARTICLES_FIELD_MAIN_IMAGE_DESC"/>
